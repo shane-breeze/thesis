@@ -1,0 +1,62 @@
+\documentclass[hyperpdf,bindnopdf]{hepthesis}
+
+\input{preamble}
+
+%% PDF metadata
+\makeatletter
+\@ifpackageloaded{hyperref}{%
+    \hypersetup{%
+        hidelinks=true,
+        pdftitle = {Precision measurement of the Z invisible width with the CMS experiment}
+        pdfsubject = {Shane Breeze's PhD thesis},
+        pdfkeywords = {CMS, Electroweak physics, Z boson, Precision measurement, LHC},
+        pdfauthor = {\textcopyright\ Shane Breeze},
+        linkcolor=black,
+        colorlinks=false
+    }
+}{}
+\makeatother
+
+\renewcommand{\listfigurename}{List of figures}
+\renewcommand{\listtablename}{List of tables}
+
+\title{Precision measurement of the \PZ invisible width with the \CMS experiment}
+\author{Shane Breeze}
+
+\begin{document}
+
+    \begin{frontmatter}
+        \titlepage[Imperial College London\\Department of Physics]{
+            A dissertation submitted to Imperial College London\\
+            for the degree of Doctor of Philosophy
+        }
+        \input{00a_abstract/abstract.tex}
+        \input{00b_declaration/declaration.tex}
+        \input{00c_acknowledgements/acknowledgements.tex}
+        \input{00d_preface/preface.tex}
+        \tableofcontents
+        \listoffigures
+        \listoftables
+        %\frontquote{}{}
+    \end{frontmatter}
+
+    \begin{mainmatter}
+        \cleardoublepage
+        \pagenumbering{arabic}
+        \input{01_introduction/introduction.tex}
+        \input{02_theory/theory.tex}
+        \input{03_detector/detector.tex}
+        \input{04a_anlaysis/analysis.tex}
+        \input{05_summary/summary.tex}
+    \end{mainmatter}
+
+    \begin{appendices}
+        \input{10_appendices/appendices.tex}
+    \end{appendices}
+
+    \begin{backmatter}
+        \bibliographystyle{h-physrev}
+        \bibliography{thesis}
+    \end{backmatter}
+
+\end{document}
