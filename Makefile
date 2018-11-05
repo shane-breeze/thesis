@@ -13,6 +13,4 @@ thesis.pdf: $(TEXSOURCES) $(DOCNAME).bib
 	@rm -f $(DOCNAME).{aux,toc,lof,lot,bbl,blg,log,out}
 
 clean:
-	@rm -f $(DOCNAME).{pdf,log,aux}
-	@rm -f *.bbl *.blg *.lof *.cut
-	@rm -f *.lot *.out *.toc
+	@rm -f $(DOCNAME).{aux,toc,lof,lot,bbl,blg,log,out,pdf}
