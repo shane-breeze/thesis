@@ -23,43 +23,38 @@
 \title{Precision measurement of the \PZ invisible width with the \CMS experiment}
 \author{Shane Breeze}
 
+\includeonly{detector}
+
 \begin{document}
 
     \begin{frontmatter}
-        \titlepage[Imperial College London\\Department of Physics]{
-            A dissertation submitted to Imperial College London\\
-            for the degree of Doctor of Philosophy
-        }
-        \input{000_abstract/abstract.tex}
-        \input{001_declaration/declaration.tex}
-        \input{002_acknowledgements/acknowledgements.tex}
-        \input{003_preface/preface.tex}
-        \tableofcontents
-        \listoffigures
-        \listoftables
-        %\frontquote{}{}
+        \include{000_title/title}
+        \include{001_abstract/abstract}
+        \include{002_declaration/declaration}
+        \include{003_acknowledgements/acknowledgements}
+        \include{004_preface/preface}
+        \include{005_toc/toc}
     \end{frontmatter}
 
     \begin{mainmatter}
         \cleardoublepage
         \pagenumbering{arabic}
-        \input{010_introduction/introduction.tex}
-        \input{020_theory/theory.tex}
-        \input{030_detector/detector.tex}
-        \input{031_reconstruction/reconstruction.tex}
-        \input{040_selection/selection.tex}
-        \input{041_backgrounds/backgrounds.tex}
-        \input{042_statistics/statistics.tex}
-        \input{050_summary/summary.tex}
+        \include{010_introduction/introduction}
+        \include{020_theory/theory}
+        \include{030_detector/detector}
+        \include{031_reconstruction/reconstruction}
+        \include{040_selection/selection}
+        \include{041_backgrounds/backgrounds}
+        \include{042_statistics/statistics}
+        \include{050_summary/summary}
     \end{mainmatter}
 
     \begin{appendices}
-        \input{100_appendices/appendices.tex}
+        \include{100_appendices/appendices}
     \end{appendices}
 
     \begin{backmatter}
-        \bibliographystyle{lucas_unsrt}
-        \bibliography{thesis}
+        \include{200_biblio/biblio}
     \end{backmatter}
 
 \end{document}
