@@ -6,87 +6,104 @@
 %------------------------------------------------------------------------------%
 \section{Introduction}
 
-\begin{itemize}
-    \item Introduce the \CERN \LHC and \CMS detector and why these are in use.
-    Possibly some overlap with the introduction chapter.
-\end{itemize}
+% TODO: Careful of overlap with introduction chapter
+The \LHC was built with the design goal of leading the energy frontier of high
+energy physics. This led to the successful discovery of the Higgs bosons by the
+\ATLAS \cite{Aad:1471031} and \CMS experiments \cite{Chatrchyan:1471016}.
+Moreover, \BSM searches with these experiments continue to push stringent
+limits on the possible parameter-space of theorised new physics scenarios. Such
+discoveries and searches are only possible by the hugely complex detectors
+and the \LHC accelerator complex, built and maintained by thousands of Engineers
+and Physicists.
 
 %------------------------------------------------------------------------------%
-\section{\CERN Large Hadron Collider (\LHC)}
+\section{The \LHC}
 
 \subsection{Accelerator Complex}
 
-\begin{itemize}
-    \item Protons from ionised hydrogen gas
-    \item Injected from \LINACTWO in the \PSBooster.
-    \item \PSBooster to \PS.
-    \item \PS to \SPS.
-    \item \SPS to \LHC.
-    \item \cite{Mobs:2197559}, \cite{Benedikt:823808}
-\end{itemize}
+Proton collisions at the \LHC start from the ionisation of hydrogen gas to
+liberate the proton nuclei from their bound atomic states. The protons are
+accelerated by the RF-cavity based accelerator \LINACTWO and injected into the
+\PSBooster --- four superimposed synchrotron rings accelerating protons from
+${\SI{50}{MeV}}$ to ${\SI{1.4}{GeV}}$ --- permitting the injection of more
+protons into the \PS. The \PS is a synchrotron with a radius of
+${\SI{72}{m}}$ bending the proton beam into a ring with energies up to
+${\SI{25}{GeV}}$ before injection into the \SPS. Prior to the injection the
+proton beam is bunched into discrete packets of protons about ${\SI{4}{ns}}$
+long with an equal spacing of ${\SI{25}{ns}}$ required by the \LHC for a
+discrete collision rate of ${\SI{40}{MHz}}$. The \SPS is another synchrotron
+with the larger radius of ${\SI{6.9}{km}}$ for improved bending power required
+for the acceleration of protons up to ${\SI{450}{GeV}}$ for extraction by the
+\LHC. The whole accelerator complex allows the \LHC to accelerate protons
+bunches at energies of ${\SI{6.5}{TeV}}$ with a bunch crossing of
+${\SI{25}{ns}}$ and luminosities of the order of ${\SI{e34}{cm^{-2}s^{-1}}}$.
 
-\subsection{\LHC Main Ring}
+    \begin{itemize}
+        \item \cite{Mobs:2197559}, \cite{Benedikt:823808}
+    \end{itemize}
 
-\begin{itemize}
-    \item Goal: Higgs discovery and rare events. Require high luminosity at
-        energy frontier.
-    \item High intensity excluded proton-antiproton and a single vacuum chamber.
-        Protons beams circulate in opposite directions within separate vacuum
-        chambers. Common sections in the insertion to the detectors for
-        collision.
-    \item Beams circulate in (nominally) 2808 bunches with a spacing of
-        ${\SI{25}{ns}}$.
-    \item Twin bore magnets: two sets of coils and beam channels within the same
-        structure and cryostat.
-    \item Peak energies of ${\SI{7}{TeV}}$ per proton requires peak magnetic
-        field of ${\SI{8.33}{T}}$. Superconducting magnets are used.
-    \item Luminosity decays over time due to degredation of intensities and
-        emittances. Mainly from the collisions themselves. Net luminosity
-        lifetime is ${\tau_{\lumi} = \SI{14.9}{h}}$.
-    \item All of the above: \cite{Bruning:782076}.
-    \item Luminosity report by CMS: \cite{CMS-PAS-LUM-17-001}.
-\end{itemize}
+    \subsection{\LHC Main Ring}
 
-%------------------------------------------------------------------------------%
-\section{Compact Muon Solenoid (\CMS) Experiment}
+    \begin{itemize}
+        \item Goal: Higgs discovery and rare events. Require high luminosity at
+            energy frontier.
+        \item High intensity excluded proton-antiproton and a single vacuum chamber.
+            Protons beams circulate in opposite directions within separate vacuum
+            chambers. Common sections in the insertion to the detectors for
+            collision.
+        \item Beams circulate in (nominally) 2808 bunches with a spacing of
+            ${\SI{25}{ns}}$.
+        \item Twin bore magnets: two sets of coils and beam channels within the same
+            structure and cryostat.
+        \item Peak energies of ${\SI{7}{TeV}}$ per proton requires peak magnetic
+            field of ${\SI{8.33}{T}}$. Superconducting magnets are used.
+        \item Luminosity decays over time due to degredation of intensities and
+            emittances. Mainly from the collisions themselves. Net luminosity
+            lifetime is ${\tau_{\lumi} = \SI{14.9}{h}}$.
+        \item All of the above: \cite{Bruning:782076}.
+        \item Luminosity report by CMS: \cite{CMS-PAS-LUM-17-001}.
+    \end{itemize}
 
-\begin{itemize}
-    \item CMS 2006 detector TDR: \cite{Bayatian:922757}.
-    \item CMS 2007 physics TDR: \cite{Bayatian:942733}.
-    \item CMS 2005 computing TDR: \cite{Bayatyan:838359}.
-    \item CMS 2000 TriDAS TDR: \cite{Bayatyan:706847}.
-    \item CMS 2013 L1 trigger upgrade TDR: \cite{Tapper:1556311}.
-    \item CMS 2012 HCAL upgrade TDR: \cite{Mans:1481837}.
-    \item Layout and design centered around the magnetic field for measuring
-        muon momenta. ${\SI{13}{m}}$ long, ${\SI{5.9}{m}}$ inner diameter,
-        ${\SI{3.8}{T}}$ superconducting solenoid.
-    \item Segmented into various regions in $\eta$ coverage known as the barrel,
-        endcap and forward regions. The magnet leads to the segmentation between
-        the inner and outer detectors. Further segmentation is done in each
-        subdetector.
-    \item Return field saturates ${\SI{1.5}{m}}$ iron, allowing 4 muon stations.
-    \item The bore of the magnet contains the inner tracker, electromagnetic
-        calorimeter and hadronic calorimeter
-    \item ${\SI{21.6}{m}}$ long and ${\SI{14.6}{m}}$ in diameter weighing
-        ${\SI{12500}{tons}}$. ECAL is greater than 25 radition lengths. HCAL
-        varies between 7--11 interaction lengths.
-    \item 20 pileup collisions result in 1000 charged particles every
-        ${\SI{25}{ns}}$ bunch crossing. Require high-granularity detectors
-        with good time resolution for low occupancy. This results in large
-        number of detector channels and millions of synchronised detector
-        electronic channels. Components near the beam line receive a large
-        flux of particles leading to high radition levels, requiring
-        radition-hard detectors and front-end electronics.
-\end{itemize}
+    %------------------------------------------------------------------------------%
+    \section{Compact Muon Solenoid (\CMS) Experiment}
 
-\subsection{Silicon Tracker}
+    \begin{itemize}
+        \item CMS 2006 detector TDR: \cite{Bayatian:922757}.
+        \item CMS 2007 physics TDR: \cite{Bayatian:942733}.
+        \item CMS 2005 computing TDR: \cite{Bayatyan:838359}.
+        \item CMS 2000 TriDAS TDR: \cite{Bayatyan:706847}.
+        \item CMS 2013 L1 trigger upgrade TDR: \cite{Tapper:1556311}.
+        \item CMS 2012 HCAL upgrade TDR: \cite{Mans:1481837}.
+        \item Layout and design centered around the magnetic field for measuring
+            muon momenta. ${\SI{13}{m}}$ long, ${\SI{5.9}{m}}$ inner diameter,
+            ${\SI{3.8}{T}}$ superconducting solenoid.
+        \item Segmented into various regions in $\eta$ coverage known as the barrel,
+            endcap and forward regions. The magnet leads to the segmentation between
+            the inner and outer detectors. Further segmentation is done in each
+            subdetector.
+        \item Return field saturates ${\SI{1.5}{m}}$ iron, allowing 4 muon stations.
+        \item The bore of the magnet contains the inner tracker, electromagnetic
+            calorimeter and hadronic calorimeter
+        \item ${\SI{21.6}{m}}$ long and ${\SI{14.6}{m}}$ in diameter weighing
+            ${\SI{12500}{tons}}$. ECAL is greater than 25 radition lengths. HCAL
+            varies between 7--11 interaction lengths.
+        \item 20 pileup collisions result in 1000 charged particles every
+            ${\SI{25}{ns}}$ bunch crossing. Require high-granularity detectors
+            with good time resolution for low occupancy. This results in large
+            number of detector channels and millions of synchronised detector
+            electronic channels. Components near the beam line receive a large
+            flux of particles leading to high radition levels, requiring
+            radition-hard detectors and front-end electronics.
+    \end{itemize}
 
-\begin{itemize}
-    \item Silicon technology with reverse-biased p-n junctions. An ionising
-        particle (i.e. charged) creates electron-hole pairs which drift in the
-        electric field towards a cathode/anode.
-    \item ${\SI{5.8}{m}}$ long, ${\SI{2.6}{m}}$ diameter tracking volume
-    \item 10 layers of silicon microstrip detectors provide required granularity
+    \subsection{Silicon Tracker}
+
+    \begin{itemize}
+        \item Silicon technology with reverse-biased p-n junctions. An ionising
+            particle (i.e. charged) creates electron-hole pairs which drift in the
+            electric field towards a cathode/anode.
+        \item ${\SI{5.8}{m}}$ long, ${\SI{2.6}{m}}$ diameter tracking volume
+        \item 10 layers of silicon microstrip detectors provide required granularity
         and precision.
     \item Additional 3 layers placed near the interation region to improve
         measurement of the impact parameter of charged particles and position
