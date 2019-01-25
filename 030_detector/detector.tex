@@ -31,41 +31,61 @@ ${\SI{72}{m}}$ bending the proton beam into a ring with energies up to
 ${\SI{25}{GeV}}$ before injection into the \SPS. Prior to the injection the
 proton beam is bunched into discrete packets of protons about ${\SI{4}{ns}}$
 long with an equal spacing of ${\SI{25}{ns}}$ required by the \LHC for a
-discrete collision rate of ${\SI{40}{MHz}}$. The \SPS is another synchrotron
-with the larger radius of ${\SI{6.9}{km}}$ for improved bending power required
+discrete crossing rate of ${\SI{40}{MHz}}$. The \SPS is another synchrotron
+with a larger radius of ${\SI{6.9}{km}}$ for improved bending power required
 for the acceleration of protons up to ${\SI{450}{GeV}}$ for extraction by the
 \LHC. The whole accelerator complex allows the \LHC to accelerate protons
-bunches at energies of ${\SI{6.5}{TeV}}$ with a bunch crossing of
+bunches at energies of ${\SI{6.5}{TeV}}$ with a bunch crossing period of
 ${\SI{25}{ns}}$ and luminosities of the order of ${\SI{e34}{cm^{-2}s^{-1}}}$.
+The schematic of this accelerator complex is shown in Fig.~\ref{fig:LHC-Complex}
+\cite{Benedikt:823808}.
 
-    \begin{itemize}
-        \item \cite{Mobs:2197559}, \cite{Benedikt:823808}
-    \end{itemize}
+\begin{figure}[!htbp]
+    \centering
+    \includegraphics[width=\textwidth]{030_detector/images/LHC_complex.png}
+    \caption{\cite{Mobs:2197559}}
+    \label{fig:LHC-Complex}
+\end{figure}
 
-    \subsection{\LHC Main Ring}
+\subsection{\LHC Main Ring}
 
-    \begin{itemize}
-        \item Goal: Higgs discovery and rare events. Require high luminosity at
-            energy frontier.
-        \item High intensity excluded proton-antiproton and a single vacuum chamber.
-            Protons beams circulate in opposite directions within separate vacuum
-            chambers. Common sections in the insertion to the detectors for
-            collision.
-        \item Beams circulate in (nominally) 2808 bunches with a spacing of
-            ${\SI{25}{ns}}$.
-        \item Twin bore magnets: two sets of coils and beam channels within the same
-            structure and cryostat.
-        \item Peak energies of ${\SI{7}{TeV}}$ per proton requires peak magnetic
-            field of ${\SI{8.33}{T}}$. Superconducting magnets are used.
-        \item Luminosity decays over time due to degredation of intensities and
-            emittances. Mainly from the collisions themselves. Net luminosity
-            lifetime is ${\tau_{\lumi} = \SI{14.9}{h}}$.
-        \item All of the above: \cite{Bruning:782076}.
-        \item Luminosity report by CMS: \cite{CMS-PAS-LUM-17-001}.
-    \end{itemize}
+The main physics goals of the \LHC project was the discovery of the Higgs boson
+and to observed new and \SM rare processes. The expected number of event rate of
+a particular process with a cross section $\xs$ at a beam luminosity
+$L$ is
 
-    %------------------------------------------------------------------------------%
-    \section{Compact Muon Solenoid (\CMS) Experiment}
+\begin{equation}
+    \mathcal{N} = L \xs \ .
+\end{equation}
+
+To increase the event rate the beam luminosity must increased. For Gaussian
+beam distributions the luminosity can be given in terms of beam parameters as
+
+\begin{equation}
+    \label{eq:beam-lumi}
+    L = \frac{N_b^2 n_b\frev\relgamma}{4\pi\emitt\bstar} F\ ,
+\end{equation}
+
+where $N_b$ is the number of particles per bunch, $n_b$ is the number of bunches
+per beam, \frev is the revolution frequency, \relgamma is the relativistic gamma
+factor, \emitt is the normalised transverse beam emittance, \bstar is the beta
+function at the collision point (related to the transverse size of the beam) and
+$F$ is the geometric luminosity reduction factor due to the crossing angle of
+each beam at the crossing point.
+
+At the \LHC, the luminosity is maximised by tuning all parameters in
+Eq.~\eqref{eq:beam-lumi}. This necessitated the use of proton beams, circulating
+in separate vacuum chambers and merging at insertion points to the detectors.
+The beams nominally circulate in 2808 bunches with a spacing of ${\SI{25}{ns}}$
+inside twin bore superconducting magnets --- two sets of coils and beam channels
+within the same structure and cryostat --- achieving a peak dipole field of
+${\SI{8.33}{T}}$ to bend the beam. Radio-frequency (RF) cavities apply the
+potential gradient to accelerate the protons from ${\SI{450}{GeV}]}$ to
+${\SI{6.5}{TeV}}$. Quadrupole magnets focus the beam to suppress dispression,
+hence maintaining the beam luminosity. Additional quadrupoles focus (defocus)
+the beam as they enter (exit) the collision sections \cite{Bruning:782076}.
+
+\section{Compact Muon Solenoid (\CMS) Experiment}
 
     \begin{itemize}
         \item CMS 2006 detector TDR: \cite{Bayatian:922757}.
@@ -203,6 +223,7 @@ ${\SI{25}{ns}}$ and luminosities of the order of ${\SI{e34}{cm^{-2}s^{-1}}}$.
         in avalanche mode for good operation at high rates. Good timing
         resolution with coarse position resolution to identify the correct
         bunch crossing. Coverage up to ${\aeta<1.6}$ or ${\aeta<2.4}$.
+    \item Luminosity report by CMS: \cite{CMS-PAS-LUM-17-001}.
 \end{itemize}
 
 \subsection{Hardware Trigger}
