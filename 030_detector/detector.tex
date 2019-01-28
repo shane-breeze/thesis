@@ -81,55 +81,50 @@ inside twin bore superconducting magnets --- two sets of coils and beam channels
 within the same structure and cryostat --- achieving a peak dipole field of
 ${\SI{8.33}{T}}$ to bend the beam. Radio-frequency (RF) cavities apply the
 potential gradient to accelerate the protons from ${\SI{450}{GeV}]}$ to
-${\SI{6.5}{TeV}}$. Quadrupole magnets focus the beam to suppress dispression,
+${\SI{6.5}{TeV}}$. Quadrupole magnets focus the beam to suppress dispersion,
 hence maintaining the beam luminosity. Additional quadrupoles focus (defocus)
 the beam as they enter (exit) the collision sections \cite{Bruning:782076}.
 
 \section{Compact Muon Solenoid (\CMS) Experiment}
 
-    \begin{itemize}
-        \item CMS 2006 detector TDR: \cite{Bayatian:922757}.
-        \item CMS 2007 physics TDR: \cite{Bayatian:942733}.
-        \item CMS 2005 computing TDR: \cite{Bayatyan:838359}.
-        \item CMS 2000 TriDAS TDR: \cite{Bayatyan:706847}.
-        \item CMS 2013 L1 trigger upgrade TDR: \cite{Tapper:1556311}.
-        \item CMS 2012 HCAL upgrade TDR: \cite{Mans:1481837}.
-        \item Layout and design centered around the magnetic field for measuring
-            muon momenta. ${\SI{13}{m}}$ long, ${\SI{5.9}{m}}$ inner diameter,
-            ${\SI{3.8}{T}}$ superconducting solenoid.
-        \item Segmented into various regions in $\eta$ coverage known as the barrel,
-            endcap and forward regions. The magnet leads to the segmentation between
-            the inner and outer detectors. Further segmentation is done in each
-            subdetector.
-        \item Return field saturates ${\SI{1.5}{m}}$ iron, allowing 4 muon stations.
-        \item The bore of the magnet contains the inner tracker, electromagnetic
-            calorimeter and hadronic calorimeter
-        \item ${\SI{21.6}{m}}$ long and ${\SI{14.6}{m}}$ in diameter weighing
-            ${\SI{12500}{tons}}$. ECAL is greater than 25 radition lengths. HCAL
-            varies between 7--11 interaction lengths.
-        \item 20 pileup collisions result in 1000 charged particles every
-            ${\SI{25}{ns}}$ bunch crossing. Require high-granularity detectors
-            with good time resolution for low occupancy. This results in large
-            number of detector channels and millions of synchronised detector
-            electronic channels. Components near the beam line receive a large
-            flux of particles leading to high radition levels, requiring
-            radition-hard detectors and front-end electronics.
-    \end{itemize}
+The \CMS detector, centered on one of the \LHC's collision points, is a general
+purpose detector with a ${\SI{13}{m}}$ long, ${\SI{5.9}{m}}$ inner diameter,
+${\SI{3.8}{T}}$ superconducting solenoid enclosing tracking and calorimetry
+subdetectors. An iron return yoke maintains a ${\SI{2}{T}}$ field outside the
+solenoid for the muon subdetectors. All subdetectors are segmented into various
+regions in $\eta$ known as the barrel (covering the central $\eta$ range) and
+endcap (covering up to $\aeta=3$ with some overlap with the barrel). The
+hadronic calorimeter has an additional segment in the forward region (covering
+$3<\aeta<5$) to extend the coverage of hadronic activity. Further subdetector
+dependent segmentation is done within the barrel, endcap and forward regions.
+This gives \CMS the total length of ${\SI{21.6}{m}}$ and diameter of
+${\SI{14.6}{m}}$ weighing ${\SI{12500}{tons}}$.
 
-    \subsection{Silicon Tracker}
+The conditions provided by the \LHC during 2016 data taking resulted in an
+average number of collisions per bunch crossing of approximately 20, leading
+to 1000 charged particles every ${\SI{25}{ns}}$ bunch crossing. The
+subdetectors were designed to account for particle multiplicities of this order
+by focusing on high-granularity detectors with good time resolution. This
+requires a large number of detector channels and millions of synchronised
+detector electronics, all with high radiation tolerance.
 
-    \begin{itemize}
-        \item Silicon technology with reverse-biased p-n junctions. An ionising
-            particle (i.e. charged) creates electron-hole pairs which drift in the
-            electric field towards a cathode/anode.
-        \item ${\SI{5.8}{m}}$ long, ${\SI{2.6}{m}}$ diameter tracking volume
-        \item 10 layers of silicon microstrip detectors provide required granularity
-        and precision.
-    \item Additional 3 layers placed near the interation region to improve
-        measurement of the impact parameter of charged particles and position
-        of secondary vertices.
-    \item Cover region up to ${\aeta=2.5}$.
-\end{itemize}
+\subsection{Silicon Tracker}
+
+The silicon tracker, the inner most subdetector, uses silicon technology with
+reverse-biased p-n junctions to measure positional coordinates of charged
+particles. As an ionising particle travels through the junction an electron-hole
+pair is created which drift in the electron field towards the cathode or anode.
+This signal is amplified and digitised and later used to reconstruct the whole
+event as required. The choice of silicon allows for a very granular detector
+required to distinguish tracks from the primary, secondary or pileup vertices.
+
+The tracker is ${\SI{5.8}{m}}$ long and ${\SI{2.6}{m}}$ in diameter with 10
+layers of silicon microstrip detectors and an additional 3 layers of silicon
+pixels near the interaction region for improved measurements of the impacts
+parameter of charged particles and position of secondary vertices. The tracker
+covers a region of up to ${\aeta=2.5}$.
+
+
 
 \subsection{\ECAL}
 
@@ -223,8 +218,17 @@ the beam as they enter (exit) the collision sections \cite{Bruning:782076}.
         in avalanche mode for good operation at high rates. Good timing
         resolution with coarse position resolution to identify the correct
         bunch crossing. Coverage up to ${\aeta<1.6}$ or ${\aeta<2.4}$.
-    \item Luminosity report by CMS: \cite{CMS-PAS-LUM-17-001}.
 \end{itemize}
+
+    \begin{itemize}
+        \item CMS 2006 detector TDR: \cite{Bayatian:922757}.
+        \item CMS 2007 physics TDR: \cite{Bayatian:942733}.
+        \item CMS 2005 computing TDR: \cite{Bayatyan:838359}.
+        \item CMS 2000 TriDAS TDR: \cite{Bayatyan:706847}.
+        \item CMS 2013 L1 trigger upgrade TDR: \cite{Tapper:1556311}.
+        \item CMS 2012 HCAL upgrade TDR: \cite{Mans:1481837}.
+        \item Luminosity report by CMS: \cite{CMS-PAS-LUM-17-001}.
+    \end{itemize}
 
 \subsection{Hardware Trigger}
 
