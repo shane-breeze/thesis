@@ -1,6 +1,6 @@
 \documentclass[hyperpdf,bindnopdf,11pt]{hepthesis}
 
-\input{preamble}
+\input{preamble/preamble}
 
 %% PDF metadata
 \makeatletter
@@ -29,12 +29,12 @@
 \begin{document}
 
     \begin{frontmatter}
-        \include{chapters/000_title/title}
-        \include{chapters/001_abstract/abstract}
-        \include{chapters/002_declaration/declaration}
-        \include{chapters/003_acknowledgements/acknowledgements}
-        \include{chapters/004_preface/preface}
-        \include{chapters/005_toc/toc}
+        \include{preamble/000_title/title}
+        \include{preamble/001_abstract/abstract}
+        \include{preamble/002_declaration/declaration}
+        \include{preamble/003_acknowledgements/acknowledgements}
+        \include{preamble/004_preface/preface}
+        \include{preamble/005_toc/toc}
     \end{frontmatter}
 
     \begin{mainmatter}
@@ -51,11 +51,11 @@
     \end{mainmatter}
 
     \begin{appendices}
-        \include{chapters/100_appendices/appendices}
+        \include{appendices/100_appendices/appendices}
     \end{appendices}
 
     \begin{backmatter}
-        \include{chapters/200_biblio/biblio}
+        \include{postamble/200_biblio/biblio}
     \end{backmatter}
 
 \end{document}
