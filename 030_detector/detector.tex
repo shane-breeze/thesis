@@ -124,42 +124,44 @@ pixels near the interaction region for improved measurements of the impacts
 parameter of charged particles and position of secondary vertices. The tracker
 covers a region of up to ${\aeta=2.5}$.
 
-
-
 \subsection{\ECAL}
 
-\begin{itemize}
-    \item Lead tungstate crystals cover up to ${\aeta=3.0}$.
-    \item Lead tungstate have short radiation lengths (${\SI{0.89}{cm}}$) and
-        Moliere (${\SI{2.2}{cm}}$) lengths with fast response times and are
-        radiation hard. However, they have a low light yield
-        (${{30}{\gamma/MeV}}$) requiring photodetectors with intrinsic gain
-        operable in the magnetic field. Silicon avalanche photodiodes (require
-        stable temperature, goal: ${\SI{0.1}{\celsius}}$) are used in the
-        barrel and vacuum phototriodes in the endcaps.
-    \item 61200 crystals in the central barrel and 7324 crystals in each of the
-        two endcaps.
-    \item Scintillation light detected by silicon avalanche photodiodes in the
-        barrel region. Vacuum phototriodes in the endcap region.
-    \item Preshower system installed in front of the endcap ECAL for
-        ${\Ppizero}$ rejection. 2 planes of silicon strip detectors behind
-        disks of lead absorber at depths of 2 and 3 radiation lengths.
-    \item Barrel covers ${\aeta<1.479}$, ${\SI{0.0174}{rad}}$ in \dphi and
-        \deta with a length of ${\SI{230}{mm}}$ for 25.8 radiation lengths.
-    \item Endcaps cover ${1.479<\aeta<3.0}$ in an $x$-$y$ grid with a front
-        cross section of ${28.6\times\SI{28.6}{mm^2}}$ and length of
-        ${\SI{220}{mm}}$ (24.7 radiation lengths).
-    \item Resolution parameterised by
-        \begin{equation}
-            \left( \frac{\sigma}{E} \right)^{2} = \left( \frac{S}{\sqrt{E}} \right)^{2}
-            + \left( \frac{N}{E} \right)^{2} + C^2,
-        \end{equation}
-        where $S$ stochastic term, N the noise and C constant term. Total energy
-        resolution ranges between ${1.50--0.35\%}$ for ${10--\SI{250}{GeV}}$.
-        Beyond which the constant term dominates.
-\end{itemize}
+The \ECAL is a homogeneous calorimeter made of lead tungstate (\pbwo) crystals
+designed to provided calorimetric measurements of electromagnetic deposits
+(typically electrons and photons) up to ${\aeta=3.0}$. The crystals have
+short radiation lengths (${\SI{0.89}{cm}}$) and Moliere lengths
+(${\SI{2.2}{cm}}$) allowing a compact design which absorbs a significant
+portion of electromagnetic energy with a satisfactory level of radiation
+resistance. The low light yield (${\SI{30}{\gamma/MeV}}$) from the crystals are
+detected by photodetectors with intrinsic gain operable in the magnetic field.
+Silicon avalanche photodiodes are used in the barrel and vacuum phototriodes in
+the endcaps. Along with the barrel and endcaps, the \ECAL has a preshower system
+installed in front of the endcaps for ${\Ppizero}$ rejection (since about
+${98.8\%}$ of ${\Ppizero}$ decays into two photons with a very short lifetime,
+${c\tau=\SI{25.5}{nm}}$). The preshower consists of two planes of silicon strip
+detectors behind disks of lead absorber at depths of 2 and 3 radiation lengths.
+The barrel covers a range of up to ${\aeta=1.479}$ with crystals of
+${\SI{0.0174}{rad}}$ in \dphi and \deta and a length of ${\SI{230}{mm}}$ for
+$25.8$ radiation lengths. The endcaps cover the region ${1.479<\aeta<3.0}$ in
+an $x$-$y$ grid with a front cross section of ${28.6\times\SI{28.6}{mm^2}}$ and
+a length of ${\SI{220}{mm}}$ (24.7 radiation lengths).
+
+The energy resolution of the \ECAL is parameterised by
+
+\begin{equation}
+    \left(\frac{\sigma}{E}\right)^{2} = \left(\frac{S}{\sqrt{E}} \right)^{2}
+    + \left( \frac{N}{E} \right)^{2} + C^2\ ,
+\end{equation}
+
+where $S$ is a stochastic tern, $N$ is a noise term and $C$ a constant term.
+The total energy resolution ranges between ${1.50--0.35\%}$ for
+${10--\SI{250}{GeV}}$, beyond which the constant term dominates.
 
 \subsection{\HCAL}
+
+The \HCAL is designed to provide calorimetric measurements of hadronic activity
+in an event. The barrel and endcap sections consist of brass/scintillator
+sampling hadron calorimeters with coverage up to ${\aeta=3}$.
 
 \begin{itemize}
     \item Brass/scintillator sampling hadron calorimeter with coverage up to
