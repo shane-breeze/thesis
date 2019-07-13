@@ -1,0 +1,117 @@
+\documentclass[border=10pt]{standalone}
+\usepackage{verbatim}
+\usepackage{tikz}
+\usepackage{tikz-3dplot}
+\usetikzlibrary{calc,positioning,shadows.blur,decorations.markings,decorations.pathreplacing,arrows}
+\usepackage{etoolbox}
+\usepackage{mathpazo}
+
+\begin{document}
+\tdplotsetmaincoords{65}{50}
+%\tdplotsetmaincoords{0}{0}
+\begin{tikzpicture}[scale=5,tdplot_main_coords]%,rotate around x=180]%,rotate around y=140]
+    \definecolor{cblblue}{HTML}{A6CEE3}
+    \definecolor{cbblue}{HTML}{1F78B4}
+    \definecolor{cbred}{HTML}{E31A1C}
+    \definecolor{cbpink}{HTML}{FB9A99}
+    \definecolor{cblilac}{HTML}{CAB2D6}
+    \definecolor{cbgreen}{HTML}{33A02C}
+    \definecolor{cborange}{HTML}{FF7F00}
+    \definecolor{cbgrey}{HTML}{D9D9D9}
+    \def\RSPS{0.5}
+    \def\RPS{\RSPS*0.5}
+    \def\RBOOS{\RPS*0.5}
+    \def\LLIN{1.75*\RPS}
+    
+    \coordinate (O) at (0,0,0);
+    \coordinate (CLHC) at (1,0,0);
+    \coordinate (CSPS) at (0.2,0.1,0);
+    \coordinate (CPS) at (-1.1,0.15,0);
+    \coordinate (CBOOS) at (-0.6,-0.05,0);
+    \coordinate (dzBOOS) at (0,0,0.015);
+    %\draw[thick,>=stealth',->] (0,0,0) -- (1,0,0) node[below left]{$x$};
+    %\draw[thick,>=stealth',->] (0,0,0) -- (0,1,0) node[below left]{$y$};
+    %\draw[thick,>=stealth',->] (0,0,0) -- (0,0,1) node[below left]{$z$};
+    
+    % SPS -> LHC
+    \begin{scope}[decoration={markings, mark=at position 0.5 with {\arrow{>}}}]
+    
+    \def\dista{0.4}
+    \def\distb{0.4}
+    \coordinate (P1) at ($(CSPS)+({\RSPS*cos(150)},{\RSPS*sin(150)},0)$);
+    \coordinate (Q1) at ({\dista*sin(150)},{-\dista*cos(150)},0);
+    \coordinate (P2) at ($(CLHC)+({cos(120)},{sin(120)},0)$);
+    \coordinate (Q2) at ({-\distb*sin(120)},{\distb*cos(120)},0);
+    \draw[thick,cbgrey,>=stealth',postaction={decorate}] (P1) .. controls ($(P1)+(Q1)$) and ($(P2)+(Q2)$) .. (P2);
+    
+    \def\dista{0.4}
+    \def\distb{0.4}
+    \coordinate (P1) at ($(CSPS)+({\RSPS*cos(-10)},{\RSPS*sin(-10)},0)$);
+    \coordinate (Q1) at ({\dista*sin(-10)},{-\dista*cos(-10)},0);
+    \coordinate (P2) at ($(CLHC)+({cos(-110)},{sin(-110)},0)$);
+    \coordinate (Q2) at ({\distb*sin(-110)},{-\distb*cos(-110)},0);
+    \draw[thick,cbgrey,>=stealth',postaction={decorate}] (P1) .. controls ($(P1)+(Q1)$) and ($(P2)+(Q2)$) .. (P2);
+    
+    % PS -> SPS
+    \def\dista{0.4}
+    \def\distb{0.4}
+    \coordinate (P1) at ($(CPS)+({\RPS*cos(90)},{\RPS*sin(90)},0)$);
+    \coordinate (Q1) at ({\dista*sin(90)},{-\dista*cos(90)},0);
+    \coordinate (P2) at ($(CSPS)+({\RSPS*cos(90)},{\RSPS*sin(90)},0)$);
+    \coordinate (Q2) at ({-\distb*sin(90)},{\distb*cos(90)},0);
+    \draw[thick,cbgrey,>=stealth',postaction={decorate}] (P1) .. controls ($(P1)+(Q1)$) and ($(P2)+(Q2)$) .. (P2);
+    
+    % BOOSTER -> PS
+    \def\dista{0.2}
+    \def\distb{0.2}
+    \coordinate (P1) at ($(CBOOS)+({\RBOOS*cos(-110)},{\RBOOS*sin(-110)},0)$);
+    \coordinate (Q1) at ({\dista*sin(-110)},{-\dista*cos(-110)},0);
+    \coordinate (P2) at ($(CPS)+({\RPS*cos(-80)},{\RPS*sin(-80)},0)$);
+    \coordinate (Q2) at ({-\distb*sin(-80)},{\distb*cos(-80)},0);
+    \draw[thick,cbgrey,>=stealth',postaction={decorate}] (P1) .. controls ($(P1)+(Q1)$) and ($(P2)+(Q2)$) .. (P2);
+    
+    \draw[very thick,cbgrey,>=stealth',postaction={decorate}] ($(CBOOS)+(\RBOOS,0,0)+(0,\LLIN,0)$) -- ($(CBOOS)+(\RBOOS,0,0)$);
+    
+    \end{scope}
+    
+    \begin{scope}[
+        decoration={
+            markings,
+            mark=at position 0.125 with {\arrow{<}},
+            mark=at position 0.875 with {\arrow{>}},
+        }
+    ]
+        \tdplotdrawarc[very thick,black,>=stealth',postaction={decorate}]{(CLHC)}{1}{0}{360}{}{}
+    \end{scope}
+    
+    \begin{scope}[decoration={markings, mark=at position -0.15 with {\arrow{<}}}]
+        \tdplotdrawarc[very thick,cblblue,>=stealth',postaction={decorate}]{(CSPS)}{\RSPS}{0}{360}{}{}
+        \tdplotdrawarc[very thick,cblilac,>=stealth',postaction={decorate}]{(CPS)}{\RPS}{0}{360}{}{}
+        \tdplotdrawarc[very thick,cbpink,>=stealth',postaction={decorate}]{(CBOOS)}{\RBOOS}{0}{360}{}{}
+    \end{scope}
+    
+    \begin{scope}[decoration={markings, mark=at position -0.075 with {\arrow{<}}}]
+        \tdplotdrawarc[very thick,cbpink,>=stealth',postaction={decorate}]{($(CBOOS)+(dzBOOS)$)}{\RBOOS}{0}{360}{}{}
+    \end{scope}
+    
+    \begin{scope}[decoration={markings, mark=at position 0. with {\arrow{<}}}]
+        \tdplotdrawarc[very thick,cbpink,>=stealth',postaction={decorate}]{($(CBOOS)+2*(dzBOOS)$)}{\RBOOS}{0}{360}{}{}
+    \end{scope}
+    
+    \node[] at (CLHC) {LHC};
+    \node[right,cblblue] at (CSPS) {SPS};
+    \node[cblilac] at (CPS) {PS};
+    \node[below=7pt,cbpink] at (CBOOS) {PS Booster};
+    \node[left=10pt,cbgrey] at ($(CBOOS)+(\RBOOS,0,0)+(0,\LLIN,0)$) {Linac};
+    \fill[radius=0.5pt,cbblue] (O) circle node[below=2pt] {ATLAS};
+    \fill[radius=0.5pt,cbred] ($(CLHC)+(1,0,0)$) circle node[below right] {CMS};
+    \fill[radius=0.5pt,cbgreen] ($(CLHC)+({cos(-135)},{sin(-135)},0)$) circle node[left] {LHCb};
+    \fill[radius=0.5pt,cborange] ($(CLHC)+({cos(135)},{sin(135)},0)$) circle node[below right] {ALICE};
+    
+    \begin{scope}[shift={(-0.5,1,0)},rotate around z=12]
+        \draw[thick,>=stealth',<->,black!50] (-0.125,0,0) -- (0.15,0,0);
+        \draw[thick,>=stealth',<->,black!50] (0,-0.125,0) -- (0,0.125,0);
+        \node[right,black!50] at (0.15,0,0) {N};
+    \end{scope}
+\end{tikzpicture}
+\end{document}
