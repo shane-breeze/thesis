@@ -1,0 +1,42 @@
+\documentclass[11pt,border=0pt]{standalone}
+
+\usepackage{verbatim}
+\usepackage{tikz}
+\usepackage{tikz-3dplot}
+\usetikzlibrary{calc,positioning,shadows.blur,decorations.markings,decorations.pathreplacing,arrows}
+\usepackage{etoolbox}
+\usepackage{mathpazo}
+\usepackage[wby]{callouts}
+
+\def\filename{diagrams/tikz/cms/images/cms_ecal_persp_cut.pdf}
+\def\rightpos{5.2}
+\def\scale{1.0}
+\def\xrange{5}
+\def\yrange{4}
+
+\begin{document}
+    \begin{tikzpicture}[scale=\scale]
+    
+        \pgftext{\includegraphics[clip, trim=12.5cm 0cm 12.5cm 0cm, width=10cm]{\filename}} at (0,0);
+        %\draw[step=1cm] (-\xrange,-\yrange) grid (\xrange,\yrange);
+        %\draw[thin,step=.1cm,black!60] (-\xrange,-\yrange) grid (\xrange,\yrange);
+        %\draw[thick,>=stealth',->] ({-\xrange-1},0) -- ({\xrange+1},0) node [right] {$x$};
+        %\draw[thick,>=stealth',->] (0,{-\yrange-1}) -- (0,{\yrange+1}) node [right] {$y$};
+        
+        \def\x{-1.0}
+        \def\y{2.0}
+        \draw (\rightpos,\y) node[right] {Barrel crystals} -- (\x,\y);
+        \filldraw (\x,\y) circle (1pt);
+        
+        \def\x{2.5}
+        \def\y{0.5}
+        \draw (\rightpos,\y) node[right] {Preshower} -- (\x,\y);
+        \filldraw (\x,\y) circle (1pt);
+        
+        \def\x{2.2}
+        \def\y{-1.0}
+        \draw (\rightpos,\y) node[right] {Endcap crystals} -- (\x,\y);
+        \filldraw (\x,\y) circle (1pt);
+        
+    \end{tikzpicture}
+\end{document}

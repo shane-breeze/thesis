@@ -18,6 +18,7 @@
     \definecolor{cbgreen}{HTML}{33A02C}
     \definecolor{cborange}{HTML}{FF7F00}
     \definecolor{cbgrey}{HTML}{D9D9D9}
+    \definecolor{cbbrown}{HTML}{B15928}
     \def\RSPS{0.5}
     \def\RPS{\RSPS*0.5}
     \def\RBOOS{\RPS*0.5}
@@ -70,7 +71,7 @@
     \coordinate (Q2) at ({-\distb*sin(-80)},{\distb*cos(-80)},0);
     \draw[thick,cbgrey,>=stealth',postaction={decorate}] (P1) .. controls ($(P1)+(Q1)$) and ($(P2)+(Q2)$) .. (P2);
     
-    \draw[very thick,cbgrey,>=stealth',postaction={decorate}] ($(CBOOS)+(\RBOOS,0,0)+(0,\LLIN,0)$) -- ($(CBOOS)+(\RBOOS,0,0)$);
+    \draw[very thick,cbbrown,>=stealth',postaction={decorate}] ($(CBOOS)+(\RBOOS,0,0)+(0,\LLIN,0)$) -- ($(CBOOS)+(\RBOOS,0,0)$);
     
     \end{scope}
     
@@ -102,7 +103,7 @@
     \node[right,cblblue] at (CSPS) {SPS};
     \node[cblilac] at (CPS) {PS};
     \node[below=7pt,cbpink] at (CBOOS) {PS Booster};
-    \node[left=10pt,cbgrey] at ($(CBOOS)+(\RBOOS,0,0)+(0,\LLIN,0)$) {Linac};
+    \node[above left=-4pt,cbbrown] at ($(CBOOS)+(\RBOOS,0,0)+(0,\LLIN,0)$) {LINAC2};
     \fill[radius=0.5pt,cbblue] (O) circle node[below=2pt] {ATLAS};
     \fill[radius=0.5pt,cbred] ($(CLHC)+(1,0,0)$) circle node[below right] {CMS};
     \fill[radius=0.5pt,cbgreen] ($(CLHC)+({cos(-135)},{sin(-135)},0)$) circle node[left] {LHCb};

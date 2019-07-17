@@ -1,0 +1,40 @@
+\documentclass[11pt,border=0pt]{standalone}
+
+\usepackage{verbatim}
+\usepackage{tikz}
+\usepackage{tikz-3dplot}
+\usetikzlibrary{calc,positioning,shadows.blur,decorations.markings,decorations.pathreplacing,arrows}
+\usepackage{etoolbox}
+\usepackage{mathpazo}
+\usepackage[wby]{callouts}
+
+\def\filename{diagrams/tikz/cms/images/cms_muon_side_cut.pdf}
+\def\rightpos{5.2}
+\def\scale{1.0}
+\def\xrange{5}
+\def\yrange{4}
+
+\begin{document}
+    \begin{tikzpicture}[scale=\scale]
+    
+        %\pgftext{\includegraphics[clip, trim=14cm 0cm 0cm 3cm, width=10cm]{\filename}} at (0,0);
+        \pgftext{\includegraphics[clip, trim=13cm 1.5cm 13cm 0cm, width=10cm]{\filename}} at (0,0);
+        %\draw[step=1cm] (-\xrange,-\yrange) grid (\xrange,\yrange);
+        %\draw[thin,step=.1cm,black!60] (-\xrange,-\yrange) grid (\xrange,\yrange);
+        %\draw[thick,>=stealth',->] ({-\xrange-1},0) -- ({\xrange+1},0) node [right] {$x$};
+        %\draw[thick,>=stealth',->] (0,{-\yrange-1}) -- (0,{\yrange+1}) node [right] {$y$};
+        
+        \draw (\rightpos,2.5) node[right]{Iron return yoke} -- (3.4,2.5);
+        \filldraw (3.4,2.5) circle (1pt);
+        
+        \draw (\rightpos,1.7) node[right]{CSC} -- (3.5,1.7);
+        \filldraw (3.5,1.7) circle (1pt);
+        
+        \draw (\rightpos,-1.98) node[right]{RPC} -- (2.5,-1.98);
+        \filldraw (2.5,-1.98) circle (1pt);
+        
+        \draw (\rightpos,-2.65) node[right]{DT} -- (2.5,-2.65);
+        \filldraw (2.5,-2.65) circle (1pt);
+        
+    \end{tikzpicture}
+\end{document}

@@ -1,0 +1,105 @@
+\documentclass[11pt,border=0pt]{standalone}
+
+\usepackage{verbatim}
+\usepackage{tikz}
+\usepackage{tikz-3dplot}
+\usetikzlibrary{calc,positioning,shadows.blur,decorations.markings,decorations.pathreplacing,arrows}
+\usepackage{etoolbox}
+\usepackage{mathpazo}
+\usepackage[wby]{callouts}
+
+\def\filenametop{diagrams/tikz/cms/images/cms_tracker_side_cut.pdf}
+\def\filenamemid{diagrams/tikz/cms/images/cms_tracker2_side_cut.pdf}
+\def\filenamebot{diagrams/tikz/cms/images/cms_pixel_side_cut.pdf}
+\def\rightpos{5.2}
+\def\scale{1.0}
+\def\xrange{5.2}
+\def\yrange{2.1}
+\def\ndelta{2}
+
+\begin{document}
+    \begin{tikzpicture}[scale=\scale]
+    
+        \node (top) at ({-0.04},{0.05+4.4756}) {
+            \includegraphics[
+                clip,
+                trim=0cm 0cm 0cm 0cm,
+                width=10cm
+            ]{\filenametop}
+        };
+        
+        \node (mid) at (0,0) {
+            \includegraphics[
+                clip,
+                trim=0cm 0cm 0cm 0cm,
+                width=10cm
+            ]{\filenamemid}
+        }
+        
+        \draw (-5,4.4756) -- (5,4.4756);
+        \draw (0,{2.1640+4.4756}) -- (0,{-2.1640+4.4756});
+        
+        \draw (-5,0) -- (5,0);
+        \draw (0,2.1640) -- (0,-2.1640);
+        %\pgftext{\includegraphics[clip, trim=4cm -4.9915cm 4.75cm -3.3279cm, width=10cm]{\filenamemid}} at (0,0);
+        %\pgftext{\includegraphics[clip, trim=4cm 0cm 5cm -8.2983cm, width=10cm]{\filenamebot}} at (0,0);
+        %\draw[step=1cm] (-\xrange,-\yrange) grid (\xrange,\yrange);
+        %\draw[thin,step=.1cm,black!60] (-\xrange,-\yrange) grid (\xrange,\yrange);
+        %\draw[thick,>=stealth',->] ({-\xrange-1},0) -- ({\xrange+1},0) node [right] {$x$};
+        %\draw[thick,>=stealth',->] (0,{-\yrange-1}) -- (0,{\yrange+1}) node [right] {$y$};
+        
+        % \draw[>=stealth',->] (-\xrange,-\yrange) -- (\xrange,-\yrange) node[right] {$z$ (m)};
+        % \draw[>=stealth',->] (-\xrange,-\yrange) -- (-\xrange,\yrange) node[left] {$r$ (m)};
+        % 
+        % % r-z coordinates
+        % \def\dx{2.027586207}
+        % \foreach \x in {-2.5,-2.0,-1.5,-1.0,-0.5,0.0,0.5,1.0,1.5,2.0,2.5}{
+        %     \draw ({\x*\dx},{-\yrange}) -- node[below]{\footnotesize{$\x$}} ({\x*\dx},{-\yrange-0.1});
+        % }
+        % 
+        % \def\dy{1.6}
+        % \foreach \y in {-1.0,-0.5,0.0,0.5,1.0}{
+        %     \draw ({-\xrange},{\y*\dy}) -- node[left]{\footnotesize{$\y$}} ({-\xrange-0.1},{\y*\dy});
+        % }
+        % 
+        % % eta coordinates
+        % \foreach \theta/\lab/\pos in {172.57/-2.5/left,167.73/-2.0/left,12.27/2.0/right,7.43/2.5/right}{
+        %     \draw (\theta:{abs(6.5/cos(\theta))}) -- (\theta:{abs(6.5/cos(\theta))+0.1}) node[\pos]{\footnotesize{$\lab$}};
+        % }
+        % \foreach \theta/\lab/\pos in {146.12/-1.0/above left,123.44/-0.5/above,90/\eta=0.0/above,56.56/0.5/above,33.88/1.0/above right,20.33/1.5/above right}{
+        %     \draw (\theta:{abs(2.2/sin(\theta))}) -- (\theta:{abs(2.2/sin(\theta))+0.1}) node[\pos] {\footnotesize{$\lab$}};
+        % }
+        % 
+        % \def\x{0.0}
+        % \def\y{0.0}
+        % \draw (\rightpos,\y) node[right] {BPIX} -- (\x,\y);
+        % \filldraw (\x,\y) circle (1pt);
+        % 
+        % \def\x{0.75}
+        % \def\y{0.5}
+        % \draw (\rightpos,\y) node[right] {FPIX} -- (\x,\y) -- (\x,{\y-0.3})
+        %     -- (\x,\y) -- (-\x,\y) -- (-\x,{\y-0.3});
+        % \filldraw (-\x,{\y-0.3}) circle (1pt) (\x,{\y-0.3}) circle (1pt);
+        % 
+        % \def\x{0.0}
+        % \def\y{1.0}
+        % \draw (\rightpos,\y) node[right] {TIB} -- (\x,\y) -- (\x,{\y-0.3});
+        % \filldraw (\x,{\y-0.3}) circle (1pt);
+        % 
+        % \def\x{1.6}
+        % \def\y{-0.5}
+        % \draw (\rightpos,\y) node[right] {TID} -- (\x,\y) -- (-\x,\y);
+        % \filldraw (\x,\y) circle (1pt) (-\x,\y) circle (1pt)
+        % 
+        % \def\x{0.0}
+        % \def\y{1.5}
+        % \draw (\rightpos,\y) node[right] {TOB} -- (\x,\y);
+        % \filldraw (\x,\y) circle (1pt);
+        % 
+        % \def\x{3.5}
+        % \def\y{-1.0}
+        % \draw (\rightpos,\y) node[right] {TEC} -- (\x,\y) -- (-\x,\y);
+        % \filldraw (\x,\y) circle (1pt) (-\x,\y) circle (1pt)
+        
+    \end{tikzpicture}
+\end{document}

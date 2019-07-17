@@ -87,44 +87,155 @@ beam as they enter the collision sections and defocus as they exit
 
 \section{Compact Muon Solenoid (\CMS) Experiment}
 
-The \CMS detector, centered on one of the \LHC's collision points, is a general
-purpose detector with a ${\SI{13}{m}}$ long, ${\SI{5.9}{m}}$ inner diameter,
-${\SI{3.8}{T}}$ superconducting solenoid enclosing tracking and calorimetry
-subdetectors. An iron return yoke maintains a ${\SI{2}{T}}$ field outside the
-solenoid for the muon subdetectors. All subdetectors are segmented into various
-regions in $\eta$ known as the barrel (covering the central $\eta$ range) and
-endcap (covering up to $\aeta=3$ with some overlap with the barrel). The
-hadronic calorimeter has an additional segment in the forward region (covering
-$3<\aeta<5$) to extend the coverage of hadronic activity. Further subdetector
-dependent segmentation is done within the barrel, endcap and forward regions.
-This gives \CMS the total length of ${\SI{21.6}{m}}$ and diameter of
-${\SI{14.6}{m}}$ weighing ${\SI{12500}{tons}}$.
-
 The conditions provided by the \LHC during 2016 data taking resulted in an
 average number of collisions per bunch crossing of approximately 20, leading
-to 1000 charged particles every ${\SI{25}{ns}}$ bunch crossing. The
-subdetectors were designed to account for particle multiplicities of this order
-by focusing on high-granularity detectors with good time resolution. This
-requires a large number of detector channels and millions of synchronised
-detector electronics, all with a high radiation tolerance.
+to 1000 charged particles every ${\SI{25}{ns}}$ bunch crossing. The \CMS detector
+was designed to account for particle multiplicities of this order by focusing on
+high-granularity subdetectors with good time resolution. This requires a large
+number of detector channels and millions of synchronised detector electronics, all
+with a high radiation tolerance.
+
+In addition to the conditions provided by the \LHC, the \CMS detector's design was
+driven by four main physics requirements to achieve broad range of precision
+measurements and new physics searches, namely: searching for the Higgs Boson,
+supersymmetric particles, new massive vector bosons, extra dimensions; precision
+studies of the \SM; and heavy-ion physics. The four requirements are summarised
+as follows:
+
+\begin{enumerate}
+    \item \textbf{Muon identification:} ability to clearly
+    identify muon up to $\aeta=2.5$ and dimuon mass resolutions of about $1\%$ for transverse momenta of \SI{100}{GeV}. The muon charge must be unambiguous up to
+    muon momenta of \SI{1}{TeV}.
+    \item \textbf{Charged particle reconstruction:} good momentum and reconstruction
+    efficiency, particularly for the inner tracker, allowing for the identification
+    of secondary vertices for the triggering and offline tagging $\tau$'s and
+    $b$-jets. This requires a tracker component with a few cm of the interaction
+    point.
+    \item \textbf{Electromagnetic energy resolution:} measure the diphoton and
+    dielectron mass with a resolution of $1\%$ for transverse momenta of
+    \SI{100}{GeV} up to $\aeta=2.5$. Determine the direction of photons and the
+    location of the primary interaction vertex. Efficiently reject \Ppizero decays
+    into two photons and maintain prompt lepton isolation at high luminosities.
+    \item \textbf{Transverse missing momentum and dijet mass resolution:} near
+    complete reconstruction of the proton interaction to measure the transverse
+    missing momentum. This requires a hermetic detector with hadron calorimeters
+    extending up to $\aeta=5.0$ and fine component segmentation in the $\eta$-$\phi$
+    plane of less than $0.1\times 0.1$.
+\end{enumerate}
+
+The full design of the \CMS detector for the 2016 data-taking period is shown in
+Fig.~\ref{fig:cms-full} which achieves the requirements outlined above. The main
+distinguishing feature of the \CMS detector is a ${\SI{3.8}{T}}$ superconducting
+solenoid magnet enclosing the tracking and calorimetry subdetectors with and iron
+return yoke to maintain a ${\SI{2}{T}}$ field outside the solenoid for the muon
+subdetectors. All subdetectors are segmented into various regions in $\eta$ known
+as the barrel (covering the central $\eta$ range) and endcap (covering up to
+$\aeta=3.0$, with a slight overlap with the barrel). The hadronic calorimeter has an
+additional segment in the forward region (covering $3<\aeta<5$) as required for
+the missing momentum reconstruction. Further subdetector dependent segmentation is
+done within the barrel, endcap and forward regions; discussed in further detail in
+the following subsections. This gives the \CMS detector a total length of
+${\SI{21.6}{m}}$ and a diameter of ${\SI{14.6}{m}}$ weighing ${\SI{12500}{tons}}$.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[]{diagrams/tikz/cms/annotated/cms_full.pdf}
+    \caption{
+        A schematic view of the \CMS detector and subdetectors during the 2016
+        data-taking period, with a section removed to view the internal components.
+        Acronyms are explained in the text. The diagram was produced using the tools
+        outlined in \cite{Sakuma:2013jqa}.
+    }
+    \label{fig:cms-full}
+\end{figure}
 
 \subsection{Silicon Tracker}
 
-The silicon tracker, the inner most subdetector, uses silicon technology with
-reverse-biased p-n junctions to measure positional coordinates of charged
-particles. As an ionising particle travels through the junction an electron-hole
-pair is created which drift in the electron field towards the cathode or anode.
-This signal is amplified and digitised and later used to reconstruct the whole
-event as required. The choice of silicon allows for a very granular detector
-required to distinguish tracks from the primary, secondary or pileup vertices.
+The silicon tracker is the inner most subdetector to measure the position of charged
+particles from ionisation deposits (known as hits) across a silicon-based
+reverse-biased p-n junction for its for its high-granularity. A collection of hits
+is used to reconstruct the curved path, with a radius of curvature $r$, of the
+particle with a charge $q$ within the magnetic field $B$ to determine the momentum
+of the particle transverse to the field, \pt, given by:
 
-The tracker is ${\SI{5.8}{m}}$ long and ${\SI{2.6}{m}}$ in diameter with 10
-layers of silicon microstrip detectors and an additional 3 layers of silicon
-pixels near the interaction region for improved measurements of the impacts
-parameter of charged particles and position of secondary vertices. The tracker
-covers a region of up to ${\aeta=2.5}$.
+\begin{equation}
+    \pt = rqB\ .
+\end{equation}
+
+A collection of tracks may intersect at a common point leading to the reconstruction
+of the primary interaction, pileup and secondary vertices. These vertices are
+typically a few centimetres apart, therefore, the tracker components are placed as
+near as ${\SI{4.4}{cm}}$ from the beamline.
+
+The silicon tracker, shown in Fig.~\ref{fig:cms-tracker}, consists of two main
+components: silicon pixels and strips. The pixels measure 3-dimensional positional
+coordinates of hits for environments of high particle flux (up to 10 million
+particles per second), near the beam. Three layers of pixels are placed in the
+barrel region (BPIX) at radii of ${\SI{4.4}{cm}}$, ${\SI{7.3}{cm}}$ and 
+${\SI{10.2}{cm}}$ with a length of ${\SI{53}{cm}}$, centred on the z-axis. The pixel
+models are staggered in the $\phi$-direction to achieve an overlapping
+configuration. Additional pixels layers are placed in the endcap regions (FPIX) with
+a turbine-like geometry with the blades rotated by ${\SI{20}{\degree}}$ for
+overlapping blades. The overlap of pixel modules ensures the charged particle passes
+through at least one module in each layer or blade. If two modules are hit the
+charge sharing between these modules provides additional positional information on
+the hit leading to improved position resolutions.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[]{diagrams/tikz/cms/annotated/cms_tracker.pdf}
+    \caption{
+        A cross-sectional view, in the $y$-$z$ plane, of the silicon tracker for the
+        2016 data-taking period. The $r$, $z$ and $\eta$ dimensions of the detector 
+        are shown. The acronyms used to label the various sub-components are defined
+        in the text. The diagram was produced using the tools outlined in
+        \cite{Sakuma:2013jqa}.
+    }
+    \label{fig:cms-tracker}
+\end{figure}
+
+Silicon strips are used further away from the beamline as the particle flux is
+reduced. Strips provide an accurate 2-dimensional position for hits, hence layers
+are typically oriented in a stereo-configuration for the full 3-dimensional
+position. The silicon strips are separated into an inner and outer component. The
+inner component is further split by the barrel and endcap regions. The tracker inner
+barrel (TIB) component consists of 4 layers positioned at a radius of
+${\SI{20}{cm}}$--${\SI{55}{cm}}$ and covering ${|z|<\SI{65}{cm}}$ with cell sizes of
+${\SI{10}{cm}\times\SI{80}{\micro m}}$. The first 2 layers use the
+stereo-configuration with an angle of ${\SI{100}{mrad}}$. The tracker outer barrel
+(TOB) component has 6 layers extending the coverage to ${|z|<\SI{110}{cm}}$
+and ${\SI{55}{cm}<r<\SI{130}{cm}}$. Again the first 2 layers are place in a
+stereo-configuration with an angle of ${\SI{100}{mrad}}$. The inner endcap
+(tracker inner disks, TID) component provides coverage for the gap between the
+TIB and TOB with 3 small disks oriented perpendicular to the $z$-axis to avoid
+excessive shallow track crossing angles. The first two disks have a
+stereo-configuration. The tracker outer endcap (TEC) consists of 9 disks
+extending into ${\SI{120}{cm}<|z|<\SI{280}{cm}}$ with stereo-configuration for
+the first 2 and the fifth disks \cite{Borrello:687861}. The entirety of the silicon
+detector comprises 66 million pixels and 9.6 million silicon strips with near
+hermetic coverage up to $\aeta=2.4$.
+
+To process all the data from the pixels and strips an on-detector chip processes
+and buffers the analogue signal while waiting on a decision to accept or reject the
+data. Upon an accept signal being received the data is transmitted over optical
+links to off-detector chips for further processing, such as digitisation and data
+formatting.
 
 \subsection{\ECAL}
+
+- Hermetic, homogenous calorimeter made of lead tung. divided into the barrel section (EB) and the endcap section comprising of the ECAL endcap (EE) and preshower (ES)
+- Lead tungstate scintillating crystals have short radition (X0=0.89 cm) and Moliere (2.2 cm) lengths with fast responses (80\% of light emitted within 25 ns) and are radiation hard. However, low light yield (30 photons/MeV) require photodetectors with intrinsic gain that can operate in a magnetic field. Silicon avalanche photodiodes in the barrel and vacuum phototriodes in the endcaps.
+- EB inner radius 129 cm with 36 supermodules each covering half the barrel length and aeta 0-1.479 and 20deg in phi. The crystals are titled at 3deg with respect to the nominal vertex position to avoid particles travelling fully inbetween two crystals. Crystal cover 0.0174 (1 deg) in phi and eta with front face cross-section of 22x22 mm**2 and length 230 mm -> 25.8 X0 (containment) and are contained in groups of 5 pairs within a thin-walled glass-fibre structure (submodules). Submodules are assembled into modules with 4 modules in each supermodule separated by aluminium webs
+- EE 314cm from nominal vertex covering 1.479<aeta<3.0 structured as 2 dees - semi-circular aluminium plates with structural support units for 5x5 crystals (supercrystals). The crystals are rotated from the nominal vertex. Arranged in x-y grid. 28.6x28.6 mm**2 front face and a length of 220mm (24.7 X0). Special partial supercrystals cover the inner and outer circumference.
+- ES only for endcap (1.653-2.6) for additional tracker space 2 planes of silicon strip detectors behind disks of lead absorbers at depths of 2X0 and 3X0 for pi0 rejection and provide directional information on the photon or electron.
+- Readout: on-detector electronics ampplify and shape the signal from the sensors and digitise at 40 MHz. Data is buffered until an accept to transfer the data to off-detector electronics for further processing. The on-detector electronics also calculates trigger primitives transmitted at 40 MHz to the hardware trigger
+
+- Corrections: E=G F sum(ci Ai)
+G - global absolute scale determined in situ from Z->mumugamma. F - correction function depending on the type of particle, position, momentum and clustering algorithm (correct for energy loss from brem and containment variations from MC validated with a test beam and insitu with Z->ee and Z->mumugamma). ci - intercalibration coefficients with Ai - signal amplitudes (in ADC counts).
+from light measurements  of crystal light yield, test beam precalibrations, cosmic rays, and in situ W->ev and pi0->gam gam and eta->gam gam mass reconstruction.
+- Performance: supermodule measured in a test beam. Energy resolution (width containing 68\% of the energy) measured by fitting a gaussian function to the reconstructed energy distributions and parameterized as
+...
+
 
 The \ECAL is a homogeneous calorimeter made of lead tungstate (\pbwo) crystals
 designed to provided calorimetric measurements of electromagnetic deposits
@@ -154,8 +265,17 @@ The energy resolution of the \ECAL is parameterised by
 \end{equation}
 
 where $S$ is a stochastic tern, $N$ is a noise term and $C$ a constant term.
-The total energy resolution ranges between ${1.50--0.35\%}$ for
-${10--\SI{250}{GeV}}$, beyond which the constant term dominates.
+The total energy resolution ranges between {$1.50$--$0.35\%$} for
+{$10$--$\SI{250}{GeV}$}, beyond which the constant term dominates.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics{diagrams/tikz/cms/annotated/cms_ecal.pdf}
+    \label{fig:cms-ecal}
+    \caption{
+        A figure 
+    }
+\end{figure}
 
 \subsection{\HCAL}
 
@@ -178,6 +298,15 @@ sampling hadron calorimeters with coverage up to ${\aeta=3}$.
         transverse energy of an event.
 \end{itemize}
 
+\begin{figure}[htbp]
+    \centering
+    \includegraphics{diagrams/tikz/cms/annotated/cms_hcal.pdf}
+    \label{fig:cms-hcal}
+    \caption{
+        A figure 
+    }
+\end{figure}
+
 \subsection{Solenoid Magnet}
 
 \begin{itemize}
@@ -188,6 +317,15 @@ sampling hadron calorimeters with coverage up to ${\aeta=3}$.
     \item Favourable length/radius ratio chosen to ensure good momentum
         resolution in the forward region.
 \end{itemize}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics{diagrams/tikz/cms/annotated/cms_magnet.pdf}
+    \label{fig:cms-magnet}
+    \caption{
+        A figure 
+    }
+\end{figure}
 
 \subsection{Muon Chambers}
 
@@ -221,6 +359,15 @@ sampling hadron calorimeters with coverage up to ${\aeta=3}$.
         resolution with coarse position resolution to identify the correct
         bunch crossing. Coverage up to ${\aeta<1.6}$ or ${\aeta<2.4}$.
 \end{itemize}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics{diagrams/tikz/cms/annotated/cms_muons.pdf}
+    \label{fig:cms-muons}
+    \caption{
+        A figure
+    }
+\end{figure}
 
     \begin{itemize}
         \item CMS 2006 detector TDR: \cite{Bayatian:922757}.
