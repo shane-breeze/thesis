@@ -34,6 +34,32 @@
     %\draw[thick,>=stealth',->] (0,0,0) -- (0,1,0) node[below left]{$y$};
     %\draw[thick,>=stealth',->] (0,0,0) -- (0,0,1) node[below left]{$z$};
     
+    % variables
+    \def\rvec{1}
+    \def\thetavec{40}
+    \def\phivec{70}
+    
+    % axes
+    \begin{scope}[shift={(2,0,0)},rotate around x=-90,rotate around z=180,scale=0.5]
+        \coordinate (CMS) at (0,0,0);
+        \draw[thick,>=stealth',->] (0,0,0) -- (1,0,0) node[below left]{$x$};
+        \draw[thick,>=stealth',->] (0,0,0) -- (0,1,0) node[below right]{$y$};
+        \draw[thick,>=stealth',->] (0,0,0) -- (0,0,1) node[below right]{$z$};
+        \tdplotsetcoord{P}{\rvec}{\thetavec}{\phivec}
+        
+        % vectors
+        \draw[>=stealth',->,cbred] (CMS) -- (P) node[above]{$\vec{p}$};
+        \draw[dashed,cbred] (CMS) -- (Pxy);
+        \draw[dashed,cbred] (P) -- (Pxy);
+        \draw[dashed,cbred] (Py) -- (Pxy);
+        \draw[dashed,cbred] (CMS) -- (Pyz);
+        \draw[dashed,cbred] (Py) -- (Pyz);
+        \draw[dashed,cbred] (P) -- (Pyz);
+        
+        \tdplotdrawarc[>=stealth',->]{(CMS)}{0.2}{0}{\phivec}{above=2pt,anchor=mid east}{$\phi$}
+        \tdplotdrawarc[>=stealth',->,rotate around z=0,rotate around y=-90]{(CMS)}{0.5}{0}{\thetavec}{anchor=mid west}{$\theta$}
+    \end{scope}
+    
     % SPS -> LHC
     \begin{scope}[decoration={markings, mark=at position 0.5 with {\arrow{>}}}]
     
@@ -114,5 +140,6 @@
         \draw[thick,>=stealth',<->,black!50] (0,-0.125,0) -- (0,0.125,0);
         \node[right,black!50] at (0.15,0,0) {N};
     \end{scope}
+    
 \end{tikzpicture}
 \end{document}

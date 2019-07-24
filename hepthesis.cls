@@ -427,18 +427,18 @@
 
 %% Normal headers and footers (headers are all like RH pages for oneside)
 \ifx\@oneside\@empty%
-  \fancyhead[RO,LE]{\bfseries\thepage}%
-  \fancyhead[LO,RE]{\bfseries\leftmark}%
+  \fancyhead[RO,LE]{\thepage}%
+  \fancyhead[RE]{\nouppercase{\leftmark}}%
+  \fancyhead[LO]{\nouppercase{\rightmark}}%
 \else%
-  \fancyhead[RO,R]{\bfseries\thepage}%
-  \fancyhead[LO,L]{\bfseries\leftmark}%
+  \fancyhead[RO,R]{\thepage}%
+  \fancyhead[LO,L]{\leftmark}%
 \fi%
 \fancyfoot{}%
 %% Lower case header content
-\renewcommand{\chaptermark}[1]{%
-  \markboth{#1}{}%
-}
-
+%\renewcommand{\chaptermark}[1]{%
+%  \markboth{#1}{}%
+%}
 
 %% Headers and footers for plain (blank) pages
 \fancypagestyle{plain}{%

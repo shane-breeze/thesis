@@ -8,36 +8,55 @@
 \usepackage{mathpazo}
 \usepackage[wby]{callouts}
 
-\def\filename{diagrams/tikz/cms/images/cms_hcal_octant.pdf}
-\def\rightpos{5.2}
+\def\filename{diagrams/tikz/cms/images/cms_front_slice_hcal_v2.pdf}
+\def\rightpos{6}
 \def\scale{1.0}
-\def\xrange{5}
-\def\yrange{4}
+\def\xrange{7.2}
+\def\yrange{2.5}
 
 \begin{document}
     \begin{tikzpicture}[scale=\scale]
+        \definecolor{col_hf}{HTML}{FE9929}
+        \definecolor{col_ho}{HTML}{FEC44F}
+        \definecolor{col_he}{HTML}{FEE391}
+        \definecolor{col_hb}{HTML}{FFF7BC}
     
-        \pgftext{\includegraphics[clip, trim=12cm 2cm 0cm 0cm, width=10cm]{\filename}} at (0,0);
+        \node (img) at (0,0) {\includegraphics[clip, width=12cm]{\filename}};
         
         %\draw[step=1cm] (-\xrange,-\yrange) grid (\xrange,\yrange);
         %\draw[thin,step=.1cm,black!60] (-\xrange,-\yrange) grid (\xrange,\yrange);
         %\draw[thick,>=stealth',->] ({-\xrange-1},0) -- ({\xrange+1},0) node [right] {$x$};
         %\draw[thick,>=stealth',->] (0,{-\yrange-1}) -- (0,{\yrange+1}) node [right] {$y$};
         
-        \draw (\rightpos,2.0) node[right]{HO} -- (0.7,2.0);
-        \filldraw (0.7,2.0) circle (1pt);
+        \def\x{5.3}
+        \def\y{-0.5}
+        \draw (\rightpos,\y) node[right]{HF} -- (\x,\y);
+        \filldraw (\x,\y) circle (1pt);
+        \filldraw[col_hf] ({\rightpos+0.9},{\y-0.15}) rectangle ({\rightpos+1.2},{\y+0.15});
+        \draw ({\rightpos+0.9},{\y-0.15}) rectangle ({\rightpos+1.2},{\y+0.15});
         
-        \draw (\rightpos,1.4) node[right]{Shielding} -- (0.5,1.4);
-        \filldraw (0.5,1.4) circle (1pt);
+        \def\x{2.2}
+        \def\y{0.2}
+        \draw (\rightpos,\y) node[right]{HE} -- (\x,\y);
+        \filldraw (\x,\y) circle (1pt);
+        \filldraw[col_he] ({\rightpos+0.9},{\y-0.15}) rectangle ({\rightpos+1.2},{\y+0.15});
+        \draw ({\rightpos+0.9},{\y-0.15}) rectangle ({\rightpos+1.2},{\y+0.15});
         
-        \draw (\rightpos,0.8) node[right]{HE} -- (0.4,0.8);
-        \filldraw (0.4,0.8) circle (1pt);
+        \def\x{1.2}
+        \def\y{0.9}
+        \draw (\rightpos,\y) node[right]{HB} -- (\x,\y);
+        \filldraw (\x,\y) circle (1pt);
+        \filldraw[col_hb] ({\rightpos+0.9},{\y-0.15}) rectangle ({\rightpos+1.2},{\y+0.15});
+        \draw ({\rightpos+0.9},{\y-0.15}) rectangle ({\rightpos+1.2},{\y+0.15});
         
-        \draw (\rightpos,0.2) node[right]{HF} -- (4.0,0.2);
-        \filldraw (4.0,0.2) circle (1pt);
+        \def\x{2.5}
+        \def\y{1.6}
+        \draw (\rightpos,\y) node[right]{HO} -- (\x,\y);
+        \filldraw (\x,\y) circle (1pt);
+        \filldraw[col_ho] ({\rightpos+0.9},{\y-0.15}) rectangle ({\rightpos+1.2},{\y+0.15});
+        \draw ({\rightpos+0.9},{\y-0.15}) rectangle ({\rightpos+1.2},{\y+0.15});
         
-        \draw (\rightpos,-0.4) node[right]{HB} -- (-2.0,-0.4);
-        \filldraw (-2.0,-0.4) circle (1pt);
+        \draw ({-\rightpos-1.2},0));
         
     \end{tikzpicture}
 \end{document}

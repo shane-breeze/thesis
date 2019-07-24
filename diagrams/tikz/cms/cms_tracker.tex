@@ -8,98 +8,105 @@
 \usepackage{mathpazo}
 \usepackage[wby]{callouts}
 
-\def\filenametop{diagrams/tikz/cms/images/cms_tracker_side_cut.pdf}
-\def\filenamemid{diagrams/tikz/cms/images/cms_tracker2_side_cut.pdf}
-\def\filenamebot{diagrams/tikz/cms/images/cms_pixel_side_cut.pdf}
+\def\filenametop{diagrams/tikz/cms/images/cms_front_slice_tracker_v2.pdf}
+\def\filenamemid{diagrams/tikz/cms/images/cms_front_slice_tracker_inner_v2.pdf}
+\def\filenamebot{diagrams/tikz/cms/images/cms_front_slice_tracker_pixels_v2.pdf}
 \def\rightpos{5.2}
 \def\scale{1.0}
 \def\xrange{5.2}
-\def\yrange{2.1}
-\def\ndelta{2}
+\def\yrange{7.2}
 
 \begin{document}
     \begin{tikzpicture}[scale=\scale]
+        \definecolor{col_bpix}{HTML}{EDF8B1}
+        \definecolor{col_fpix}{HTML}{C7E9B4}
+        \definecolor{col_tib}{HTML}{7FCDBB}
+        \definecolor{col_tid}{HTML}{41B6C4}
+        \definecolor{col_tob}{HTML}{1D91C0}
+        \definecolor{col_tec}{HTML}{225EA8}
     
-        \node (top) at ({-0.04},{0.05+4.4756}) {
-            \includegraphics[
-                clip,
-                trim=0cm 0cm 0cm 0cm,
-                width=10cm
-            ]{\filenametop}
-        };
+        \begin{scope}[shift={(0,5)}]
+            \node (top) at (0,0) {
+                \includegraphics[
+                    clip,
+                    width=10cm
+                ]{\filenametop}
+            };
+            \draw[thick] (-1.95,0.95) rectangle (1.95,-0.95);
+            
+            \def\y{1.5}
+            \filldraw[col_tob] ({\rightpos+1},{\y-0.2}) rectangle ({\rightpos+1.4},{\y+0.2});
+            \draw ({\rightpos+1},{\y-0.2}) rectangle ({\rightpos+1.4},{\y+0.2});
+            \draw[thick] (\rightpos,\y) node[right]{TOB} -- (1.5,\y);
+            \filldraw (1.5,\y) circle (1pt);
+            
+            \def\y{0.75}
+            \filldraw[col_tec] ({\rightpos+1},{\y-0.2}) rectangle ({\rightpos+1.4},{\y+0.2});
+            \draw ({\rightpos+1},{\y-0.2}) rectangle ({\rightpos+1.4},{\y+0.2});
+            \draw[thick] (\rightpos,\y) node[right]{TEC} -- (2.5,\y);
+            \filldraw (2.5,\y) circle (1pt);
+            
+            \draw[thick] (\rightpos,0) node[right]{Inner tracker} -- (1.95,0);
+            \draw (-\rightpos,0) node[left]{\phantom{Inner tracker}};
+        \end{scope}
         
-        \node (mid) at (0,0) {
-            \includegraphics[
-                clip,
-                trim=0cm 0cm 0cm 0cm,
-                width=10cm
-            ]{\filenamemid}
-        }
+        \begin{scope}[shift={(0,0)}]
+            \node (mid) at (0,0) {
+                \includegraphics[
+                    clip,
+                    width=10cm
+                ]{\filenamemid}
+            };
+            \draw[thick] (-4.55,2.15) rectangle (4.55,-2.15);
+            \draw[thick] (-2.25,0.7) rectangle (2.25,-0.7);
+            
+            \def\y{1.6}
+            \filldraw[col_tib] ({\rightpos+1},{\y-0.2}) rectangle ({\rightpos+1.4},{\y+0.2});
+            \draw ({\rightpos+1},{\y-0.2}) rectangle ({\rightpos+1.4},{\y+0.2});
+            \draw[thick] (\rightpos,\y) node[right]{TIB} -- (2,\y);
+            \filldraw (2,\y) circle (1pt);
+            
+            \def\y{0.85}
+            \filldraw[col_tid] ({\rightpos+1},{\y-0.2}) rectangle ({\rightpos+1.4},{\y+0.2});
+            \draw ({\rightpos+1},{\y-0.2}) rectangle ({\rightpos+1.4},{\y+0.2});
+            \draw[thick] (\rightpos,\y) node[right]{TID} -- (3,\y);
+            \filldraw (3,\y) circle (1pt);
+            
+            \draw[thick] (\rightpos,0) node[right]{Pixel tracker} -- (2.25,0);
+            \draw (-\rightpos,0) node[left]{\phantom{Pixel tracker}};
+        \end{scope}
+        \draw[thick] (-1.95,5.95) -- (-4.55,2.15);
+        \draw[thick] (1.95,5.95) -- (4.55,2.15);
         
-        \draw (-5,4.4756) -- (5,4.4756);
-        \draw (0,{2.1640+4.4756}) -- (0,{-2.1640+4.4756});
+        \begin{scope}[shift={(0,-4.5)}]
+            \node (bot) at (0,0) {
+                \includegraphics[
+                    clip,
+                    trim=0cm 5cm 0cm 5cm 0cm,
+                    width=10cm
+                ]{\filenamebot}
+            };
+            \draw[thick] (-4.8,1.5) rectangle (4.8,-1.5);
+            
+            \def\y{1.15}
+            \filldraw[col_bpix] ({\rightpos+1.25},{\y-0.2}) rectangle ({\rightpos+1.65},{\y+0.2});
+            \draw ({\rightpos+1.25},{\y-0.2}) rectangle ({\rightpos+1.65},{\y+0.2});
+            \draw[thick] (\rightpos,\y) node[right]{BPIX} -- (2,\y) -- (2,{\y-0.25});
+            \filldraw (2,{\y-0.25}) circle (1pt);
+            
+            \def\y{0.4}
+            \filldraw[col_fpix] ({\rightpos+1.25},{\y-0.2}) rectangle ({\rightpos+1.65},{\y+0.2});
+            \draw ({\rightpos+1.25},{\y-0.2}) rectangle ({\rightpos+1.65},{\y+0.2});
+            \draw[thick] (\rightpos,\y) node[right]{FPIX} -- (3.25,\y);
+            \filldraw (3.25,\y) circle (1pt);
+        \end{scope}
+        \draw[thick] (-2.25,0.7) -- (-4.8,-3);
+        \draw[thick] (2.25,0.7) -- (4.8,-3);
         
-        \draw (-5,0) -- (5,0);
-        \draw (0,2.1640) -- (0,-2.1640);
-        %\pgftext{\includegraphics[clip, trim=4cm -4.9915cm 4.75cm -3.3279cm, width=10cm]{\filenamemid}} at (0,0);
-        %\pgftext{\includegraphics[clip, trim=4cm 0cm 5cm -8.2983cm, width=10cm]{\filenamebot}} at (0,0);
         %\draw[step=1cm] (-\xrange,-\yrange) grid (\xrange,\yrange);
         %\draw[thin,step=.1cm,black!60] (-\xrange,-\yrange) grid (\xrange,\yrange);
         %\draw[thick,>=stealth',->] ({-\xrange-1},0) -- ({\xrange+1},0) node [right] {$x$};
         %\draw[thick,>=stealth',->] (0,{-\yrange-1}) -- (0,{\yrange+1}) node [right] {$y$};
-        
-        % \draw[>=stealth',->] (-\xrange,-\yrange) -- (\xrange,-\yrange) node[right] {$z$ (m)};
-        % \draw[>=stealth',->] (-\xrange,-\yrange) -- (-\xrange,\yrange) node[left] {$r$ (m)};
-        % 
-        % % r-z coordinates
-        % \def\dx{2.027586207}
-        % \foreach \x in {-2.5,-2.0,-1.5,-1.0,-0.5,0.0,0.5,1.0,1.5,2.0,2.5}{
-        %     \draw ({\x*\dx},{-\yrange}) -- node[below]{\footnotesize{$\x$}} ({\x*\dx},{-\yrange-0.1});
-        % }
-        % 
-        % \def\dy{1.6}
-        % \foreach \y in {-1.0,-0.5,0.0,0.5,1.0}{
-        %     \draw ({-\xrange},{\y*\dy}) -- node[left]{\footnotesize{$\y$}} ({-\xrange-0.1},{\y*\dy});
-        % }
-        % 
-        % % eta coordinates
-        % \foreach \theta/\lab/\pos in {172.57/-2.5/left,167.73/-2.0/left,12.27/2.0/right,7.43/2.5/right}{
-        %     \draw (\theta:{abs(6.5/cos(\theta))}) -- (\theta:{abs(6.5/cos(\theta))+0.1}) node[\pos]{\footnotesize{$\lab$}};
-        % }
-        % \foreach \theta/\lab/\pos in {146.12/-1.0/above left,123.44/-0.5/above,90/\eta=0.0/above,56.56/0.5/above,33.88/1.0/above right,20.33/1.5/above right}{
-        %     \draw (\theta:{abs(2.2/sin(\theta))}) -- (\theta:{abs(2.2/sin(\theta))+0.1}) node[\pos] {\footnotesize{$\lab$}};
-        % }
-        % 
-        % \def\x{0.0}
-        % \def\y{0.0}
-        % \draw (\rightpos,\y) node[right] {BPIX} -- (\x,\y);
-        % \filldraw (\x,\y) circle (1pt);
-        % 
-        % \def\x{0.75}
-        % \def\y{0.5}
-        % \draw (\rightpos,\y) node[right] {FPIX} -- (\x,\y) -- (\x,{\y-0.3})
-        %     -- (\x,\y) -- (-\x,\y) -- (-\x,{\y-0.3});
-        % \filldraw (-\x,{\y-0.3}) circle (1pt) (\x,{\y-0.3}) circle (1pt);
-        % 
-        % \def\x{0.0}
-        % \def\y{1.0}
-        % \draw (\rightpos,\y) node[right] {TIB} -- (\x,\y) -- (\x,{\y-0.3});
-        % \filldraw (\x,{\y-0.3}) circle (1pt);
-        % 
-        % \def\x{1.6}
-        % \def\y{-0.5}
-        % \draw (\rightpos,\y) node[right] {TID} -- (\x,\y) -- (-\x,\y);
-        % \filldraw (\x,\y) circle (1pt) (-\x,\y) circle (1pt)
-        % 
-        % \def\x{0.0}
-        % \def\y{1.5}
-        % \draw (\rightpos,\y) node[right] {TOB} -- (\x,\y);
-        % \filldraw (\x,\y) circle (1pt);
-        % 
-        % \def\x{3.5}
-        % \def\y{-1.0}
-        % \draw (\rightpos,\y) node[right] {TEC} -- (\x,\y) -- (-\x,\y);
-        % \filldraw (\x,\y) circle (1pt) (-\x,\y) circle (1pt)
         
     \end{tikzpicture}
 \end{document}

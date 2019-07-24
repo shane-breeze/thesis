@@ -1,41 +1,122 @@
 \documentclass[11pt,border=0pt]{standalone}
 
 \usepackage{verbatim}
+\usepackage{graphicx}
 \usepackage{tikz}
 \usepackage{tikz-3dplot}
-\usetikzlibrary{calc,positioning,shadows.blur,decorations.markings,decorations.pathreplacing,arrows}
+\usetikzlibrary{calc,positioning,arrows}
 \usepackage{etoolbox}
 \usepackage{mathpazo}
 \usepackage[wby]{callouts}
 
-\def\filename{diagrams/tikz/cms/images/cms_full1_persp_cut.pdf}
-\def\rightpos{5.5}
+\def\filename{diagrams/tikz/cms/images/cms_octant_angle_slice.pdf}
+\def\rightpos{6}
 \def\scale{0.8}
+\def\boxpos{3.8}
 
 \begin{document}
     \begin{tikzpicture}[scale=\scale]
+        \definecolor{col_muon}{HTML}{D9D9D9}
+        \definecolor{col_yoke}{HTML}{E31A1C}
+        \definecolor{col_magn}{HTML}{FFFFFF}
+        \definecolor{col_hcal}{HTML}{FDBF6F}
+        \definecolor{col_ecal}{HTML}{8DD3C7}
+        \definecolor{col_trac}{HTML}{A6CEE3}
+        \definecolor{col_beam}{HTML}{CAB2D6}
     
-        \pgftext{\includegraphics[clip, trim=15.5cm 0cm 5cm 0.5cm, width=18cm]{\filename}} at (0,0);
+        \node (img) at (0,0) {
+            \includegraphics[
+                clip,
+                trim=15.5cm 1cm 12.5cm 0.5cm,
+                width=13cm
+            ]{\filename}
+        };
+        
         %\draw[step=1cm] (-8,-6) grid (8,6);
         %\draw[thin,step=.1cm,black!60] (-8,-6) grid (8,6);
         %\draw[thick,>=stealth',->] (-9,0) -- (9,0) node [right] {$x$};
         %\draw[thick,>=stealth',->] (0,-7) -- (0,7) node [right] {$y$};
         
-        \draw (-0.5,0.2) -- (\rightpos,0.2) node[right] {Beam pipe};
-        \draw (-1.6,0.7) -- (\rightpos,0.7) node[right] {Tracker};
-        \draw (-0.9,1.2) -- (\rightpos,1.2) node[right] {ECAL};
-        \draw (-0.5,1.7) -- (\rightpos,1.7) node[right] {HCAL};
-        \draw (3.5,-1.0) -- (\rightpos,-1.0) node[right] {HF};
-        \draw (0.0,2.2) -- (\rightpos,2.2) node[right] {Solenoid};
-        \draw (1.0,3.5) -- (\rightpos,3.5) node[right] {Muon chambers};
+        \def\x{-0.5}
+        \def\y{5}
+        \def\lab{Muon chambers}
+        \def\col{col_muon}
+        \draw (\rightpos,\y) node[right]{\lab} -- (\x,\y);
+        \filldraw (\x,\y) circle (1pt);
+        \filldraw[\col] ({\rightpos+\boxpos},{\y-0.2}) rectangle ({\rightpos+\boxpos+0.4},{\y+0.2});
+        \draw ({\rightpos+\boxpos},{\y-0.2}) rectangle ({\rightpos+\boxpos+0.4},{\y+0.2});
         
-        \filldraw (-0.5,0.2) circle (1pt);
-        \filldraw (-1.6,0.7) circle (1pt);
-        \filldraw (-0.9,1.2) circle (1pt);
-        \filldraw (-0.5,1.7) circle (1pt);
-        \filldraw (3.5,-1.0) circle (1pt);
-        \filldraw (0.0,2.2) circle (1pt);
-        \filldraw (1.0,3.5) circle (1pt);
+        \def\x{-0.2}
+        \def\y{4.3}
+        \def\lab{Iron return yoke}
+        \def\col{col_yoke}
+        \draw (\rightpos,\y) node[right]{\lab} -- (\x,\y);
+        \filldraw (\x,\y) circle (1pt);
+        \filldraw[\col] ({\rightpos+\boxpos},{\y-0.2}) rectangle ({\rightpos+\boxpos+0.4},{\y+0.2});
+        \draw ({\rightpos+\boxpos},{\y-0.2}) rectangle ({\rightpos+\boxpos+0.4},{\y+0.2});
+        
+        \def\x{-2}
+        \def\y{3.6}
+        \def\lab{Outer HCAL}
+        \def\col{col_hcal}
+        \draw (\rightpos,\y) node[right]{\lab} -- (\x,\y) -- (\x,{\y-0.7});
+        \filldraw (\x,{\y-0.7}) circle (1pt);
+        \filldraw[\col] ({\rightpos+\boxpos},{\y-0.2}) rectangle ({\rightpos+\boxpos+0.4},{\y+0.2});
+        \draw ({\rightpos+\boxpos},{\y-0.2}) rectangle ({\rightpos+\boxpos+0.4},{\y+0.2});
+        
+        \def\x{-1.2}
+        \def\y{2.9}
+        \def\lab{Solenoid}
+        \def\col{col_magn}
+        \draw (\rightpos,\y) node[right]{\lab} -- (\x,\y) -- (\x,{\y-0.3});
+        \filldraw (\x,{\y-0.3}) circle (1pt);
+        \filldraw[\col] ({\rightpos+\boxpos},{\y-0.2}) rectangle ({\rightpos+\boxpos+0.4},{\y+0.2});
+        \draw ({\rightpos+\boxpos},{\y-0.2}) rectangle ({\rightpos+\boxpos+0.4},{\y+0.2});
+        
+        \def\x{-1.4}
+        \def\y{2.2}
+        \def\lab{HCAL}
+        \def\col{col_hcal}
+        \draw (\rightpos,\y) node[right]{\lab} -- (\x,\y);
+        \filldraw (\x,\y) circle (1pt);
+        \filldraw[\col] ({\rightpos+\boxpos},{\y-0.2}) rectangle ({\rightpos+\boxpos+0.4},{\y+0.2});
+        \draw ({\rightpos+\boxpos},{\y-0.2}) rectangle ({\rightpos+\boxpos+0.4},{\y+0.2});
+        
+        \def\x{-1.4}
+        \def\y{1.5}
+        \def\lab{ECAL}
+        \def\col{col_ecal}
+        \draw (\rightpos,\y) node[right]{\lab} -- (\x,\y);
+        \filldraw (\x,\y) circle (1pt);
+        \filldraw[\col] ({\rightpos+\boxpos},{\y-0.2}) rectangle ({\rightpos+\boxpos+0.4},{\y+0.2});
+        \draw ({\rightpos+\boxpos},{\y-0.2}) rectangle ({\rightpos+\boxpos+0.4},{\y+0.2});
+        
+        \def\x{-1}
+        \def\y{0.8}
+        \def\lab{Tracker}
+        \def\col{col_trac}
+        \draw (\rightpos,\y) node[right]{\lab} -- (\x,\y);
+        \filldraw (\x,\y) circle (1pt);
+        \filldraw[\col] ({\rightpos+\boxpos},{\y-0.2}) rectangle ({\rightpos+\boxpos+0.4},{\y+0.2});
+        \draw ({\rightpos+\boxpos},{\y-0.2}) rectangle ({\rightpos+\boxpos+0.4},{\y+0.2});
+        
+        \def\x{-0.2}
+        \def\y{0.1}
+        \def\lab{Beam pipe}
+        \def\col{col_beam}
+        \draw (\rightpos,\y) node[right]{\lab} -- (\x,\y);
+        \filldraw (\x,\y) circle (1pt);
+        \filldraw[\col] ({\rightpos+\boxpos},{\y-0.2}) rectangle ({\rightpos+\boxpos+0.4},{\y+0.2});
+        \draw ({\rightpos+\boxpos},{\y-0.2}) rectangle ({\rightpos+\boxpos+0.4},{\y+0.2});
+        
+        \def\x{3.5}
+        \def\y{-0.6}
+        \def\lab{Forward HCAL}
+        \def\col{col_hcal}
+        \draw (\rightpos,\y) node[right]{\lab} -- (\x,\y);
+        \filldraw (\x,\y) circle (1pt);
+        \filldraw[\col] ({\rightpos+\boxpos},{\y-0.2}) rectangle ({\rightpos+\boxpos+0.4},{\y+0.2});
+        \draw ({\rightpos+\boxpos},{\y-0.2}) rectangle ({\rightpos+\boxpos+0.4},{\y+0.2});
         
     \end{tikzpicture}
 \end{document}
