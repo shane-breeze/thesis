@@ -1,0 +1,61 @@
+\documentclass[border=10pt]{standalone}
+\usepackage{verbatim}
+\usepackage{amsmath}
+\usepackage{pgfplots,tikz}
+\usepackage{tikz-3dplot}
+\usetikzlibrary{calc,positioning,shadows.blur,decorations.markings,decorations.pathreplacing,arrows}
+\pgfplotsset{compat=newest}
+\usepackage{etoolbox}
+\usepackage{mathpazo}
+
+\begin{document}
+\tdplotsetmaincoords{65}{50}
+%\tdplotsetmaincoords{50}{10}
+\begin{tikzpicture}[scale=1,tdplot_main_coords]
+    \definecolor{cblblue}{HTML}{A6CEE3}
+    \definecolor{cbblue}{HTML}{1F78B4}
+    \definecolor{cbred}{HTML}{E31A1C}
+    \definecolor{cbpink}{HTML}{FB9A99}
+    \definecolor{cblilac}{HTML}{CAB2D6}
+    \definecolor{cbgreen}{HTML}{33A02C}
+    \definecolor{cborange}{HTML}{FF7F00}
+    \definecolor{cbgrey}{HTML}{D9D9D9}
+    \definecolor{cbbrown}{HTML}{B15928}
+    
+    \begin{scope}[rotate around x=90,rotate around y=90]
+        \draw[thick,>=stealth',->] (0,0,0) -- (5,0,0) node[below left]{$x$};
+        \draw[thick,>=stealth',->] (0,0,0) -- (0,5,0) node[below left]{$y$};
+        \draw[thick,>=stealth',->] (0,0,0) -- (0,0,5) node[below left]{$z$};
+        
+        \pgfmathsetmacro{\Length}{3}
+        \pgfmathsetmacro{\Stretch}{1}
+        \pgfmathsetmacro{\Shift}{210}
+        \pgfmathsetmacro{\Pos}{90}
+        
+        %\tdplotsetcoord{R}{0.6}{90-\Stretch}{\Shift-90};
+        %\draw (O) -- (Rxy);
+        %\tdplotdrawarc[>=stealth',->]{(O)}{0.5}{0}{\Shift-90}{above right}{$\phi$}
+        
+        \draw[>=stealth',->,cbred] plot[smooth,variable=\x,domain=0:390,samples=360] ({\Length*(cos(\x-\Shift)-cos(-\Shift))}, {-\Length*(sin(\x-\Shift)-sin(-\Shift))}, {\x*(\Stretch*\Length/360)});
+        
+        \coordinate (O) at (0,0,0);
+        \coordinate (P) at ({\Length*(cos(\Pos-\Shift)-cos(-\Shift))}, {-\Length*(sin(\Pos-\Shift)-sin(-\Shift))}, {\Pos*(\Stretch*\Length/360)});
+        \coordinate (T) at ({-sin(\Pos-\Shift)}, {-cos(\Pos-\Shift)}, {\Strech/360});
+        \coordinate (U) at ({cos(\Pos-\Shift)}, {-sin(\Pos-\Shift)}, 0);
+        \coordinate (V) at ({sin(\Pos-\Shift)*\Stretch/360}, {cos(\Pos-\Shift)*\Stretch/360}, 1);
+        
+        \filldraw (P) node[below]{$P$} circle (1pt);
+        \draw[>=stealth,->] (P) -- ($(P)+(T)$) node[above right]{$\vec{t}$};
+        \draw[>=stealth,->] (P) -- ($(P)+(U)$) node[above]{$\vec{x}_{t}$};
+        \draw[>=stealth,->] (P) -- ($(P)+(V)$) node[right]{$\vec{y}_{t}$};
+        
+        %\draw[dashed,>=stealth,->] (O) -- (U) node[above]{$\vec{x}_{t}$};
+        %\draw[dashed,>=stealth,->] (O) -- (V) node[below]{$\vec{y}_{t}$};
+        
+        \coordinate (Pxy) at ({\Length*(cos(\Pos-\Shift)-cos(-\Shift))}, {-\Length*(sin(\Pos-\Shift)-sin(-\Shift))}, 0);
+        
+        \filldraw (0,0) node[below left]{IP} circle (1pt);
+    \end{scope}
+    
+\end{tikzpicture}
+\end{document}
