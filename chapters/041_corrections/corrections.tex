@@ -227,13 +227,13 @@ uses two muon identification and isolation requirements the efficiency must be
 measured for both the veto and selection criteria. The measurement is
 performed using the tag and probe technique with the tag passing a tight set
 of requirements ensuring minimal misidentifications and a set of tracks as a
-probe or muons with an isolation requirement. Similarly to the muon trigger
-efficiency, the events are collected into bins of \pt and $\eta$ with a fit to
-the invariant mass of the muon pair to extract the signal contribution for all
-probes and probes passing the identification or isolation requirements,
-allowing the efficiency to be determined. A similar approach is performed in
-MC, however, the distinction of signal events is known, bypassing the need for
-a fit allowing for the simple counting of events.
+probe or muons with an isolation requirement \cite{CMS-DP-2017-007}.
+Similarly to the muon trigger efficiency, the events are collected into bins
+of \pt and $\eta$ with a fit to the invariant mass of the muon pair to extract
+the signal contribution for all probes and probes passing the identification
+or isolation requirements, allowing the efficiency to be determined. A similar
+approach is performed in MC, however, the distinction of signal events is
+known, bypassing the need for a fit allowing for the simple counting of events.
 
 During the 2016 data-taking period, saturation issues in the pre-amplifier
 chips for the tracker resulted in a loss of hits. This effect was mitigated in
@@ -275,9 +275,44 @@ applied as a correction to MC.
         \label{subfigd:muon-id-scale-factors}
     \end{subfigure}
     \caption{
-        Electron identification (id) and isolation (iso) scale corrections applied to MC, parameterised with the electron \pt and \aeta
+        Muon identification (id) scale corrections applied to MC, parameterised with the muon \pt and \aeta. The top row shows the scale-factors for veto muons with corrections less than $1\%$ as a result of the basic selection. The bottom row shows the scale-factors for selection muon with corrections from {$1$--$4\%$} with the largest discrepancies on the edges of the endcaps (${0.9<\aeta<1.2}$ and ${2.1<\aeta<2.4}$) where the muon identification modelling does not perform as well in MC.
     }
     \label{fig:muon-id-scale-factors}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centering
+    \begin{subfigure}[b]{0.49\textwidth}
+        \centering
+        \includegraphics{chapters/041_corrections/images/efficiencies/objects/muons/muon_iso_loose_runbf.pdf}
+        \caption{Initial data-taking period}
+        \label{subfiga:muon-iso-scale-factors}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.49\textwidth}
+        \centering
+        \includegraphics{chapters/041_corrections/images/efficiencies/objects/muons/muon_iso_loose_rungh.pdf}
+        \caption{Final data-taking period}
+        \label{subfigb:muon-iso-scale-factors}
+    \end{subfigure}
+    \\
+    \begin{subfigure}[b]{0.49\textwidth}
+        \centering
+        \includegraphics{chapters/041_corrections/images/efficiencies/objects/muons/muon_iso_tight_runbf.pdf}
+        \caption{Initial data-taking period}
+        \label{subfigc:muon-iso-scale-factors}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.49\textwidth}
+        \centering
+        \includegraphics{chapters/041_corrections/images/efficiencies/objects/muons/muon_iso_tight_rungh.pdf}
+        \caption{Final data-taking period}
+        \label{subfigd:muon-iso-scale-factors}
+    \end{subfigure}
+    \caption{
+        Muon isolation (iso) scale corrections applied to MC, parameterised with the muon \pt and \aeta. The modelling of the isolation in MC is better than the identification with at most $2\%$ difference for selection muons.
+    }
+    \label{fig:muon-iso-scale-factors}
 \end{figure}
 
 
