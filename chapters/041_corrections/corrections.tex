@@ -139,22 +139,35 @@ events collect with higher muon multiplicities were triggered by any of the
 muons, hence the efficiency associated with the event, $\varepsilon$, for any
 number of muons is
 %
-\begin{equation}
+\begin{equation}\label{eq:electron-event-trigger-efficiency}
     \varepsilon = 1 - \prod_{i\in\mathrm{muons}} ( 1 - \varepsilon_i )\ ,
 \end{equation}
 %
 as follows from a binominal distribution where at least one muon must pass the
-trigger selection.
+trigger selection. This efficiency scales the MC event weight in regions
+collected by the muon triggers with a luminosity-weighted average of the
+initial and final data-taking periods.
 
 
 \subsection{Electron trigger efficiency}
 
-The electron trigger efficiency measurement \cite{CMS-DP-2017-004} follows a similar procedure to the muons with a tag selection aligned with the analysis and a probe with relaxed kinematic criteria. The pair of electrons are formed into a \PZ boson candidate with a fit to the invariant mass distribution to extract the signal contribution and determine the efficiency of the electron trigger selection. Systematic uncertainties are determined with the same method detailed for the muon trigger efficiencies. The efficiencies for the electron trigger selection is shown in Fig.~\ref{fig:electron-trigger-efficiency}.
+The electron trigger efficiency measurement \cite{CMS-DP-2017-004} follows a
+similar procedure to the muons with a tag selection aligned with the analysis
+and a probe with relaxed kinematic criteria. The pair of electrons are formed
+into a \PZ boson candidate with a fit to the invariant mass distribution to
+extract the signal contribution and determine the efficiency of the electron
+trigger selection. Systematic uncertainties are determined with the same
+method detailed for the muon trigger efficiencies. The efficiencies for the
+electron trigger selection is shown in
+Fig.~\ref{fig:electron-trigger-efficiency} and follow the same event-based
+efficiency in Eq.~\ref{eq:electron-event-trigger-efficiency}.
 
 \begin{figure}[htbp]
     \centering
     \includegraphics{chapters/041_corrections/images/efficiencies/triggers/electrons/electron_trigger_efficiency.pdf}
-    \caption{Caption}
+    \caption{
+        Electron trigger efficiency with a threshold of ${\pt>\SI{27}{GeV}}$, parameterised with the \pt and absolute supercluster position in $\eta$, $|\eta_{\mathrm{SC}}|$. The low \pt inefficiency is driven by the trigger threshold and the efficiency in the partially uninstrumented gap in the \ECAL is shown in the bin ${1.444<|\eta_{\mathrm{SC}}|<1.566}$.
+    }
     \label{fig:electron-trigger-efficiency}
 \end{figure}
 
