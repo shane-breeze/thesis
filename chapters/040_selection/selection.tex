@@ -2,5 +2,654 @@
 \label{chap:analysis}
 
 %\chapterquote{}{}
+% \cite{Alwall:2014hca}.
 
-Analysis event selection and categorisation \cite{Alwall:2014hca}.
+\section{Introduction}
+
+The measurement of the \IZinv width requires the collection, through event
+tagging of a jet, of \IZvvj signal events with the key signature of jets
+recoiling against an invisible system, also known as \metplusjets. This
+process is compared and contrasted to the similar \IDYllj reference process to
+extract a precise measurement of the invisible width. Additional samples of
+\IWlvj provide a data-driven estimate of large backgrounds with a similar
+signature to the signal. A combination of the large QCD multijet cross-section
+and inherent jet misreconstruction leads to additional backgrounds and the
+need of a sideband\footnote{A sideband is an independent set of events to a
+region obtained by inverting or somehow altering a requirement which defined
+the original region.} enriched with QCD multijet events for a data-driven
+estimate of this background.
+
+This chapters details the process of data collection and reduction to target
+specific processes in various categories required for this analysis. Included
+is the detail of particle identification refinement from the PF algorithm
+results for an improved signal acceptance whilst maintaining a high background
+rejection.
+
+\section{Samples}
+
+\subsection{Data collection}
+
+The data collection of physical proton-proton collections corresponds to
+retrieving the relevant data stored by a specific set of \SWT requirements,
+known as \SWT paths. The dataset considered was collected during 2016 with
+proton-proton collisions at a centre-of-mass energy of ${\SI{13}{TeV}}$.
+Issues during detector live-time, such as problems with a particular
+subdetector or beam conditions, requires the masking of known problematic
+collisions resulting in a dataset with an integrated luminosity of
+${\SI{35.9}{fb^{-1}}}$.
+
+The relevant process can be classified into events with missing transverse
+energy or more than one lepton. Events with missing transverse energy are
+selected by the \SWT paths requiring two conditions or a third to be
+satisfied. The first is
+%
+\begin{equation}\label{eq:hlt_met_trig_selection1}
+    \ptmissnomu = \bigg| -\sum_{i\not\in\mathrm{muons}} \vec{p}_{\mathrm{T}} \bigg| \ge \ptmissthresh\ ,
+\end{equation}
+%
+where the sum is over all PF candidates apart from muons and \ptmissthresh is
+a particular threshold. The muons act as invisible particles for \ptmissnomu
+hence collects \IZvv, \IWmv and \IDYmm events. The second condition is
+%
+\begin{equation}
+    p_{\mathrm{T,had}}^{\mathrm{miss}} = \bigg| -\sum_{i\in\mathrm{jets}} \vec{p}_{\mathrm{T}} \bigg| \ge \ptmissthresh\ ,
+\end{equation}
+%
+summed over all PF jets passing the tight jet identification selection with
+${\pt>\SI{20}{GeV}}$ and no muon candidates. This selection is similar to
+Eq.~\ref{eq:hlt_met_trig_selection1}, however, the combination of both
+maintains a trigger rate for lower \ptmissthresh  thresholds by removing
+events with inconsistent visible (excluding muons) and hadronic recoils,
+primarily due to misreconstructed soft (${\pt<\SI{20}{GeV}}$) hadronic
+activity. The threshold \ptmissthresh varies from {$90$--$\SI{120}{GeV}$}
+depending on the \LHC beam conditions to avoid prescaling. The third condition
+recovers small inefficiencies by applying the selection
+%
+\begin{equation}
+    \ptmiss = \bigg| -\sum_{i\in\mathrm{PF}} \vec{p}_{\mathrm{T}} \bigg| \ge \SI{170}{GeV}\ ,
+\end{equation}
+%
+summed over all PF candidates, with various beam halo or \HCAL noise cleaning
+requirements (discussed in Sec.~\ref{sec:baseline-selection}) to maintain this
+threshold as beam conditions change.
+
+A complementary trigger path collects events with at least one muon rather
+than the momentum imbalance of an event. Events pass the trigger requirement
+if there exists a global or tracker muon with ${\pt>\SI{24}{GeV}}$ which is
+isolated from other activity (total energy within a cone of $\Delta R=0.3$ is
+below $9\%$ relative to the muon \pt). To collect events with at least one
+electron an alternative trigger path is used with the requirement of at least
+one GSF electron passing a tight identification selection and a
+${\pt>\SI{27}{GeV}}$. Both lepton trigger thresholds are driven by a goal to
+maintain data collection efficiency and control trigger rates.
+
+
+\subsection{Simulation}
+
+A vast array of simulated proton-proton collisions attempt to fully replicate
+the events selected as signal candidates, including backgrounds with similar
+experimental signatures to the signal. Vector boson production; namely \IZvv,
+\IWlv, \IDYll and prompt photon; in association with jets, \IVj, are produced
+with the matrix element (ME) event generator \MADGRAPH \cite{Frederix:2018nkq}
+with restricted boson decays and Feynman diagrams up to
+$\mathcal{O}(\alpha^2\alpha_s^2)$, hereby known as next-to-leading order (NLO)
+in the strong coupling constant. The production is split into boson \pt
+regions to populate the low cross-section high-\pt regions. These generated
+events are coupled to the \PYTHIA package \cite{Sjostrand:2014zea} to mediate
+the parton showering (PS), hadronisation and particle decays with the \CUET
+underlying event description \cite{Khachatryan:2015pea}. Double-counting of
+jet multiplicity final states with the ME and PS is removed by the FXFX
+\cite{Frederix:2012ps} matching and merging technique. Another set of
+processes similar to \IDYll are generated where, in turn, the \PZ and \Pgstar
+interactions are turned off to model the \PZ, \Pgstar and interference terms
+of the \IDYll process. Furthermore, the processes involving a \Pgstar have an
+invariant mass cut-off below ${\SI{50}{GeV}}$ to avoid the large cross-section
+away from the \PZ peak.
+
+Minor background processes include the pure QCD interactions between partons
+forming a multijet final state with jet misreconstruction leading to spurious
+\ptmiss, faking the signal signature. The QCD multijet process is produced at
+leading order (LO) accuracy in the strong coupling constant by the \PYTHIA
+package, split by the interaction scale $Q^2$ to populate the low
+cross-section regions. Top production leads to real \ptmiss with zero, one or
+two leptons in the final state with the pair production, \Ittj, produced using
+a similar technique as the \IVj processes, albeit inclusive in \pt, and single
+top production --- via the $s$-channel, $t$-channel or associated \PW
+production --- are produced at NLO by a various combination of the \MADGRAPH,
+\MADSPIN \cite{Artoisenet:2012st}, \PYTHIA and \POWHEG
+\cite{Alioli:2010xd,Alioli:2009je,Re:2010bp} packages. Diboson processes
+(combination of \PZ, \PW and prompt \Pgamma from the hard scatter) may have a
+similar signature to the signal for particular decays, or particles beyond the
+detector's acceptance or misidentified. Combinations of \MADGRAPH, \MADSPIN,
+\PYTHIA and \POWHEG are used to generate the diboson process at NLO. Finally,
+vector boson scattering (VBS) involves the production of a vector boson (\PW
+or \PZ) from $\PV\PV$ scattering, in association with two jets, hence has a
+signature similar to the \IVj processes. The VBS sample is produced at LO
+accuracy by the \MADGRAPH package coupled to \PYTHIA, with the boson decay
+restricted to charged leptons or neutrinos. An overlap between the phase-space
+of the diboson and VBS samples is removed by an ad hoc requirement of one
+generated boson from the hard scatter for VBS.
+
+All samples are generated with \NNPDF \cite{Ball:2014uwa} LO and NLO parton
+distribution functions, where the LO and NLO generators are used. After the
+relevant process has been generated the full detector response to such an
+interaction, along with pileup vertices, is simulated with the \GEANT
+\cite{AGOSTINELLI2003250} package.
+
+
+\section{Physics objects}
+
+Analysis specific physics objects are derived from PF candidates to refine and
+target the selection towards the key signature. These include muons;
+electrons; photons; jets with tagging as hadronic $\tau$-lepton decays or
+$b$-hadrons; and the global event descriptor $\ptmiss$, redefined in terms of
+the recoil parameter.
+
+\subsection{Muons}
+
+The analysis definition of a muon is split into two categories: veto and
+selection muons. The selection defining these categories is shown in
+Tab.~\ref{tab:muon-selection}. Muons from in flight hadron decays are
+suppressed by a requirement on the particle-based isolation $I_{\Delta\beta}$
+with a pileup mitigation term, known as the $\Delta\beta$ correction
+%
+\begin{equation}
+    I_{\Delta\beta} = \frac{1}{\pt}\left| \sum_{i\in\mathrm{ch}}\vec{p}_{\mathrm{T},i} + \max\left( 0, \sum_{i\in\mathrm{nh}}\vec{p}_{\mathrm{T},i} + \sum_{i\in\gamma}\vec{p}_{\mathrm{T},i} - \frac{1}{2}\sum_{i\in\mathrm{PU\ ch}}\vec{p}_{\mathrm{T},i} \right)\right|\ ,
+\end{equation}
+%
+for a muon with transverse momentum \pt; charged hadrons (ch), neutral hadrons
+(nh) and photons (\Pgamma) from the primary vertex in a cone of $\Delta R=0.4$
+around the muon; and charged hadrons from pileup vertices (PU ch) also within
+this cone. This correction mitigates the contribution from neutral hadrons
+from pileup vertices by subtracting the momentum of charged hadrons from these
+vertices, with a factor of a half to account for the average
+charged-to-neutral particle ratio in the isospin limit. Additional selection
+is placed on the quality of selection muon tracks, including the impact
+parameter with the primary vertex split by the transverse, $d_{xy}$, and
+longitudinal, $d_{z}$, components.
+
+\begin{table}[htbp]
+    \centering
+    \begin{tabular}{lcc}
+        \hline\hline
+        & Veto & Selection \\
+        \hline
+        Muon seed & Global or tracker & Global \\
+        PF muon & True & True \\
+        Track fit normalised $\chi^2$ & - & $<10$ \\
+        Number of matched stations & - & $>1$ \\
+        Number of muon chamber hits & - & $>0$ \\
+        $d_{xy}$ (cm) & - & $<0.2$ \\
+        $d_{z}$ (cm) & - & $<0.5$ \\
+        Pixel hits & - & $>0$ \\
+        Tracker layer hits & - & $>5$ \\
+        $I_{\Delta\beta}$ & $<0.25$ & $<0.15$ \\
+        \pt (GeV) & $>10$ & $>30$ \\
+        \aeta & $<2.5$ & $<2.4$ \\
+        \hline\hline
+    \end{tabular}
+    \caption{
+        Requirements for muons passing the veto and selection identification.
+        Most track quality criteria are omitted for veto muons to retain a
+        high efficiency at the loss of fake muon rejection
+        \cite{CMS-DP-2017-007}.
+    }
+    \label{tab:muon-selection}
+\end{table}
+
+%The veto criteria are highly efficient at selecting prompt muons and muons from heavy and light quark decays, while the selection criteria 
+
+\subsection{Electrons}
+
+Similar to muons, the electrons are classified as veto or selection based on
+criteria detailed in Tab.~\ref{tab:electron-selection}. The first requirements
+primarily reduce fake electrons from jets with criteria on $\sieiefbf$, the
+extent of the shower along the \ECAL crystals in the $\eta$ direction within a
+$5\times 5$ crystal cluster, typically smaller for electrons and photons than
+hadronic showers; and $E_{\mathrm{\HCAL}}/E_{\mathrm{\ECAL}}$, the ratio
+of the energy deposited in \HCAL towers located behind the \ECAL cluster to
+the \ECAL cluster energy, significantly smaller for electron and photons
+compared to jets. Subsequent requirements check the consistency of the GSF
+track with the \ECAL cluster, namely $|\Delta\eta_{\mathrm{In}}|$, the
+difference in $\eta$ of the energy-weighted supercluster centre and the GSF
+track extrapolated to the \ECAL; $|\Delta\phi_{\mathrm{In}}|$, similarly
+defined in the $\phi$ direction; $|(1/E_{\mathrm{\ECAL}} -
+1/p_{\mathrm{T,track}})|$; and the impact parameters $d_{xy}$ and $d_{z}$. The
+conversion veto rejects electrons with tracks consistent with photon
+conversions identified by the conversion finder. The isolation,
+$I_{\mathrm{EA}}$, requirement on electrons reduces contamination from in
+flight hadron decays, with a pileup mitigation technique known as effective
+area:
+%
+\begin{equation}
+    I_{\mathrm{EA}} = \frac{1}{\pt} \left| \sum_{i\in\mathrm{ch}} \vec{p}_{\mathrm{T},i} + \max\left(0, \sum_{i\in\mathrm{nh}}\vec{p}_{\mathrm{T},i} + \sum_{i\in\Pgamma}\vec{p}_{\mathrm{T},i} - \rho A_{\mathrm{eff}}\right) \right|\ ,
+\end{equation}
+%
+which is similar to $I_{\Delta\beta}$, however, the subtracted quantity is the
+product of the energy density $\rho$ of the event with the ($\eta$-dependent)
+effective area of the electron, a pre-computed average over multiple events.
+
+\begin{table}[htbp]
+    \centering
+    \begin{tabular}{lcccc}
+        \hline\hline
+        & \multicolumn{2}{c}{Veto} & \multicolumn{2}{c}{Selection} \\
+        & Barrel & Endcaps & Barrel & Endcaps \\
+        \hline
+        GSF track & \multicolumn{4}{c}{True} \\
+        \sieiefbf & 0.011 & 0.0314 & 0.00998 & 0.0292 \\
+        $E_{\mathrm{\HCAL}}/E_{\mathrm{\ECAL}}$ & 0.298 & 0.101 & 0.0414 & 0.0641 \\
+        $|\Delta\eta_{\mathrm{In}}|$ & 0.00477 & 0.00868 & 0.00308 & 0.00605 \\
+        $|\Delta\phi_{\mathrm{In}}|$ & 0.222 & 0.213 & 0.0816 & 0.0394 \\
+        $|(1/E_{\mathrm{\ECAL}} - 1/p_{\mathrm{T,trk}})|$ (1/GeV) & 0.241 & 0.14 & 0.0129 & 0.126 \\
+        $d_{xy}$ (cm) & 0.05 & 0.1 & 0.05 & 0.1 \\
+        $d_{z}$ (cm) & 0.1 & 0.2 & 0.1 & 0.2 \\
+        Missing tracker hits & \multicolumn{4}{c}{2} \\
+        Conversion veto & \multicolumn{4}{c}{True} \\
+        $I_{\mathrm{EA}}$ & 0.0994 & 0.107 & 0.0588 & 0.0571 \\
+        \pt (GeV) & \multicolumn{2}{c}{$>10$} & \multicolumn{2}{c}{$>30$} \\ 
+        \hline\hline
+    \end{tabular}
+    \caption{
+        Criteria for the electrons identified as veto or selection for the
+        analysis. All parameters must be less than the value unless stated
+        otherwise. The criteria are split by barrel and endcap regions to
+        retain similar electron identification efficiency in both
+        \cite{CMS-DP-2017-004}.
+    }
+    \label{tab:electron-selection}
+\end{table}
+
+\subsection{Photons}
+
+The selection for photons is closely aligned with electrons, although with a
+single veto category and without tracker based requirements and an explicit
+rejection of candidates linked to tracks. Furthermore, the isolated
+requirements are split by particle candidates: charged hadrons, neutral
+hadrons and photons; with a \pt-dependence to remain efficient across a broad
+range of momenta. The selection is detailed in Tab.~\ref{tab:photon-selection}.
+
+\begin{table}[htbp]
+    \centering
+    \begin{tabular}{lcc}
+        \hline\hline
+        & Barrel & Endcaps \\
+        \hline
+        Linked track & False & False \\
+        \sieiefbf & 0.01031 & 0.03013 \\
+        $E_{\mathrm{\HCAL}}/E_{\mathrm{\ECAL}}$ & 0.0597 & 0.0481 \\
+        $I_{\mathrm{ch}}$ & $1.295/\pt$ & $1.011/\pt$ \\
+        $I_{\mathrm{nh}}$ & $10.910/\pt + 0.00148 + \num{1.7e-5}\pt$ & $5.931/\pt + 0.0163 + \num{1.4e-5}\pt$ \\
+        $I_{\Pgamma}$ & $3.630/\pt + 0.0047$ & $6.641/\pt + 0.0034$ \\
+        \pt (GeV) & \multicolumn{2}{c}{$>25$} \\
+        \hline\hline
+    \end{tabular}
+    \caption{
+        Photon requirements for the veto collection with all parameters lower
+        than the values in the table unless stated otherwise. The criteria are
+        split by barrel and endcap regions as with electrons
+        \cite{CMS-DP-2017-004}. Only veto photons are defined for this analysis.
+    }
+    \label{tab:photon-selection}
+\end{table}
+
+\subsection{Jets}
+
+Requirements on jets, detailed in Tab.~\ref{tab:jet-selection} depend on the
+region which they fall into with a veto and a selection category defined below
+$\aeta=2.4$ and inclusive in $\eta$, respectively. Pileup suppression is
+implemented by removing charged hadrons associated to pileup vertices from the
+jet cone. Leptons or photons within their respective veto collection which
+reside within a cone of a jet results in the removal of the jet from the event.
+
+\begin{table}[htbp]
+    \centering
+    \begin{tabular}{lccc}
+        \hline\hline
+        & Central & Endcaps & Forward \\
+        \hline
+        Charged hadron energy fraction & $>0$ & - & - \\
+        Charged EM energy fraction & $<0.99$ & - & - \\
+        Charged particle multiplicity & $>0$ & - & - \\
+        Constituent multiplicity & $>1$ & $>1$ & - \\
+        Neutral hadron energy fraction & $<0.99$ & $<0.99$ & - \\
+        Neutral EM energy fraction & $<0.99$ & $<0.99$ & $<0.9$ \\
+        Neutral particle multiplicity & - & - & $>10$ \\
+        \pt (GeV) & \multicolumn{3}{c}{$>40$} \\
+        \hline\hline
+    \end{tabular}
+    \caption{
+        Jet selection based on position: central ($\aeta<2.4$), endcaps
+        ($2.4<\aeta<3$) and forward ($\aeta>3$). Distinction between charged
+        and neutral particles is lost beyond the tracker acceptance of
+        $\aeta<2.4$ and forward jets are required to have a significant
+        neutral particle number due to their high radiation environment.
+    }
+    \label{tab:jet-selection}
+\end{table}
+
+Additional selection applied to jet structure allows the tagging of hadronic
+$\tau$-lepton decays or jets originating from $b$-hadrons. 
+
+\subsubsection{Hadronic $\tau$-lepton tagging}
+
+The $\tau$-lepton decays into hadrons and a neutrino, labelled as \Ptauh,
+$64.8\%$ of the time, with the remaining decays into an electron or muon and
+neutrinos. The production of a \PW boson and its subsequent decay \IWthv
+leads to the signal signature of \metplusjets, therefore, tagging and vetoing
+events with a \Ptauh-lepton is vital. The tagging is accomplished with the
+hadrons-plus-strips (HPS) \cite{Khachatryan:2062435} algorithm.
+
+The branching fractions of the $\tau$-lepton are shown in
+Tab.~\ref{tab:tau-decays} with a significant \Ptauh branching fraction into
+one or three charged hadrons and up to two \Ppizero, detected from their decay
+into two photons which typically convert into $e^+e^-$ pairs within the
+tracker. Therefore, the HPS algorithm is seeded by jets with
+${\pt>\SI{20}{GeV}}$ and ${\aeta<2.3}$ and matches charged hadrons to
+$\eta$-$\phi$ strips of photon and electron constituents. The strips are
+generated by an iterative procedure starting from the highest \pt electron or
+photon candidates and merging the next highest \pt candidate which lies in an
+$\eta\times\phi$ window of $0.05\times 0.20$, enlarged in $\phi$ to
+accommodate electron bending, around the strip centre. After merging the strip
+centre is updated from an energy-weighted average of the merged candidates and
+the iteration proceeds until no further candidates are available. Upon
+generating all strips, only those with a \pt greater than $\SI{2.5}{GeV}$ are
+kept as \Ppizero candidates.
+
+\begin{table}[htbp]
+    \centering
+    \begin{tabular}{lr}
+        \hline\hline
+        Decay mode & $\mathcal{B}$ [\%] \\
+        \hline
+        $\tau^-\ra\ell\bar{\nu}_{\ell}\nu_{\tau}$ & $35.2$ \\
+        \hline
+        $\tau^-\ra h^-\nu_{\tau}$ & $11.5$ \\
+        $\tau^-\ra h^-\Ppizero\nu_{\tau}$ & $25.9$ \\
+        $\tau^-\ra h^-\Ppizero\Ppizero\nu_{\tau}$ & $9.5$ \\
+        $\tau^-\ra h^-h^+h^-\nu_{\tau}$ & $9.8$ \\
+        $\tau^-\ra h^-h^+h^-\Ppizero\nu_{\tau}$ & $4.8$ \\
+        Remaining hadronic decays & $3.3$ \\
+        \hline
+        All hadronic decays & $64.8$ \\
+        \hline\hline
+    \end{tabular}
+    \caption{
+        Branching fractions $\mathcal{B}$ for $\tau$-lepton decay modes
+        without particular distinction between charged hadron, $h^{\pm}$, type
+        and highlighting the decay modes targeted by the HPS algorithm. The
+        two hadron final state is typically mediated by $\rho(770)$ resonance
+        and the three hadron final state by $a_1(1260)$. The table is adjusted
+        \cite{Khachatryan:2062435} with approximate values taken from the
+        particle data group (PDG) \cite{PhysRevD.98.030001}.
+    }
+    \label{tab:tau-decays}
+\end{table}
+
+The \Ptauh-lepton candidates are formed by matching strips to charged particle
+candidates within the seeding jet and consistent with the vertex nearest to
+the leading track: nearest approach to the vertex of at most $\SI{0.4}{cm}$ in
+$z$ and $\SI{0.03}{cm}$ in the $x$-$y$ plane to remove spurious tracks and
+mitigate pileup effects without a significant loss in efficiency. All
+\Ptauh-lepton candidates with one or three charged hadrons and up to two
+strips, within a cone $\Delta R=(\SI{3}{GeV}/\pt)$, are classified into a
+particular decay mode if the invariant mass of all the hadrons is consistent
+with the $\tau$-lepton mass, with some margin to account for the neutrino. The
+\Ptauh-lepton is assigned the decay with the highest \pt from the remaining
+modes for a unique classification.
+
+Misidentification of quark or gluon jets as a \Ptauh-lepton may result in a
+loss in signal efficiency for \IZvvj when vetoing \Ptauh events. These are
+recovered by discriminating \Ptauh-leptons and quark or gluon jets with an
+isolation-based BDT. The input features vary upon the classified decay mode
+and include: the lead track $d_{xy}$ and its significance, the distance
+between the $\tau$-lepton production and decay vertices and its significance,
+charged and neutral particle isolation sums and the $\Delta\beta$ correction
+value, an integer encoding the decay modes, a success flag upon finding a
+decay vertex for the $\tau$-lepton, along with the \pt and $\eta$ of the
+$\tau$-lepton. This BDT is trained and validated on simulated events with a
+selection on the discrimination variable defining various signal efficiency
+and background rejection, adjusted by the $\tau$-lepton \pt, working points. A
+very loose working point with a high efficiency is important for this analysis
+for an efficient rejection of \Ptauh-lepton backgrounds. Further
+discrimination on electron or muon misidentification as the charged hadron
+candidate are omitted in favour of higher selection efficiencies.
+
+\subsubsection{$b$-jet tagging}
+
+The jets associated to the ${\PZ(\ra\nu\bar{\nu})}$ production are typically
+quark or gluon jets with processes involving neutrinos in the final state
+along with $b$-jets result in a similar signature, such as top-quark
+production. Therefore, discrimination of $b$-jets from quark or gluon jets and
+the subsequent veto of events with $b$-jets is vital for this analysis.
+
+The $b$-jet tagging is performed on analysis-level jets by applying criteria
+on the jet's constituent tracks and vertices to identify $b$-hadron decays
+with displacements of about $\SI{1}{cm}$, hence only valid for jets within the
+tracker's acceptance ${\aeta<2.4}$. First, a set of secondary vertices are
+found by an inclusive vertex finding (IVF) algorithm from all tracks within an
+event with ${\pt>\SI{0.8}{GeV}}$ and a longitudinal impact parameter less than
+${\SI{3}{mm}}$. The vertex finder is initialised by track seeds defined by a
+3-dimensional impact parameter of at least ${\SI{50}{\micro m}}$ and a
+2-dimensional impact parameter significance above $1.2$. From these seed
+tracks the algorithm follows \cite{Sirunyan:2017ezt}:
+\begin{itemize}
+    \item \textbf{Track clustering:} grouping the seed track with compatible
+    tracks based on separation and opening angle.
+    \item \textbf{Secondary vertex fitting and cleaning:} fitting the position
+    of the secondary vertex from the clustered tracks with the adaptive vertex
+    fitter (discussed in Sec.~\ref{sec:vertex-reco}). Identified vertices must
+    have 2 and 3-dimensional flight distances consistent with $b$ or
+    $c$-hadron decays and vertices sharing $70\%$ of tracks with another
+    nearby vertex are removed.
+    \item \textbf{Track arbitration:} tracks associated with both primary and
+    secondary vertices are removed if they are more compatible with the
+    primary vertex.
+    \item \textbf{Refitting and cleaning:} positions of the secondary vertices
+    are refitted and duplicate vertices are removed.
+\end{itemize}
+Resulting set of secondary vertices are associated to jets if the angular
+distance between the jet axis and the vertex is within ${\Delta R=0.3}$. The
+jets seeding the b-tag fall into three independent categories based on the
+number of secondary vertices and tracks: at least one secondary vertex, no
+secondary vertex but at least two tracks, and the remaining set of candidates.
+An artificial neural network\footnote{An artificial neural network is a form of
+machine-learning, inspired by biological neural networks, with inter-connected
+nodes typically with a non-linear function output of a weighted sum of its
+inputs. The weights are adjusted in the learning process to optimise a loss
+function of the output nodes and the truth category or value of a set of
+inputs.} is trained on each category with simulated events to discriminate
+$b$, $c$ and light ($u$, $d$, $s$ or gluon) jets. The artificial neural
+network is fed a large set of input features based on the jet and its
+constituent secondary vertices and tracks with parameters based on distance,
+invariant mass and multiplicities along with the jet \pt and $\eta$
+\cite{Sirunyan:2017ezt}. Subsequently, a jet is $b$-tagged if the resulting
+discriminating variable is above a threshold defined by a medium working point
+where the misidentification probability is about $1\%$, resulting in a $b$-jet
+tagging efficiency of about $63\%$ \cite{Sirunyan:2017ezt}.
+
+\section{Missing transverse momentum}
+
+The transverse momentum imbalance of an event is reconstructed from the
+negative sum of transverse momenta of all PF candidates. This is used as an
+estimated of the vector boson \pt in \IZvvj events, where it cannot be
+determined directly. Therefore, in the collection of events targeting vector
+boson decays with partial or fully reconstructed decay products a proxy is
+used for the vector boson \vecpt, known as the recoil $\vec{\recoil}$, defined
+as
+%
+\begin{equation}
+    \vec{\recoil} = \vec{p}_{\mathrm{T}}^{\mathrm{miss}} + \sum_{i\in\ell} \vec{p}_{\mathrm{T},i}\ ,
+\end{equation}
+%
+where $i$ sums over all electrons and muons passing the analysis selection. In
+effect, this parameter determines the missing transverse momentum of an event
+treating electrons and muons as neutrinos.
+
+
+\section{Event categorisation}
+
+A set of categories are defined and used throughout this analysis for various
+purposes including signal collection, background prediction, and validation.
+First, a baseline selection is placed on all regions furthered by
+region-specific criteria to define independent categories. The baseline
+selection is driven by the desired event topology, trigger thresholds and
+rejection of spurious \ptmiss backgrounds.
+
+
+\subsection{Baseline selection}\label{sec:baseline-selection}
+
+The first set of requirements, known as the \ptmiss filters, remove scarce
+events which typically have spurious \ptmiss. All events without a
+reconstructed primary vertex within acceptable parameters of the beam spot are
+discarded since the offset of the origin biases the \ptmiss distribution and
+few simulated events predict this contribution. Although infrequently an
+issue, machine induced particles, specifically high energy muons, may interact
+with the calorimeters with a significant energy deposit leading to spurious
+\ptmiss. Such events are removed by searching for atypical calorimeter shower
+shapes matching to CSC detectors. Further noise in the \HCAL subdetectors
+readout system may gives rise to spurious \ptmiss, hence event with \HCAL
+readout channels consistent with significant noise leading to a biased \ptmiss
+are discarded \cite{CMS-DP-2016-061}. Also as a result of noise \ECAL crystals
+may be masked during reconstruction, however, this may lead to a significant
+loss of energy if, for example, a jet is incident upon the masked crystal
+leading to spurious \ptmiss. These events are removed by inspecting \HWT
+towers to determine if a significant amount of energy was lost. A final source
+of spurious \ptmiss is a result of high \pt, low resolution PF muons which
+lead to few unaccounted issues in the reconstruction, removed by inspecting
+candidate events in depth.
+
+The next criteria target the \metplusjets topology with thresholds driven by
+the missing energy trigger paths. To remain efficient in collecting events
+with these trigger paths the selection
+${\mathcal{U}=|\vec{\mathcal{U}}|>\SI{200}{GeV}}$ (discussed in
+Sec.~\ref{sec:met-trigger-efficiency}) is applied with the recoil in place of
+the \ptmiss to target similar topologies between events with missing energy
+from neutrinos and those with leptons in the final state. The topology is
+further targeted by requiring a lead jet ${\pt>\SI{200}{GeV}}$ within tracker
+acceptance (${\aeta<2.4}$), avoiding dijet-like events and resulting in the
+jet as a primary recoil against the vector boson. An additional requirement on
+the charged hadron energy fraction between {$0.1$--$0.95$} for this lead jet
+reduces spurious \ptmiss events arising from detector noise and
+machine-induced particles.
+
+Furthermore, events are reject if an object passing the veto and not the
+selection requirements for a jet, $b$-tagged jet, or a photon is observed
+within the events. These vetoes primarily remove events with VBS, top
+production and \Igj processes.
+
+The final baseline requirement is
+%
+\begin{equation}
+    \frac{\big| \ptmiss - \ptmisscalo \big|}{\recoil} < 0.6\ ,
+\end{equation}
+%
+which tests the compatibility of the particle-based \ptmiss and the
+muon-corrected calorimeter-based \ptmisscalo, relative to the recoil. This
+inconsistency is typically due to an issue in the reconstruction and does not
+significantly impact the signal.
+
+
+\subsection{Categorisation}\label{sec:categorisation}
+
+The event categorisation is shown in Tab.~\ref{tab:event-categorisation} with
+lepton selections and vetoes defining each region and possible requirements to
+enhance the signal. The \ellplusjets ($\ell=e,\mu$) regions have an
+accompanied transverse mass selection on the \PW boson, \mtell, approximated as
+%
+\begin{equation}
+    \mtell = \sqrt{2 \mom_{\mathrm{T},\ell} \ptmiss \left( 1 - \cos(\Delta\phi)\right)}\ ,
+\end{equation}
+%
+where $\mom_{\mathrm{T},\ell}$ is the transverse momentum of the leptons and
+$\Delta\phi$ is the opening angle between the lepton and the \vecptmiss
+vectors. The window placed on \mtell surrounds the \PW mass to enhance these
+regions in \IWj events and reduce combinatorial backgrounds. Similarly, the
+\diellplusjets regions regions are accompanied by an invariant mass \mellell
+window centred on the \PZ mass, significantly reducing the combinatorial
+background and contributions from \Igstarj. A remaining large contribution
+remains from the QCD multijet process whereby spurious \ptmiss arises from jet
+mismeasurement  resulting in an overlap between the \ptmiss and a jet. To
+avoid significant signal rejection only the overlap between the leading four
+jets are considered:
+%
+\begin{equation}
+    \mindphi = \min_{i\in\{j_0,j_1,j_2,j_3\}} \Delta\phi\left(\vecptmiss, \vec{\mom}_{\mathrm{T},i}\right)\ ,
+\end{equation}
+%
+where $i$ represents the set of the leading four jets and
+$\Delta\phi(\vec{a},\vec{b})$ represents the opening angle between vectors
+$\vec{a}$ and $\vec{b}$. The selection on \mindphi is inverted to obtain a QCD
+multijet enriched sideband. The \eleplusjets region has an additional
+requirement placed on the \ptmiss to further avoid the QCD multijet process
+with jets misidentified as electrons.
+
+\begin{table}[htbp]
+    \centering
+    \begin{tabular}{ll}
+        \hline\hline
+        Category & Requirements \\
+        \hline
+        \metplusjets & No additional veto electrons, muons or \Ptauh-leptons \\
+        \hline
+        \muplusjets & A single selected muon \\
+        & No additional muons, or veto electrons or \Ptauh-leptons \\
+        & ${30 < \mtmu < \SI{125}{GeV}}$ \\
+        \hline
+        \dimuplusjets & Two selected and oppositely charged muons \\
+        & No additional muons, or veto electrons or \Ptauh-leptons \\
+        & ${71 < \mmumu < \SI{111}{GeV}}$ \\
+        \hline
+        \eleplusjets & A single selected electron \\
+        & No additional electrons, or veto muons or \Ptauh-leptons \\
+        & ${30 < \mte < \SI{125}{GeV}}$ \\
+        & $\ptmiss>\SI{100}{GeV}$ \\
+        \hline
+        \dieleplusjets & Two selected and oppositely charged electrons \\
+        & No additional electrons, or veto muons or \Ptauh-leptons \\
+        & ${71 < \mee < \SI{111}{GeV}}$ \\
+        \hline
+        \tauplusjets & A single selected \Ptauh-lepton \\
+        & No additional \Ptauh-leptons, or veto electrons or muons \\
+        \hline\hline
+    \end{tabular}
+    \caption{
+        Definitions of each analysis category with the addition of the
+        baseline selection and ${\mindphi>0.5}$, and an additional set of
+        mirroring categories with the same definition but in the \mindphi
+        sideband, ${\mindphi<0.5}$. A description of the variables is provided
+        in the main text.
+    }
+    \label{tab:event-categorisation}
+\end{table}
+
+
+\section{Summary}
+
+The data samples relevant for this analysis was collected during 2016 with the
+\ptmiss, muon and electron-based triggers. The data is complemented by a vast
+array of simulated events, predominantly from \IVj, generated at NLO accuracy
+in the strong coupling constant. Minor background processes are produced with
+a variety of event generators at LO and NLO accuracy. The initiating parton in
+all generated events are sampled from parton distribution functions from the
+\NNPDF group at LO and NLO accuracy where applicable. Generated events are
+typically coupled to a package to mediated parton showering, hadronisation and
+particle decays. Subsequent, detector simulation and signal digitisation is
+performed with the \GEANT package, including an overlay of pileup vertices.
+
+Analysis level physics objects are defined with a veto and selection working
+point. Leptons and photons are required to pass a pileup-corrected isolation
+requirement. Furthermore, leptons are ignored from the \ptmiss calculation to
+define the recoil of an event. Jets are subcategorised in tags as originating
+from a hadronic $\tau$-lepton or $b$-hadron decays. The objects are used in the
+categorisation of each event with a baseline selection to filter rarespurious
+\ptmiss events, apply trigger thresholds and a lead jet selection to target
+the topology of a primary jet recoiling against a vector boson. Vetoes are
+placed on events containing forward (${\eta>2.4}$) jets, $b$-jets and selected
+photons. The final baseline condition removes misreconstructed events with an
+inconsistent \ptmiss and \ptmisscalo. Subsequent categorisation falls into
+\metplusjets, \ellplusjets ($\ell=e,\mu$ or \Ptauh) or \diellplusjets regions,
+with mirroring regions in a QCD multijet enriched sideband. Mass windows are
+placed on the combinations of the leptons and the \ptmiss to enrich the signal
+in all applicable regions. The resulting regions are used throughout the
+analysis.

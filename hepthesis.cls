@@ -444,7 +444,7 @@
 \fancypagestyle{plain}{%
   \fancyhf{}%
   %\fancyhead[RO,LE]{\bfseries \thepage}%
-  \fancyfoot[C]{\bfseries \thepage}%
+  \fancyfoot[C]{\thepage}%
   \renewcommand{\headrulewidth}{0pt}%
   \renewcommand{\footrulewidth}{0pt}%
 }
