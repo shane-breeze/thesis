@@ -82,28 +82,28 @@ selection is measured. The trigger selections are split into the muon, electron 
 
 The muon trigger efficiency is measured with the tag and probe method where
 the tag selection $T$ and $P$ selection must pass the full set of analysis
-requirements apart from the \pt and $\eta$ criteria for the probe. This allows
-the parameterisation of the muon efficiency with \pt and $\eta$ as the
-performance is expected to be highly dependent on these variables. The tag is
-also required to cause the event to pass the muon trigger selection such that
-the event is stored. The events are subsequently split into all probes and
-those passing the muon triggers with further division into independent \pt and
-$\eta$ bins. In each category the maximum likelihood fit is performed to the
-invariant mass of the two muons to extract the signal, modelled as a
-Breit-Wigner convoluted by a gaussian distribution, and background, modelled
-as a falling exponential, contributions in each bin. The efficiency is
-determined in each bin from the ratio of signal events where the probe passes
-the muon trigger selection to signal events without this requirement. The
-statistical uncertainty on the signal events is propagated through to the
-efficiencies with additional systematic uncertainties by performing the fit
-varying, in turn, the number of invariant mass bins, invariant mass range,
-signal and background models, tag selection and probe multiplicity. During the
-2016 data-taking period, saturation issues in the pre-amplifier chips for the
-tracker resulted in a loss of hits. This effect was mitigated in the later
-part of this period and further reduced by a re-processing of the data.
-Nevertheless, the muon trigger efficiencies are split into the initial part
-and final part of the data-taking period, as shown in
-Fig.~\ref{fig:muon-trigger-efficiency}.
+requirements apart from the \pt and $\eta$ criteria for the probe
+\cite{CMS-DP-2017-056}. This allows the parameterisation of the muon
+efficiency with \pt and $\eta$ as the performance is expected to be highly
+dependent on these variables. The tag is also required to cause the event to
+pass the muon trigger selection such that the event is stored. The events are
+subsequently split into all probes and those passing the muon triggers with
+further division into independent \pt and $\eta$ bins. In each category the
+maximum likelihood fit is performed to the invariant mass of the two muons to
+extract the signal, modelled as a Breit-Wigner convoluted by a gaussian
+distribution, and background, modelled as a falling exponential, contributions
+in each bin. The efficiency is determined in each bin from the ratio of signal
+events where the probe passes the muon trigger selection to signal events
+without this requirement. The statistical uncertainty on the signal events is
+propagated through to the efficiencies with additional systematic
+uncertainties by performing the fit varying, in turn, the number of invariant
+mass bins, invariant mass range, signal and background models, tag selection
+and probe multiplicity. During the 2016 data-taking period, saturation issues
+in the pre-amplifier chips for the tracker resulted in a loss of hits. This
+effect was mitigated in the later part of this period and further reduced by a
+re-processing of the data. Nevertheless, the muon trigger efficiencies are
+split into the initial part and final part of the data-taking period, as shown
+in Fig.~\ref{fig:muon-trigger-efficiency}.
 
 \begin{figure}[htbp]
     \centering
@@ -121,7 +121,15 @@ Fig.~\ref{fig:muon-trigger-efficiency}.
         \label{subfigb:muon-trigger-efficiency}
     \end{subfigure}
     \caption{
-        Muon trigger efficiencies parameterised by its \pt and \aeta, split by the data-taking period. The trigger efficiency is lower for low \pt endcap muons 
+        Muon trigger efficiencies parameterised by its \pt and \aeta, split by
+        the data-taking period. The trigger efficiency is lower in the endcaps
+        where the muon background rate is larger and for low \pt muons where
+        the track reconstruction is poorer. Inefficiencies for high \pt muons
+        result from mitigating misidentified charged hadrons or issues in
+        reconstructing the \pt for straight tracks. Most of the trigger
+        efficiency arises from the \HWT decision which is heavily constrained
+        by the timing budget. The differences between the data-taking periods
+        are at most $2\%$, with significant overlap within the uncertainties.
     }
     \label{fig:muon-trigger-efficiency}
 \end{figure}
