@@ -275,7 +275,7 @@ applied as a correction to MC.
         \label{subfigd:muon-id-scale-factors}
     \end{subfigure}
     \caption{
-        Muon identification (id) scale corrections applied to MC, parameterised with the muon \pt and \aeta. The top row shows the scale-factors for veto muons with corrections less than $1\%$ as a result of the basic selection. The bottom row shows the scale-factors for selection muon with corrections from {$1$--$4\%$} with the largest discrepancies on the edges of the endcaps (${0.9<\aeta<1.2}$ and ${2.1<\aeta<2.4}$) where the muon identification modelling does not perform as well in MC.
+        Muon identification (id) scale corrections applied to MC, parameterised with the muon \pt and \aeta. The top row shows the scale-factors for veto muons with corrections less than $1\%$ as a result of the basic selection. The bottom row shows the scale-factors for selection muon with corrections from {$1$--$4\%$} with the largest discrepancies on the edges of the endcaps (${0.9<\aeta<1.2}$ and ${2.1<\aeta<2.4}$) where the muon identification modelling does not perform as well in MC. 
     }
     \label{fig:muon-id-scale-factors}
 \end{figure}
@@ -310,7 +310,12 @@ applied as a correction to MC.
         \label{subfigd:muon-iso-scale-factors}
     \end{subfigure}
     \caption{
-        Muon isolation (iso) scale corrections applied to MC, parameterised with the muon \pt and \aeta. The modelling of the isolation in MC is better than the identification with at most $2\%$ difference for selection muons.
+        Muon isolation (iso) scale corrections applied to MC, parameterised
+        with the muon \pt and \aeta. The modelling of the isolation in MC is
+        better than the identification with at most $2\%$ difference for
+        selection muons with discrepancies only in the low \pt region. The
+        $z$-axis range is the same as the muon identification scale factor in
+        Fig.~\ref{fig:muon-id-scale-factors}.
     }
     \label{fig:muon-iso-scale-factors}
 \end{figure}
@@ -350,18 +355,20 @@ to MC.
     \\
     \begin{subfigure}[b]{0.49\textwidth}
         \centering
-        \includegraphics{}
+        \includegraphics{chapters/041_corrections/images/efficiencies/objects/photons/photon_id_veto_sf.pdf}
         \caption{Photon veto}
         \label{subfigc:egamma-id-iso-efficiency}
     \end{subfigure}
-    \hfill
-    \begin{subfigure}[b]{0.49\textwidth}
-        \centering
-        \includegraphics{}
-        \caption{Caption}
-        \label{subfigd:egamma-id-iso-efficiency}
-    \end{subfigure}
-    \caption{Caption}
+%    \hfill
+%    \begin{subfigure}[b]{0.49\textwidth}
+%        \centering
+%        \includegraphics{}
+%        \caption{Caption}
+%        \label{subfigd:egamma-id-iso-efficiency}
+%    \end{subfigure}
+    \caption{
+        Electron and photon identification 
+    }
     \label{fig:egamma-id-iso-efficiency}
 \end{figure}
 
