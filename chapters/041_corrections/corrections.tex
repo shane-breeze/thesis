@@ -325,17 +325,17 @@ applied as a correction to MC.
 
 The efficiency of the identification and isolation of electromagnetic showers
 are measured with the tag and probe technique in a similar manner to the
-muon-based efficiencies. A fit to the invariant mass distribution of electron
-pairs is performed to extract the signal yield in various probe \pt and $\eta$
-bins. This allows the efficiencies to be determined with analogous
-measurements in MC with the counting method. Systematic uncertainties are
-determined from the variation in efficiencies from altering the tag selection,
-signal model (template from MC or fully parameteric), background model, MC
-generator (LO against NLO), and additional sources for the photon
-identification efficiency to account for differences in the electron and
-photon showers. The ratio of the efficiency in data and MC is determined,
-shown in Fig.~\ref{fig:egamma-id-iso-efficiency} and applied as a correction
-to MC.
+muon-based efficiencies \cite{CMS-DP-2017-004}. A fit to the invariant mass
+distribution of electron pairs is performed to extract the signal yield in
+various probe \pt and $\eta$ bins. This allows the efficiencies to be
+determined with analogous measurements in MC with the counting method.
+Systematic uncertainties are determined from the variation in efficiencies
+from altering the tag selection, signal model (template from MC or fully
+parameteric), background model, MC generator (LO against NLO), and additional
+sources for the photon identification efficiency to account for differences in
+the electron and photon showers. The ratio of the efficiency in data and MC is
+determined, shown in Fig.~\ref{fig:egamma-id-iso-efficiency} and applied as a
+correction to MC.
 
 \begin{figure}[htbp]
     \centering
@@ -375,16 +375,20 @@ to MC.
 In addition, the efficiency for the reconstruction of GSF tracks matched to
 \ECAL deposits is measured with the same method and shown in
 Fig.~\ref{fig:electron-reco-efficiency}. Similarly, the efficiency from
-vetoing photons with a consistent GSF track is measured with a similar method
-in \IDYmmg, where the tag consists of a muon pair and the probe a
-final state radiated photon. The ratio of the efficiency in data and MC for
+vetoing photons with consistent track in the pixel detector is measured with a
+similar method in \IDYmmg, where the tag consists of a muon pair and the probe
+a final state radiated photon. The ratio of the efficiency in data and MC for
 the GSF track veto is shown in Fig.~\ref{fig:photon-trackveto-efficiency}.
 
 \begin{figure}[htbp]
     \centering
     \includegraphics{chapters/041_corrections/images/efficiencies/objects/electrons/electron_reco_sf.pdf}
     \caption{
-        Electron scale-factors associated with the reconstruction of electrons from tracks and \ECAL deposits. The \ECAL partially uninstrumented gap at ${1.444<\aeta<1.566}$. Mostly a good agreement between data and MC with deviations for low \pt and endcap electrons, again affected by material interactions.
+        Electron scale-factors associated with the reconstruction of electrons
+        from tracks and \ECAL deposits. The \ECAL partially uninstrumented gap
+        at ${1.444<\aeta<1.566}$. Mostly a good agreement between data and MC
+        with deviations for low \pt and endcap electrons, again affected by
+        material interactions.
     }
     \label{fig:electron-reco-efficiency}
 \end{figure}
@@ -393,7 +397,12 @@ the GSF track veto is shown in Fig.~\ref{fig:photon-trackveto-efficiency}.
     \centering
     \includegraphics{chapters/041_corrections/images/efficiencies/objects/photons/photon_pixelveto_sf.pdf}
     \caption{
-        Photon pixel veto scale-factors
+        Photon pixel veto scale-factors parameterised by \aeta and $R_9$, the
+        ratio of energy deposited in a $3\times 3$ grid of crystals
+        surrounding the seeding crystal with the full supercrystal energy. The
+        $R_9$ variable is sensitive to unconverted ($R_9\lesssim 0.94$) and
+        converted ($R_9\gtrsim 0.94$) photons. The pixel veto removes photon
+        candidates matched to tracks in the pixel detector.
     }
     \label{fig:photon-trackveto-efficiency}
 \end{figure}
@@ -493,7 +502,16 @@ is performed to the invariant mass of the visible particles to extract the
 signal contribution with templates taken from MC for the signal and most
 backgrounds. Systematic uncertainties on the identification efficiency are
 determined from the background normalisation, \ptmiss uncertainties and
-limited sample sizes \cite{Sirunyan:2018pgf}.
+limited sample sizes \cite{Sirunyan:2018pgf}. The scale-factors and
+uncertainties to correct the \Ptauh identification efficiency in MC is shown
+in Fig.~\ref{fig:tau-id-scale-factors}.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics{}
+    \caption{Caption}
+    \label{fig:my_label}
+\end{figure}
 
 
 \subsubsection{$b$-tagged jets}
