@@ -521,7 +521,7 @@ in Fig.~\ref{fig:tau-id-scale-factors}.
         \label{subfigb:tau-id-scale-factors}
     \end{subfigure}
     \caption{
-        \Ptauh identification scale-factors parameterised by the \Ptauh \pt. The dashed line 
+        \Ptauh identification scale-factors parameterised by the \Ptauh \pt. The dashed line is placed at a scale-factor of $1$. The veto category is mostly consistent with $1$ while the selection category deviates by {$5$--$10\%$} as a result of attempting to reduce misidentifications by probing the complex structure of multiple hadronic $\tau$-lepton decays.
     }
     \label{fig:tau-id-scale-factors}
 \end{figure}
@@ -545,16 +545,26 @@ Systematic uncertainties associated to the $b$-tag scale-factors are
 determined by varying background normalisations, branching fractions of
 hadronic decays within the PDG uncertainties, reweighting the distribution of
 the number of tracks, jet energy scale uncertainties, electron and muon
-efficiencies and theoretical uncertainties from the event generators. In the
+efficiencies and theoretical uncertainties from the event generators. The
+scale-factors associated with the $i$-enumerated $b$-tagged jet, $f_i$, is
+measured with a parameteric form with the \pt of the jet given by
+%
+\begin{equation}
+    f_i(\pt) =
+    \begin{cases}
+        p_0 \left(1 + p_1 \pt\right)/\left(1 + p_2 \pt\right), & \text{$c$ and $b$-hadrons}\\
+        p_0 + p_1 \pt + p_2 \pt^2 + p_3 \pt^3, & \text{$udsg$-hadrons}
+    \end{cases}
+\end{equation}
+%
+where $p_0$, $p_1$, $p_2$ and $p_3$ are parameters measured from a fit to the
+scale-factors in categories based on the jet flavour, \pt and $\eta$. In the
 context of this analysis, $b$-tagged jets are vetoed, therefore the event
 weight becomes
 %
 \begin{equation}
-    w \mapsto w \prod_{i\in\mathrm{b-jets}} (1 - f_i)\ ,
+    w \mapsto w \prod_{i\in\mathrm{b-jets}} (1 - f_i)\ .
 \end{equation}
-%
-where $f_i$ is the scale-factor associated with the $i$-enumerated $b$-tagged
-jet.
 
 
 \section{Luminosity}
