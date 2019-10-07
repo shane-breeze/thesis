@@ -1,4 +1,6 @@
-\documentclass[hyperpdf,bindnopdf,11pt]{hepthesis}
+\documentclass[11pt]{hepthesis}
+%\documentclass[hyperpdf,11pt]{hepthesis}
+%\documentclass[hyperpdf,bindnopdf,11pt]{hepthesis}
 
 \input{preamble/preamble}
 
@@ -8,9 +10,9 @@
     \hypersetup{%
         hidelinks=true,
         pdftitle = {Precision measurement of the Z invisible width with the CMS experiment}
-        pdfsubject = {Shane Breeze's PhD thesis},
+        pdfsubject = {Shane Davy Breeze's PhD thesis},
         pdfkeywords = {CMS, Electroweak physics, Z boson, Precision measurement, LHC},
-        pdfauthor = {\textcopyright\ Shane Breeze},
+        pdfauthor = {\textcopyright\ Shane Davy Breeze},
         linkcolor=black,
         colorlinks=false
     }
@@ -21,22 +23,21 @@
 \renewcommand{\listtablename}{List of tables}
 
 \title{Precision measurement of the \PZ invisible width with the \CMS experiment}
-\author{Shane Breeze}
-
-%\includeonly{chapters/100_appendices/appendices,postamble/200_biblio/biblio}
-%\includeonly{chapters/030_detector/detector,postamble/200_biblio/biblio}
-%\includeonly{chapters/031_reconstruction/reconstruction,postamble/200_biblio/biblio}
-%\includeonly{chapters/040_selection/selection,postamble/200_biblio/biblio}
-\includeonly{chapters/041_corrections/corrections,postamble/200_biblio/biblio} 
+\author{Shane Davy Breeze}
 
 \begin{document}
-
+    \titlepage[Imperial College London\\Department of Physics]{
+        A thesis submitted to Imperial College London\\
+        for the degree of Doctor of Philosophy
+    }
+    \clearpage
+    \include{preamble/000_copyright/copyright}
+    
     \begin{frontmatter}
-        \include{preamble/000_title/title}
         \include{preamble/001_abstract/abstract}
         \include{preamble/002_declaration/declaration}
         \include{preamble/003_acknowledgements/acknowledgements}
-        \include{preamble/004_preface/preface}
+        %\include{preamble/004_preface/preface}
         \include{preamble/005_toc/toc}
     \end{frontmatter}
 
@@ -50,7 +51,7 @@
         \include{chapters/040_selection/selection}
         \include{chapters/041_corrections/corrections}
         \include{chapters/042_backgrounds/backgrounds}
-        \include{chapters/043_statistics/statistics}
+        \include{chapters/043_results/results}
         \include{chapters/050_summary/summary}
     \end{mainmatter}
 

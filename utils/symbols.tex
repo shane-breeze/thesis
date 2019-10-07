@@ -33,6 +33,13 @@
 \newcommand{\ptmissthresh}{\ensuremath{\hat{\mom}_{\text{T}}^{\mathrm{miss}}}\xspace}
 \newcommand{\ptmisscalo}{\ensuremath{\mom_{\text{T,calo}}^{\mathrm{miss}}}\xspace}
 \newcommand{\recoil}{\ensuremath{\mathcal{U}}\xspace}
+\newcommand{\vecrecoil}{\ensuremath{\vec{\mathcal{U}}}\xspace}
+\newcommand{\ptll}{\ensuremath{\mom_{\mathrm{T},\ell\ell}}\xspace}
+\newcommand{\vecptll}{\ensuremath{\vec{\mom}_{\mathrm{T},\ell\ell}}\xspace}
+\newcommand{\recoilpara}{\ensuremath{\mathcal{U}_{\parallel}}\xspace}
+\newcommand{\vecrecoilpara}{\ensuremath{\vec{\mathcal{U}}_{\parallel}}\xspace}
+\newcommand{\recoilperp}{\ensuremath{\mathcal{U}_{\perp}}\xspace}
+\newcommand{\vecrecoilperp}{\ensuremath{\vec{\mathcal{U}}_{\perp}}\xspace}
 \newcommand{\sieie}{\ensuremath{\sigma_{i\eta i\eta}}\xspace}
 \newcommand{\sieiefbf}{\ensuremath{\sigma_{i\eta i\eta}^{5\times 5}}\xspace}
 \newcommand{\mindphi}{\ensuremath{\Delta\phi_{\mathrm{min}}}\xspace}
@@ -85,16 +92,21 @@
 \newcommand{\ellplusjets}{\ensuremath{\ell+\mathrm{jets}}\xspace}
 \newcommand{\diellplusjets}{\ensuremath{\ell\ell+\mathrm{jets}}\xspace}
 \newcommand{\muplusjets}{\ensuremath{\mu+\mathrm{jets}}\xspace}
+\newcommand{\mupplusjets}{\ensuremath{\mu^{+}+\mathrm{jets}}\xspace}
+\newcommand{\munplusjets}{\ensuremath{\mu^{-}+\mathrm{jets}}\xspace}
 \newcommand{\dimuplusjets}{\ensuremath{\mu\mu+\mathrm{jets}}\xspace}
 \newcommand{\eleplusjets}{\ensuremath{e+\mathrm{jets}}\xspace}
 \newcommand{\dieleplusjets}{\ensuremath{ee+\mathrm{jets}}\xspace}
 \newcommand{\tauplusjets}{\ensuremath{\Ptauh+\mathrm{jets}}\xspace}
-\newcommand{\effdata}{\ensuremath{\varepsilon_{\mathrm{data}}}\xspace}
-\newcommand{\effmc}{\ensuremath{\varepsilon_{\mathrm{MC}}}\xspace}
+\newcommand{\eff}{\ensuremath{\varepsilon}\xspace}
+\newcommand{\acc}{\ensuremath{\mathcal{A}}\xspace}
+\newcommand{\effdata}{\ensuremath{\eff_{\mathrm{data}}}\xspace}
+\newcommand{\effmc}{\ensuremath{\eff_{\mathrm{MC}}}\xspace}
 
 % Interactions
+\newcommand{\inv}{\ensuremath{{\mathrm{inv}}}\xpsace}
 \newcommand{\IVj}{\ensuremath{{\PV+\mathrm{jets}}}\xspace}
-\newcommand{\IZinv}{\ensuremath{{\PZ\ra\mathrm{inv.}}}\xspace}
+\newcommand{\IZinv}{\ensuremath{{\PZ\ra\inv}}\xspace}
 \newcommand{\IZvv}{\ensuremath{{\PZ\ra\nu\bar{\nu}}}\xspace}
 \newcommand{\IWlv}{\ensuremath{{\PW\ra \ell\nu}}\xspace}
 \newcommand{\IWev}{\ensuremath{{\PW\ra e\nu}}\xspace}
@@ -109,15 +121,18 @@
 \newcommand{\IZll}{\ensuremath{{\PZ\ra \ell\bar{\ell}}}\xspace}
 \newcommand{\Igstarll}{\ensuremath{{\Pgstar\ra \ell\bar{\ell}}}\xspace}
 \newcommand{\IZj}{\ensuremath{{\PZ+\mathrm{jets}}}\xspace}
-\newcommand{\IZinvj}{\ensuremath{{\PZ(\ra\mathrm{inv.})+\mathrm{jets}}}\xspace}
+\newcommand{\IZinvj}{\ensuremath{{\PZ(\ra\inv)+\mathrm{jets}}}\xspace}
 \newcommand{\IZvvj}{\ensuremath{{\PZ(\ra\nu\bar{\nu})+\mathrm{jets}}}\xspace}
 \newcommand{\IWj}{\ensuremath{{\PW+\mathrm{jets}}}\xspace}
 \newcommand{\IWlvj}{\ensuremath{{\PW(\ra \ell\nu)+\mathrm{jets}}}\xspace}
-\newcommand{\IWej}{\ensuremath{{\PW(\ra e\nu)+\mathrm{jets}}}\xspace}
-\newcommand{\IWmj}{\ensuremath{{\PW(\ra \mu\nu)+\mathrm{jets}}}\xspace}
-\newcommand{\IWtj}{\ensuremath{{\PW(\ra \Ptau\nu)+\mathrm{jets}}}\xspace}
-\newcommand{\IWthj}{\ensuremath{{\PW(\ra \Ptauh\nu)+\mathrm{jets}}}\xspace}
+\newcommand{\IWevj}{\ensuremath{{\PW(\ra e\nu)+\mathrm{jets}}}\xspace}
+\newcommand{\IWmvj}{\ensuremath{{\PW(\ra \mu\nu)+\mathrm{jets}}}\xspace}
+\newcommand{\IWtvj}{\ensuremath{{\PW(\ra \Ptau\nu)+\mathrm{jets}}}\xspace}
+\newcommand{\IWthvj}{\ensuremath{{\PW(\ra \Ptauh\nu)+\mathrm{jets}}}\xspace}
 \newcommand{\IDYllj}{\ensuremath{{\PDY(\ra \ell\bar{\ell})+\mathrm{jets}}}\xspace}
+\newcommand{\IDYeej}{\ensuremath{{\PDY(\ra e^+e^-)+\mathrm{jets}}}\xspace}
+\newcommand{\IDYmmj}{\ensuremath{{\PDY(\ra \mu^+\mu^-)+\mathrm{jets}}}\xspace}
+\newcommand{\IDYttj}{\ensuremath{{\PDY(\ra \tau^+\tau^-)+\mathrm{jets}}}\xspace}
 \newcommand{\IZllj}{\ensuremath{{\PZ(\ra \ell\bar{\ell})+\mathrm{jets}}}\xspace}
 \newcommand{\Igstarj}{\ensuremath{{\Pgstar+\mathrm{jets}}}\xspace}
 \newcommand{\Igstarllj}{\ensuremath{{\Pgstar(\ra \ell\bar{\ell})+\mathrm{jets}}}\xspace}

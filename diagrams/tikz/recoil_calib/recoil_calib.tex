@@ -1,0 +1,42 @@
+\documentclass[border=10pt]{standalone}
+\usepackage{verbatim}
+\usepackage{amsmath}
+\usepackage{pgfplots,tikz}
+\usepackage{tikz-3dplot}
+\usetikzlibrary{calc,positioning,shadows.blur,decorations.markings,decorations.pathreplacing,arrows}
+\pgfplotsset{compat=newest}
+\usepackage{etoolbox}
+\usepackage{mathpazo}
+
+\begin{document}
+\begin{tikzpicture}[scale=1]
+    \definecolor{cblblue}{HTML}{A6CEE3}
+    \definecolor{cbblue}{HTML}{1F78B4}
+    \definecolor{cbred}{HTML}{E31A1C}
+    \definecolor{cbpink}{HTML}{FB9A99}
+    \definecolor{cblilac}{HTML}{CAB2D6}
+    \definecolor{cbgreen}{HTML}{33A02C}
+    \definecolor{cborange}{HTML}{FF7F00}
+    \definecolor{cbgrey}{HTML}{D9D9D9}
+    \definecolor{cbbrown}{HTML}{B15928}
+    
+    \coordinate (O) at (0,0);
+    
+    \filldraw (O) node[above left]{IP} circle (2pt);
+    \draw[thick,>=stealth',->] (0,0) -- (5,0) node[right]{$\vec{p}_{\mathrm{T},\ell\ell}$};
+    \draw[thick,>=stealth',dashed,->] (0,0) -- (-0.5,-1) node[above left]{$\vec{p}_{\mathrm{T}}^{\mathrm{miss}}$};
+    \draw[>=stealth',->] (0,0) -- (3.5,2) node[right]{$\vec{p}_{\mathrm{T},\ell_0}$};
+    \draw[>=stealth',->] (0,0) -- (1.5,-2) node[right]{$\vec{p}_{\mathrm{T},\ell_1}$};
+    \draw[thick,>=stealth',dashed,->] (0,0) -- (4.5,-1) node[right]{$\vec{\mathcal{U}}$};
+    
+    \draw[>=stealth',->] (4.5,0) -- node[right]{$\vec{\mathcal{U}}_{\perp}$} (4.5,-1);
+    \draw[>=stealth',->] (0,0) -- node[above]{$\vec{\mathcal{U}}_{\parallel}$} (4.5,0);
+    
+    % ghosts
+    \draw (-5,0) node[right]{\phantom{$\vec{p}_{\mathrm{T},\ell\ell}$}};
+    \draw (3.5,-2) node[right]{\phantom{$\vec{p}_{\mathrm{T},\ell_0}$}};
+    \draw (1.5,2) node[right]{\phantom{$\vec{p}_{\mathrm{T},\ell_1}$}};
+    
+    
+\end{tikzpicture}
+\end{document}

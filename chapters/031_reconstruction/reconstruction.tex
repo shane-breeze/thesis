@@ -4,13 +4,7 @@
 
 \section{Introduction}
 
-The apparent simplicity --- hits from ionising particles and energy deposits
-from particle showers --- and the detector granularity of \CMS allows the
-reconstruction and identification of muons, electrons and photons, and charged
-and neutral hadrons. Instead of simply detecting, reconstructing and
-identifying particles with their respective dedicated system an improvement is
-made from correlating elements from all detector layers with an attempt to
-distinguish each individual particle by a technique known as particle flow (PF).
+The reconstruction and identification of particles with the \CMS detector starts from the hits of ionising particles and energy deposits of particles showers. The granularity of the \CMS detector allows muons, electron and photons, and charged and neutral hadrons to be distinguished. Instead of simply detecting, reconstructing and identifying particles with their respective dedicated system, information from all aspects of the detector are correlated to extract the best estimate for the reconstructed set of particles. Each particle is distinguish individually by a technique known as particle flow (PF).
 
 The initial step in reconstruction, prior to the PF method, consists of
 forming charged particle tracks from hits in the silicon tracker, tracks in
@@ -18,11 +12,8 @@ the muon chambers and calorimeter clusters from energy deposits in the
 calorimetry system. The basic building blocks form the input into the PF
 algorithm which attempts to link the various blocks into a coherent picture of
 a particle candidate. For example, tracks are linked to an \ECAL deposit to
-form an electron candidate with further linking to \ECAL deposits consistent
-with Bremsstrahlung photons from the electron, which may undergo conversion
-resulting in displaced electrons tracks also linked to the primary electron.
-Furthermore, the reconstruction of all particles results in a simple \ptmiss
-calculation from the negative vector sum of all particle momenta.
+form an electron candidate. These are further linked to \ECAL deposits consistent
+with Bremsstrahlung photons from the original electron track. These secondary photons may undergo further interactions resulting in displaced electrons tracks also linked to the primary electron. Furthermore, the reconstruction of all particles results in a simple \ptmiss calculation from the negative vector sum of all particle momenta.
 
 This chapter will describe in detail the process of tracking, clustering and
 the PF method in the full reconstruction of a proton-proton interaction.
@@ -69,7 +60,7 @@ along with the definitions of the angles $\theta_t$ and $\phi_t$.
 \begin{figure}
     \centering
     \includegraphics{diagrams/tikz/kf_parameters/kf_parameters.pdf}
-    \caption{
+    \caption[Coordinate system to describe the curved path of a charged particle within an magnetic field.]{
         Diagram of a track (shown in red) from the interaction point (IP) with
         the conventional \CMS coordinate system as well as a local coordinate
         system along the trajectory, an example of which is shown at point $P$
@@ -84,13 +75,12 @@ along with the definitions of the angles $\theta_t$ and $\phi_t$.
 \end{figure}
 
 The trajectory building with a Kalman filter starts with the seed generation
-stage by combining a set of pixel hits, where the resolution is  a setthe
+stage by combining a set of pixel hits, where the resolution is the
 greatest and occupancy the lowest. Each iteration of the Kalman filter extends
 to the next tracker layer where each hit candidate, within a $\chi^2$ window,
 is kept to form independent track candidates. Fake tracks will typically have
 a layer where no hits are within the window and can be dropped. Further checks
-are performed on the consistency of hits with the \pt of the track and from
-vertex constraints. Finally, a cleaning process assigns unique tracks to a
+are performed on the consistency of hits with the \pt of the track, in addition to vertex constraints. Finally, a cleaning process assigns unique tracks to a
 seed and vice versa. After determining the full set of tracks, the Kalman
 filter procedure is repeated with the precise hit reconstruction, accounting
 for inter-layer material and field inhomogeneities, with inflated
@@ -103,16 +93,16 @@ The trajectory building is performed ten times with different seeds to target
 various classes of tracks with hits associated with candidate tracks removed
 from subsequent iterations:
 \begin{itemize}
-    \item Prompt and high \pt tracks, and $b$-hadron decays are target by the
+    \item Prompt and high \pt tracks, and $b$-hadron decays are targeted by the
     first three iterations, seeded by three hits in the pixel detector with
     constraints on the track \pt and distance of nearest approach to the beam axis.
-    \item The fourth and fifth iteration target tracks with one or two missing
+    \item The fourth and fifth iteration targets tracks with one or two missing
     hits in the pixel detector as a result of particle interactions and
     decays, or detector inefficiencies. These are seeded by two pixel hits or
     a combination of three pixel and strips hits.
     \item The next two iterations are seeded by strip hits to target displaced tracks.
     \item The eighth iteration targets high \pt jets with merged constituent
-    tracks, seeded by pairs of hits in the pixel and strips with the initial
+    tracks, seeded by pairs of hits in the pixel and strips, with the initial
     track compatible with a high energy calorimeter deposit.
     \item The final two iterations are designed to track muons missed by prior
     iterations by using information from the muon chambers to determine the seeds.
@@ -128,7 +118,7 @@ significant Bremsstrahlung and high energy photon emission. To recover these
 tracks another fitting procedure is performed, based on a gaussian-sum filter
 (GSF). The GSF method models hits by a weighted sum of gaussian distributions
 for a more accurate representation of hits with sudden and substantial
-radiative losses. The results of the expectation fit to the observed hits is
+radiative losses. The results of the fit to the observed hits is
 fed into a boosted decision tree\footnote{A boosted decision tree is a form of
 supervised artificial learning with an output from a weighted linear sum of
 many decision trees, determined by optimising a function of the truth and
@@ -159,9 +149,7 @@ and results of the track fitting:
 \section{Vertex reconstruction}\label{sec:vertex-reco}
 
 The conditions provided by the \LHC during 2016 data-taking yielded on average
-about 25 proton-proton interactions per bunch crossing. Since the triggering
-system selects about 1 in 100 thousand crossing at most one of these
-interaction points are of interest per event, known as the primary vertex. The
+about 25 proton-proton interactions per bunch crossing. The low cross section of hard interactions between protons typically results in a single interaction point of interest, known as the primary vertex, with these 25. The
 other vertices are classified as pileup which result in additional particles
 leading to misreconstruction of the primary event. Therefore, the reconstruction
 of these vertices is critical in mitigating the impact of pileup interactions,
@@ -173,7 +161,7 @@ collection of tracks are selected by their track quality parameters
 consistency with the beam spot, a 3-dimensional profile of the luminous
 region determined from an average over multiple bunch crossings. From these
 track collections a set of vertex seeds are found by searching for convergence
-points of multiple tracks \cite{Speer:927395}. These seeds initialises the
+points of multiple tracks \cite{Speer:927395}. These seeds initialise the
 adaptive vertex fitter \cite{Fruhwirth:1027031}, a similar procedure to the
 Kalman filter although all tracks are considered in turn weighted by the
 compatibility of the track's nearest approach to the vertex seed. This is
@@ -187,7 +175,7 @@ collection by the greatest $\sum \pt^2$ over all outgoing tracks
 \section{Calorimeter clustering}
 
 A clustering algorithm groups energy deposits within the calorimeter towers to
-encapsulate the whole extend of a particle shower, or multiple overlapping
+encapsulate the whole extent of a particle shower, or multiple overlapping
 showers. These clusters are sent to the PF algorithm to link the cluster with
 a track, or multiple tracks. The clustering is performed separately in the
 ECAL barrel and endcaps, HCAL barrel and endcaps, and the two preshower
@@ -252,8 +240,8 @@ uncertainties and multiple scattering. A link distance quantifies the distance
 between the extrapolated track position and the cluster position in
 $\eta$-$\phi$ with the link of minimum distance kept. Bremsstrahlung photons
 are linked to electron GSF tracks if tangents, at each tracker layer, to the
-track are consistent with \ECAL clusters. A dedicated conversion finder
-creates a link between two tracks and a photon if the track are compatible
+tracks are consistent with \ECAL clusters. A dedicated conversion finder
+creates a link between two tracks and a photon if the tracks are compatible
 with the characteristics of a photon conversion. Clusters are linked together
 (preshower to \ECAL and \ECAL to \HCAL) if the more granular calorimeter
 cluster is within the less granular calorimeter cluster, retaining the link
@@ -331,7 +319,7 @@ isolated photon candidates are removed from further processing.
 
 The remnants of jet fragmentation and hadronisation with the subsequent decay
 of heavy hadrons include: charged hadrons such as $\Ppipm$, $\Pkpm$ and
-protons; neutral hadrons such as $\Pklzero$ and neturons; non-isolated photons
+protons; neutral hadrons such as $\Pklzero$ and neutrons; non-isolated photons
 typically from $\Ppizero$ decays; and rarely additional muons from early
 charged hadron decays. Discrimination of hadrons, other than charged and
 neutral, is difficult with high misidentification rates, therefore, the PF
@@ -384,10 +372,9 @@ hadron is updated to account for these particles.
 
 The fragmentation and hadronisation of outgoing quarks form a cone of hadrons
 known as a jet. The anti-\kt algorithm \cite{Cacciari:2008gp,Cacciari2012}
-discussed in Sec.~\ref{sec:theory} clusters PF candidates into cones of
+discussed in Sec.~\ref{sec:hadron-collider-physics} clusters PF candidates into cones of
 radius $R=0.4$ in the $\eta$-$\phi$ plane.  The minimum clustering threshold
-is set to $\SI{15}{GeV}$, below which jets are unreliable at mirroring the
-underlying physics. Seeding jets by PF candidates improves the energy
+is set to $\SI{15}{GeV}$, below which jets are unreliable at measuring the original parton momentum. Seeding jets by PF candidates improves the energy
 resolution by complimentary tracker measurements for charged hadrons affected
 by the poorer hadron calorimeter resolution. However, as with any other jet
 seed, neutrinos from hadron decays within  the jet are not accountable.
@@ -403,8 +390,7 @@ from:
 \end{equation}
 %
 where $i$ sums over the PF candidates. However, residual misidentification and
-misreconstruction can lead to a large \ptmiss similar to new physics
-processes. To control the artificially large \ptmiss all particles with a
+misreconstruction can lead to a large \ptmiss similar to physics beyond that expected from the SM. To control the artificially large \ptmiss all particles with a
 significant correlation with the direction and magnitude of the \ptmiss are
 selected. The particles are typically high \pt muons and their identification
 and reconstruction revised as follows:
@@ -434,7 +420,7 @@ and reconstruction revised as follows:
     half.
 \end{itemize}
 %
-After these revisions the \ptmiss is updated and the approach validated with
+After these revisions the \ptmiss is updated. The approach validated with
 in situ measurements and studies in simulated events which show minimal impact
 on processes with real \ptmiss, such as the pair-production of $t\bar{t}$.
 
@@ -462,7 +448,7 @@ muon chamber tracks. Electron and isolated photon candidates are formed from
 clusters consistent with Bremsstrahlung photons or GSF tracks compatible with
 photon conversions. Hadrons and non-isolated photons have possible links
 between tracks, \HCAL and \ECAL clusters. Further refinement is performed on
-irregular candidates. After all PF candidates are determined jets are
+irregular candidates. After all PF candidates are determined, jets are
 clustered from all candidates with the anti-\kt algorithm and the \ptmiss
 determined from a negative sum over all candidate $\vec{p}_{\mathrm{T}}$
 with possible identification revisions to avoid large spurious
