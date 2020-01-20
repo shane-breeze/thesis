@@ -472,7 +472,56 @@ the GSF track veto is shown in Fig.~\ref{fig:photon-trackveto-efficiency}.
 \end{figure}
 
 Finally, the difference in the scale and resolution of electrons and photons
-in data and MC is measured from the impact on the mean and width of. Therefore, an
+in data and MC is measured from the impact on the mean and width of the
+invariant mass distribution in \IDYee events. A fit to the \PZ lineshape is
+performed to extract the mean and width in data and MC. The observed
+difference is used as a correction to electron and photon energies with
+associated systematic uncertainties from the signal and background models, MC
+generator and differences between the electron and photon showers.
+
+% TODO: give a reference or attach the associated result?
+
+
+\subsection{Jets}
+
+The detector response to objects, especially the cluster of particles in jets,
+is not linear. Therefore, a set of jet energy corrections are measured and
+applied to map the reconstructed jet energy to the particle-level equivalent
+(the energy of all generated particles originating from the parton excluding
+neutrinos). A factorised approach is implemented with each level accounting
+for different effects \cite{Khachatryan:2016kdb}.
+
+The first step mitigates the contribution of particles from pileup vertices
+which fall within the cone of the jet. This contribution is determined with
+the random cone method in zero bias events and in simulations without any hard
+interactions. Zero bias events are collected by randomly selecting collisions
+regardless of their content. Since the hard interaction cross-section is small
+this typically selected events with pileup interactions. The random cone
+method consists of placing a random set of jet cones in a zero bias event,
+clustering the particles falling within these cones, and determining the
+energies of these jets. This energy represents the contribution to a jet from
+pileup and is parameterised by the event energy density and jet \pt and
+$\eta$. A systematic uncertainty is determined by comparing the correction
+from the random cone method to the generator-level in MC.
+
+The second step involves the correction to particle-level jets. Again, this is
+determined from QCD dijet simulations by comparing the reconstructed jet \pt
+to particle-level \pt, parameterised by the jet \pt and $\eta$. A systematic
+uncertainty is determined for this correction as a result of its dependence on
+the underlying detector calibrations with results from test beam studies.
+
+The third and final step attempts to resolve residual differences between data
+and MC. These corrections are applied to data since the aim is to replicate
+the particle-level description which is only available in simulation. This
+step is split into two stages: the first is an $\eta$-dependent correction
+determined from dijet events with barrel jets used as a reference, and a
+second a \pt-dependent scale difference between data and MC determined from
+\IDYllj, \Igj and QCD multijet events. In these processes the jet energy
+response is studied by comparing reconstructed jets to particle-level jets on
+a jet-by-jet basis and also the whole hadronic activity from the correlation
+of a particle-level jet to the missing transverse energy of the event. These
+methods do not fully capture the dependence as a result of the correlation
+between initial (ISR) or final state radiated (FSR) jets. Therefore, an
 additional correction is determined by probing the $\eta$-dependent
 corrections with a selection to enhance the effect of this correlation. Along
 with these corrections are associated systematic uncertainties to cover the

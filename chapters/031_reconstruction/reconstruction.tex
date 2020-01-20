@@ -4,7 +4,7 @@
 
 \section{Introduction}
 
-The reconstruction and identification of particles with the \CMS detector starts from the hits of ionising particles and energy deposits of particles showers. The granularity of the \CMS detector allows muons, electron and photons, and charged and neutral hadrons to be distinguished. Instead of simply detecting, reconstructing and identifying particles with their respective dedicated system, information from all aspects of the detector are correlated to extract the best estimate for the reconstructed set of particles. Each particle is distinguish individually by a technique known as particle flow (PF).
+The reconstruction and identification of particles with the \CMS detector starts from the hits of ionising particles and energy deposits of particles showers. The granularity of the \CMS detector allows muons, electrons and photons, and charged and neutral hadrons to be distinguished. Instead of simply detecting, reconstructing and identifying particles with their respective dedicated system, information from all aspects of the detector are correlated to extract the best estimate for the reconstructed set of particles. Each particle is distinguished individually by a technique known as particle flow (PF).
 
 The initial step in reconstruction, prior to the PF method, consists of
 forming charged particle tracks from hits in the silicon tracker, tracks in
@@ -149,7 +149,7 @@ and results of the track fitting:
 \section{Vertex reconstruction}\label{sec:vertex-reco}
 
 The conditions provided by the \LHC during 2016 data-taking yielded on average
-about 25 proton-proton interactions per bunch crossing. The low cross section of hard interactions between protons typically results in a single interaction point of interest, known as the primary vertex, with these 25. The
+about 25 proton-proton interactions per bunch crossing. The low cross section of hard interactions between protons typically results in a single interaction point of interest, known as the primary vertex. The
 other vertices are classified as pileup which result in additional particles
 leading to misreconstruction of the primary event. Therefore, the reconstruction
 of these vertices is critical in mitigating the impact of pileup interactions,
@@ -179,7 +179,7 @@ encapsulate the whole extent of a particle shower, or multiple overlapping
 showers. These clusters are sent to the PF algorithm to link the cluster with
 a track, or multiple tracks. The clustering is performed separately in the
 ECAL barrel and endcaps, HCAL barrel and endcaps, and the two preshower
-layers. No clustering is performed in the HF since forward jets typically have
+layers. No clustering algorithm is necessary in the HF since forward jets typically have
 large momenta and hence collimated showers. Seeds initialise the clustering
 and are identified as cells with an energy above a threshold and greater than
 the nearest neighbouring cells. Topological clusters are formed by continually
@@ -246,7 +246,7 @@ with the characteristics of a photon conversion. Clusters are linked together
 (preshower to \ECAL and \ECAL to \HCAL) if the more granular calorimeter
 cluster is within the less granular calorimeter cluster, retaining the link
 forming the minimum distance between the two clusters. Finally, tracks are
-linked together through a common secondary vertex, attributed to
+linked together by a common secondary vertex, attributed to
 nuclear-interactions. These tracks must contain at least three tracks: one
 incoming from the primary vertex and at least two outgoing, or at least three
 outgoing. All links are formed and the subsequent part of the PF algorithm
@@ -266,8 +266,8 @@ exceed $10\%$ of the muon \pt:
 \end{equation}
 %
 where $I_{\mathrm{track,calo}}$ is known as the track-calorimeter isolation,
-$i$ sums the transverse momenta of all tracks within $\Delta R=0.3$ and $j$
-sums the transverse energies of all clusters within $\Delta R=0.3$.
+$i$ sums the transverse momenta $\vec{p}_{\mathrm{T}}$ of all tracks within $\Delta R=0.3$ and $j$
+sums the transverse energies $E_{\mathrm{T}}$ of all clusters within $\Delta R=0.3$.
 Non-isolated muons are also identified without the isolation requirement,
 however, inner tracks must match at least three track segments in the muon
 detectors or calorimeter clusters compatible with the muon hypothesis to avoid
@@ -338,25 +338,19 @@ hadrons, which can account for $25\%$ of the jet's energy deposited in the
 \ECAL. Instead, \ECAL clusters linked to \HCAL clusters are assigned as hadron
 showers with an unknown charge, while \ECAL clusters without this link are
 considered photons. Beyond ${\aeta=3.0}$, within the HF, electromagnetic and
-hadronic activity are identified by exploiting depth information and lateral
-shower profiles by comparing $3\times 3$ to $5\times 5$ clusters.
+hadronic activity are distinguished by exploiting depth and lateral
+shower profile information.
 
 Misidentification and misreconstruction may leave inconsistencies in the
 calibrated calorimetric energy and tracker momenta for charged hadrons. These
-are dealt by reassigning the identification or refining the reconstruction,
-since the excess infers the presence of photons or neutral hadrons. If the
-calibrated cluster energy $E_T$ is in excess, by $\delta_T$, of the sum of
-linked track momenta, $|\sum \vec{p}_T|$, where ${\SI{500}{MeV}<\delta_T<E_T}$
-then $\delta_T$ is attributed to a photon. If $\delta_T>E_T$, the $E_T$
-deposit is revised as a photon and $\delta_T$ is assigned to a neutral hadron.
-If the excess is small but inconsistent with the energy resolution
-$\sigma(E_T)$, ${\sigma(E_T)<\delta_T<\SI{500}{MeV}}$, a $\chi^2$ fit to the
-tracker and calorimeter information is performed to refine the energy of the
-charged hadron. Finally, in the rare case where the track momenta are in
-excess of $E_T$, i.e. $\delta_T<0$, a relaxed search for muon candidates is
-performed. Any remaining excess is associated to misreconstructed tracks with
-a momentum resolution greater than ${\SI{1}{GeV}}$. The leading\footnote{Leading refers to the candidate in a collection with the largest \pt.} misreconstructed track candidate is repeatedly removed until no excess or no
-candidates remain.
+are dealt with by reassigning the identification or refining the reconstruction,
+since an excess infers the presence of photons or neutral hadrons. An excess, $\delta_\mathrm{T}$, in the calibrated cluster energy, consisting of the \ECAL and \HCAL energies $E_{\mathrm{T}}=E_{\mathrm{T}}^{\mathrm{\ECAL}} + E_{\mathrm{T}}^{\mathrm{\HCAL}}$, is defined as
+%
+\begin{equation}
+    \delta_\mathrm{T} \equiv E_{\mathrm{T}} - |\sum \vec{p}_{\mathrm{T}}|\ ,
+\end{equation}
+%
+where $|\sum \vec{p}_{\mathrm{T}}|$ is the sum of linked track momenta. If the excess is smaller than $E_{\mathrm{T}}^{\ECAL}$ but larger than the expected resolution of the hadronic deposit above $\SI{500}{MeV}$ then the excess is revised as a photon with an energy of $\delta_{\mathrm{T}}$ with the energy calibration repeated under this hypothesis. However, if the excess is greater than $E_{\mathrm{T}}^{\ECAL}$ then the ECAL deposit is still associated to a photon but the remaining excess, if above $\SI{1}{GeV}$, is interpreted as a neutral hadron. If the excess is smaller than $\SI{500}{MeV}$ and still inconsistent with the expected energy resolution, a $\chi^2$ fit to the tracker and calorimeter information is performed to refine the energy of the charged hadron. Finally, in the rare case where the track momenta are in excess of $E_{\mathrm{T}}$, i.e. $\delta_{\mathrm{T}}<0$, a relaxed search for muon candidates is performed. Any remaining excess is associated to misreconstructed tracks with a momentum resolution greater than ${\SI{1}{GeV}}$. The leading\footnote{Leading refers to the candidate in a collection with the largest \pt.} misreconstructed track candidate is repeatedly removed until no excess or no candidates remain.
 
 Displaced tracks within the tracker volume predominantly from nuclear
 interactions are yet to be identified. These involve secondary
@@ -370,14 +364,7 @@ hadron is updated to account for these particles.
 
 \subsection{Jets}
 
-The fragmentation and hadronisation of outgoing quarks form a cone of hadrons
-known as a jet. The anti-\kt algorithm \cite{Cacciari:2008gp,Cacciari2012}
-discussed in Sec.~\ref{sec:hadron-collider-physics} clusters PF candidates into cones of
-radius $R=0.4$ in the $\eta$-$\phi$ plane.  The minimum clustering threshold
-is set to $\SI{15}{GeV}$, below which jets are unreliable at measuring the original parton momentum. Seeding jets by PF candidates improves the energy
-resolution by complimentary tracker measurements for charged hadrons affected
-by the poorer hadron calorimeter resolution. However, as with any other jet
-seed, neutrinos from hadron decays within  the jet are not accountable.
+The fragmentation and hadronisation of outgoing quarks form a cone of hadrons known as a jet. The anti-\kt algorithm \cite{Cacciari:2008gp,Cacciari2012} discussed in Sec.~\ref{sec:hadron-collider-physics} clusters PF candidates into cones of radius $R=0.4$ in the $\eta$-$\phi$ plane.  The minimum clustering threshold is set to $\SI{15}{GeV}$, below which jets are unreliable at measuring the original parton momentum. Seeding jets by PF candidates, instead of solely relying on calorimeter deposits, improves the energy resolution by complimentary tracker measurements for charged hadrons affected by the poorer hadron calorimeter resolution. However, as with any other jet seed, neutrinos from hadron decays within  the jet are not accountable.
 
 
 \subsection{Missing transverse momentum}
@@ -396,28 +383,10 @@ selected. The particles are typically high \pt muons and their identification
 and reconstruction revised as follows:
 %
 \begin{itemize}
-    \item \textbf{Genuine cosmic ray muons} in coincidence with an \LHC beam
-    crossing, positioned further than ${\SI{1}{cm}}$ from the beam axis, are
-    removed from the PF candidate collection if this leads to a reduction in
-    the \ptmiss of at least a half. Semi-leptonic decays of $b$-hadrons are
-    protected as their removal would increase the \ptmiss.
-    \item \textbf{Severely misreconstructed muon momentum} as a result of
-    wrong track association, steel yoke interactions, in-flight decay or
-    significant synchrotron radiation. Here, the reconstruction of muons with
-    ${\pt>\SI{20}{GeV}}$ is reviewed and the \pt updated if it leads to a
-    reduction in the \ptmiss by at least a half.
-    \item \textbf{Particles misidentified as muons} typically from
-    charged-hadronic punch-through into the muon systems. In this case, neutral
-    hadron deposits within the calorimeters are wrongfully included as
-    independent particles leading to a double-counting of the charged hadron
-    as a muon and a neutral hadron. Provided that the \ptmiss is reduced by a
-    half and the muon momentum and neutral hadron energies are larger than
-    ${\SI{100}{GeV}}$, then the neutral hadron is removed and the muon is
-    revised as a charged hadron.
-    \item \textbf{Muon and neutral hadron overlap} with similar energies which
-    are misidentified as a charged hadron. The charged hadron is converted
-    into a muon and a neutral hadron if the associated \ptmiss is reduced by a
-    half.
+    \item \textbf{Genuine cosmic ray muons} in coincidence with an \LHC beam crossing, positioned further than ${\SI{1}{cm}}$ from the beam axis, are removed from the PF candidate collection if this leads to a reduction in the \ptmiss of at least a half. Semi-leptonic decays of $b$-hadrons are protected as their removal would increase the \ptmiss. 
+    \item \textbf{Severely misreconstructed muon momentum} as a result of wrong track association, steel yoke interactions, in-flight decay or significant synchrotron radiation. This typically leads to inconsistent inner tracks and outer muon chamber tracks resulting in a misreconstructed muon \pt from the PF algorithm. Instead the \pt of the muon is taken from the track which reduces the \ptmiss by at least a half, otherwise the \pt from the PF algorithm is used.
+    \item \textbf{Particles misidentified as muons} typically from charged-hadronic punch-through into the muon systems. In this case, neutral hadron deposits within the calorimeters are wrongfully included as independent particles leading to a double-counting of the charged hadron as a muon and a neutral hadron. Provided that the \ptmiss is reduced by a half and the muon momentum and neutral hadron energies are larger than ${\SI{100}{GeV}}$, then the neutral hadron is removed and the muon is revised as a charged hadron.
+    \item \textbf{Muon and neutral hadron overlap} with similar energies which are misidentified as a charged hadron. The charged hadron is converted into a muon and a neutral hadron if the associated \ptmiss is reduced by a half.
 \end{itemize}
 %
 After these revisions the \ptmiss is updated. The approach validated with
