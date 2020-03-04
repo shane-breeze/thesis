@@ -22,3 +22,4 @@ TODO:
 - [ ] Add full set of systematics on recoil prior to TF
 - [ ] Separate out where systematics dominate from the TF or not
 - [ ] Additional discussion on smoothing - show examples
+- [ ] Update plots with fixed JEC-based uncertainties
