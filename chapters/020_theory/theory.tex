@@ -5,7 +5,7 @@
 
 \section{Introduction}
 
-The standard model (SM) of particle physics is a quantum field theory description of the fundamental particles of matter and their interactions. The SM has been widely successful in its predictions, falling short in providing a dark matter candidate, including the existence of neutrino oscillations and incorporating gravitational interactions, among other possible discrepancies.  Nevertheless, it is the current best minimal description unifying the electromagnetic, weak and strong forces. In the quantum field theory, the equations of motion are determined from the Lagrangian through the principle of least action. Gauge theories provided the mathematical basis to embed physical symmetries within the model.
+The standard model (SM) of particle physics is a quantum field theory description of the fundamental particles of matter and their interactions. The SM has been widely successful in its predictions, falling short in providing a dark matter candidate, including the existence of neutrino oscillations and incorporating gravitational interactions, among other possible discrepancies.  Nevertheless, it is the current best minimal description unifying the electromagnetic, weak and strong forces. In the quantum field theory, the equations of motion are determined from the Lagrangian through the principle of least action. Gauge theories provide the mathematical basis to embed physical symmetries within the model.
 
 The SM has had many distinguishing successes since its conception. One of the most notable is the prediction of the Higgs boson \cite{PhysRevLett.13.321,PhysRevLett.13.508,PhysRevLett.13.585} and its subsequent discovery by the ATLAS \cite{Aad:2012tfa} and CMS \cite{Chatrchyan:2012xdj} experiments. The Higgs field is crucial in providing a mechanism for the apparent masses of the weak bosons, quarks and charged leptons whilst maintaining a gauge invariant theory.
 
@@ -131,7 +131,7 @@ The spontaneous symmetry breaking in the electroweak sector provides mass terms 
     \mathcal{L}_{\mathrm{Higgs}} = (D_\mu\phi)^*(D^\mu\phi) +\mu^2|\phi|^2 - \lambda|\phi|^4\ .
 \end{equation}
 %
-The covariant derivates include the weak fields for a gauge invariant Lagrangian. However, the vacuum expectation value of the field $\phi$ is non-zero and given by
+The covariant derivate includes the weak fields for a gauge invariant Lagrangian. However, the vacuum expectation value of the field $\phi$ is non-zero and given by
 %
 \begin{equation}
     \langle \phi \rangle = \frac{1}{\sqrt{2}}
@@ -160,7 +160,7 @@ where h.c. represents the Hermitian conjugate of the terms already present and $
     -\lambda_d (\bar{Q}_L\phi) d_R - \lambda_u \epsilon^{ab}(\bar{Q}_L\phi_b^{\dagger})u_R + \mathrm{h.c.}\ ,
 \end{equation}
 %
-where $\epsilon^{ab}$ is a two-dimensional Levi-Civita tensor \cite{Peskin:1995ev}.  In a similar manner to the lepton fields, the quarks fields acquire mass terms with $m_d = \lambda_d v/\sqrt{2}$ and $m_u = \lambda_u v/\sqrt{2}$. Additional generations of quarks introduce mixing terms between the various generations of up and down-type quarks through \PW boson interactions with couplings determined by the $3\times 3$ unitary Cabibbo-Kobayashi-Maskawa (CKM) mixing matrix \cite{PhysRevLett.10.531,Kobayashi:1973fv}.
+where $\epsilon^{ab}$ is a two-dimensional Levi-Civita tensor \cite{Peskin:1995ev}.  In a similar manner to the lepton fields, the quark fields acquire mass terms with $m_d = \lambda_d v/\sqrt{2}$ and $m_u = \lambda_u v/\sqrt{2}$. Additional generations of quarks introduce mixing terms between the various generations of up and down-type quarks through \PW boson interactions with couplings determined by the $3\times 3$ unitary Cabibbo-Kobayashi-Maskawa (CKM) mixing matrix \cite{PhysRevLett.10.531,Kobayashi:1973fv}.
 
 Neutrinos do not have a right-handed chiral state and hence no couplings to the $\phi$ field can be included without breaking a gauge symmetry. Therefore, the neutrinos are massless in the SM. However, the neutrino flavours mixing has been measured experimentally and included ad hoc into the SM through the Pontcorvo-Maki-Nakagawa-Sakata matrix\cite{Pontecorvo:1957qd,Maki:1962mu}, analogous to the CKM matrix.
 
@@ -170,7 +170,7 @@ In addition to the mass terms introduced through spontaneous symmetry breaking, 
 \section{Event simulation and generation}
 % https://arxiv.org/pdf/1101.2599.pdf
 
-The complexity involved with modern particle accelerators, colliders and detectors require the use of simulated events to interpret the results and validate our understanding of the SM and beyond. To avoid needlessly generating all possible events from a collision, only the processes of interest are simulated through Monte Carlo integration of multidimensional integrals to determine differential cross sections, and hence the scattering probabilities. Additional Monte Carlo techniques allows the sampling of these distributions to generate events.
+The complexity involved with modern particle accelerators, colliders and detectors require the use of simulated events to interpret the results and validate our understanding of the SM and beyond. To avoid needlessly generating all possible events from a collision, only the processes of interest are simulated through Monte Carlo integration of multidimensional integrals to determine differential cross sections, and hence the scattering probabilities. Additional Monte Carlo techniques allow the sampling of these distributions to generate events.
 
 Event simulation is based on perturbation theory where higher order diagrams are neglected in calculations to avoid expensive computations. However, ignoring the entire perturbation series leads to infrared and ultraviolet divergences \cite{Ellis:1991qj}. These are avoided through renormalisation techniques and introducing the factorisation $\mu_F$ and renormalisation $\mu_R$ scales. Physical observables should not depend on these quantities, however, limitations in the calculations lead to some dependence.
 
@@ -202,4 +202,4 @@ where $p_{ti}$ and $p_{tj}$ are the transverse momentum of particles $i$ and $j$
 
 The SM is a gauge theory of the fundamental particles and their interactions, unifying the electromagnetic, weak and strong forces into a single consistent theory. The matter particles consist of the coloured spin-half quarks and leptons. Through the spontaneous symmetry breaking of the electroweak sector, the quarks and charged leptons, along with the \PW and \PZ bosons, acquire a mass with the introduction of a scalar field, the Higgs field.
 
-Simulation and generation of events within the SM framework, and possible extensions, involve Monte Carlo integration and sampling technique to solve multidimensional integrals. The cross section of a proton-proton collision is factorised into the constituent parton interaction which requires the parton distribution functions and depends on the factorisation and renormalisation scales. After the matrix element calculation is performed, all final state partons undergo a showering procedure and hadronisation to form a jet of particles. These jets are clustered with the anti-$k_t$ algorithm.
+Simulation and generation of events within the SM framework, and possible extensions, involve Monte Carlo integration and sampling techniques to solve multidimensional integrals. The cross section of a proton-proton collision is factorised into the constituent parton interaction and parton distribution functions of the proton.  After the matrix element calculation is performed, all final state partons undergo a showering procedure and hadronisation, forming into a jet of particles. These jets are clustered with the anti-$k_t$ algorithm.
