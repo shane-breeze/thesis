@@ -24,7 +24,7 @@ For large sample size, typical with \CMS data, the maximisation procedure become
 %
 The poisson distribution is replaced by a multinomial distribution if the event count is considered as fixed. The predictions $\bm{\nu}$ are determined from a functional form or estimated from MC simulations.
 
-The set of parameters may contain unconstrained parameters such as a signal strength multiplier as well as constrained parameters, known as nuisances parameters, which encode systematic uncertainties. For the estimation of a signal strength multiplier the parameters are divided into unconstrained $\bm{\mu}$, gaussian constrained $\bm{\theta}$ and gamma constrained $\bm{\phi}$. With these parameters the likelihood function is given by
+The set of parameters may contain unconstrained parameters such as a signal strength multiplier as well as constrained parameters, known as nuisances parameters, which encode systematic uncertainties. For the estimation of a signal strength multiplier the parameters are divided into unconstrained $\bm{\mu}$, gaussian constrained $\bm{\theta}$ and poisson constrained $\bm{\phi}$ characterising limited MC sample sizes \cite{Barlow:1993dm}. With these parameters the likelihood function is given by
 %
 \begin{equation}
     L(\bm{\mu},\bm{\theta},\bm{\phi}) = \prod_{i=1}^{n}P(x_i;\nu_i(\bm{\mu},\bm{\theta},\phi_i))P(n_i;\gamma_i(\phi_i))\prod_{j=1}^{m}N(\theta_j)\ ,
@@ -36,13 +36,13 @@ where $N(\theta_j)$ is a gaussian distribution with a zero mean and unit width, 
     \gamma_i(\phi_i) = n_i\left(1 + \frac{1}{\sqrt{n_i}}\right)^{\phi_i}
 \end{equation}
 %
-to allow $\phi_i$ to taken any real number value without resulting in a negative prediction. The factor $1 + 1/\sqrt{n_i}$ is chosen to yield convenient values for $\phi_i$, typically between $-1$ and $+1$. The gamma constraint is applied to each bin on the overall MC prediction, summing all signal and background contributions. For a single signal and single background process, with contributions $s_i$ and $b_i$, the prediction $\nu_i$ takes the form
+to allow $\phi_i$ to taken any real number value without resulting in a negative prediction. The factor $1 + 1/\sqrt{n_i}$ is chosen to yield convenient values for $\phi_i$, typically between $-1$ and $+1$. The poisson constraints are applied to each bin on the overall MC prediction, summing all signal and background contributions. For a single signal and single background process, with contributions $s_i$ and $b_i$, the prediction $\nu_i$ takes the form
 %
 \begin{equation}
     \nu_i(\mu,\bm{\theta},\phi_i) = \frac{\gamma_i(\phi_i)}{n_i}\left(\mu s_i(\bm{\theta}) + b_i(\bm{\theta})\right)
 \end{equation}
 %
-The $\bm{\theta}$ dependence of $s_i(\bm{\theta})$ and $b_i(\bm{\theta})$ is determined from alternative MC templates generated at $\theta_k=-1,0,+1$, with all other values interpolated or extrapolated. To encode the shape dependence of these nuisance parameters along a particular dimension the set of bins $i=1$ to $n$ are split into $N$ categories, each with $M$ bins along the `shape' dimension. The effect of the nuisance parameters is factorised into the inclusive normalisation $r_{\mathrm{norm}}$ and a shape morphing term $r_{\mathrm{morph}}$:
+The $\bm{\theta}$ dependence of $s_i(\bm{\theta})$ and $b_i(\bm{\theta})$ is determined from alternative MC templates generated at $\theta_k=-1,0,+1$, with all other values interpolated or extrapolated \cite{Conway:2011in}. To encode the shape dependence of these nuisance parameters along a particular dimension the set of bins $i=1$ to $n$ are split into $N$ categories, each with $M$ bins along the `shape' dimension. The effect of the nuisance parameters is factorised into the inclusive normalisation $r_{\mathrm{norm}}$ and a shape morphing term $r_{\mathrm{morph}}$:
 \begin{equation}
     s_{i,j}(\bm{\theta}) = s_{i,j}\prod_{k=1}^{m}r_{\mathrm{norm},i,k}(\theta_k)\sum_{j=1}^{m}(1+r_{\mathrm{morph},i,j,k}(\theta_k))\ ,
 \end{equation}
@@ -74,7 +74,7 @@ where the hat denotes parameters normalised by their sum across the shape dimens
     \end{dcases}
 \end{align}
 %
-This procedure is known as vertical template morphing which uses normalised parameters to avoid double-counting the normalisation effects, with a linear dependence on $\theta_k$ for symmetric uncertainties and a smooth, differentiable polynomial to alter asymmetric uncertainties. A similar dependence is defined for all other processes.
+This procedure is known as vertical template morphing\cite{Conway:2011in} which uses normalised parameters to avoid double-counting the normalisation effects, with a linear dependence on $\theta_k$ for symmetric uncertainties and a smooth, differentiable polynomial to alter asymmetric uncertainties. A similar dependence is defined for all other processes.
 
 
 \section{Limited sample size of alternative templates}
