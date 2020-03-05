@@ -2,8 +2,8 @@
 
 TODO:
 
-- [ ] Fix typos
-- [ ] Fix biblio
+- [x] Fix typos
+- [x] Fix biblio
 - [x] Add likelihood references
 - [x] Scale of subdetectors
 - [x] ECAL detector section
