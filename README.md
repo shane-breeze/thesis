@@ -23,7 +23,11 @@ TODO:
 - [ ] Add full set of systematics on recoil prior to TF
 - [ ] Separate out where systematics dominate from the TF or not
 - [x] Additional discussion on smoothing - show examples
-- [ ] Update plots with fixed JEC-based uncertainties
+- [ ] Update plots with fixed JEC-based uncertainties:
+  - [ ] ptmiss calib
+  - [ ] w+jets pred
+  - [ ] qcd pred
+  - [ ] final fit
 
 
 Maybe todos:
