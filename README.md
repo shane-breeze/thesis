@@ -11,7 +11,7 @@ TODO:
 - [x] Add back missing text on jets
 - [x] Reference CMS paper on pileup modelling with recoil
 - [ ] Comment on theory systematic correlations between W+jets and Z+jets
-- [ ] Fig 6.16 mention the large jump in background prefit to postfit
+- [x] Fig 6.16 mention the large jump in background prefit to postfit
 - [ ] Discuss overly conservative uncertainty in ptmiss calibration. Redo?
 - [ ] Further discuss the normalisation issue (in footnote) due to xsection bug
 - [x] Fig 7.1 bin edge at cut
