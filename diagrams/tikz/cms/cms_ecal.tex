@@ -22,11 +22,6 @@
     
         \node (img) at (0,0) {\includegraphics[clip, width=10cm]{\filename}};
         
-        %\draw[step=1cm] (-\xrange,-\yrange) grid (\xrange,\yrange);
-        %\draw[thin,step=.1cm,black!60] (-\xrange,-\yrange) grid (\xrange,\yrange);
-        %\draw[thick,>=stealth',->] ({-\xrange-1},0) -- ({\xrange+1},0) node [right] {$x$};
-        %\draw[thick,>=stealth',->] (0,{-\yrange-1}) -- (0,{\yrange+1}) node [right] {$y$};
-        
         \def\x{2.5}
         \def\y{-0.4}
         \draw (\rightpos,\y) node[right] {EB} -- (\x,\y);
@@ -58,6 +53,14 @@
         \draw[thick] (3.7,-1.3) rectangle (4.2,-1.05);
         \draw[thick] (4.2,-1.175) -- (\rightpos,-1.175) node[right]{Supercrystal};
         \node[left] (tmp) at (-\rightpos,-1.175) {\phantom{Supercrystal}};
+        
+        %\draw[step=1cm] (-\xrange,-\yrange) grid (\xrange,\yrange);
+        %\draw[thin,step=.1cm,black!60] (-\xrange,-\yrange) grid (\xrange,\yrange);
+        %\draw[thick,>=stealth',->] ({-\xrange-1},0) -- ({\xrange+1},0) node [right] {$x$};
+        %\draw[thick,>=stealth',->] (0,{-\yrange-1}) -- (0,{\yrange+1}) node [right] {$y$};
+        
+        \draw[thick,>=stealth',<->] (-4.3,2.3) -- node[above]{$672$ cm} (4.3,2.3);
+        \draw[thick,>=stealth',<->] (-4.9,1.85) -- node[left]{$304$ cm} (-4.9,-1.85);
         
     \end{tikzpicture}
 \end{document}

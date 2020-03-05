@@ -11,8 +11,8 @@
 \def\filename{diagrams/tikz/cms/images/cms_front_bottom_left_slice_muon_noyoke_v3.pdf}
 \def\rightpos{5}
 \def\scale{1.0}
-\def\xrange{5}
-\def\yrange{4}
+\def\xrange{6}
+\def\yrange{5}
 
 \begin{document}
     \begin{tikzpicture}[scale=\scale]
@@ -23,11 +23,6 @@
         \node (img) at (0,0) {
             \includegraphics[clip, trim=12cm 0cm 13cm 0cm, width=10cm]{\filename}
         };
-        
-        %\draw[step=1cm] (-\xrange,-\yrange) grid (\xrange,\yrange);
-        %\draw[thin,step=.1cm,black!60] (-\xrange,-\yrange) grid (\xrange,\yrange);
-        %\draw[thick,>=stealth',->] ({-\xrange-1},0) -- ({\xrange+1},0) node [right] {$x$};
-        %\draw[thick,>=stealth',->] (0,{-\yrange-1}) -- (0,{\yrange+1}) node [right] {$y$};
         
         \def\x{0}
         \def\y{3.2}
@@ -87,6 +82,14 @@
         \node[above] (tmp) at (-4.3,3.4) {YB+0};
         \node[above] (tmp) at (-2.5,3.4) {YB+1};
         \node[above] (tmp) at (-0.5,3.4) {YB+2};
+        
+        %\draw[step=1cm] (-\xrange,-\yrange) grid (\xrange,\yrange);
+        %\draw[thin,step=.1cm,black!60] (-\xrange,-\yrange) grid (\xrange,\yrange);
+        %\draw[thick,>=stealth',->] ({-\xrange-1},0) -- ({\xrange+1},0) node [right] {$x$};
+        %\draw[thick,>=stealth',->] (0,{-\yrange-1}) -- (0,{\yrange+1}) node [right] {$y$};
+        
+        \draw[thick,>=stealth',<->] (-4.85,-3.4) -- node[below]{$10.6$ m} (3.8,-4.2);
+        \draw[thick,>=stealth',<->] (-6,-2.4) -- node[left]{$7.0$ m} (-6,2.85);
         
     \end{tikzpicture}
 \end{document}
