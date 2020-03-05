@@ -34,3 +34,7 @@ Maybe todos:
 
 - [ ] More performance numbers for subdetectors
 - [ ] Charge misID for mu+ -> mu- transfer factors
+
+Reminaing comments (page numbers):
+ 
+53, 57, 60, 66, 67, 71, 72, 75, 77, 80, 82, 85, 86, 88, 89, 91, 93, 107,
