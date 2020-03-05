@@ -8,7 +8,7 @@ TODO:
 - [x] Scale of subdetectors
 - [x] ECAL detector section
 - [x] Scale factor description
-- [ ] Check the large stat unc in ptmiss efficiency plots for Zvv
+- [x] Check the large stat unc in ptmiss efficiency plots for Zvv - Issue in plotting with TEfficiency Feldmann-Cousins interval. Fixed this by eff=1/(1+fail/pass), calculating the poisson up/down interval for the failed and passed events then varying the efficiency under these 4 various hypotheses. The up/down for failed and passed variations are summed in quadrature to obtain the result (since they are uncorrelated).
 - [x] Add back missing text on jets
 - [x] Reference CMS paper on pileup modelling with recoil
 - [ ] Comment on theory systematic correlations between W+jets and Z+jets
