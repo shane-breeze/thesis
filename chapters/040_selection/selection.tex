@@ -83,7 +83,7 @@ for a muon with transverse momentum \pt; charged hadrons (ch), neutral hadrons (
         \hline\hline
     \end{tabular}
     \caption[Requirements placed on muons.]{
-        Requirements for muons passing the veto and selection identification.  Most track quality criteria are omitted for veto muons to retain a high efficiency at the loss of fake muon rejection \cite{CMS-DP-2017-007}.
+        Requirements for muons passing the veto and selection identification.  Most track quality criteria are omitted for veto muons to retain a high efficiency at the loss of fake muon rejection \cite{CMS-DP-2017-007}. The \pt requirement on selection muons is driven by trigger requirements for the single muon triggers used for the \ptmiss trigger efficiency measurements.
     }
     \label{tab:muon-selection}
 \end{table}
@@ -122,7 +122,7 @@ which is similar to $I_{\Delta\beta}$, however, the subtracted quantity is the p
         \hline\hline
     \end{tabular}
     \caption[Criteria to select and veto electrons.]{
-        Criteria for the electrons identified as veto or selection for the analysis. All parameters must be less than the value unless stated otherwise. The criteria are split by barrel and endcap regions to retain similar electron identification efficiency in both \cite{CMS-DP-2017-004}.
+        Criteria for the electrons identified as veto or selection for the analysis. These values tuned to obtain a pre-defined efficiency and background rejection. All parameters must be less than the value unless stated otherwise. The criteria are split by barrel and endcap regions to retain similar electron identification efficiency in both \cite{CMS-DP-2017-004}.
     }
     \label{tab:electron-selection}
 \end{table}
@@ -218,7 +218,7 @@ The reconstructed \Ptauh-leptons are required to have ${\pt>\SI{20}{GeV}}$, ${\a
 
 \subsubsection{$b$-jet tagging}
 
-The jets associated to the ${\PZ(\ra\nu\bar{\nu})}$ production are typically quark or gluon jets with processes involving neutrinos in the final state along with $b$-jets resulting in a similar signature, such as top-quark production. Therefore, discrimination of $b$-jets from quark or gluon jets and the subsequent veto of events with $b$-jets is vital for this analysis.
+The jets associated to the ${\PZ(\ra\nu\bar{\nu})}$ production are typically quark or gluon jets with processes involving neutrinos in the final state along with $b$-jets resulting in a similar signature, such as top-quark production. The ${\PZ(\ra\nu\bar{\nu})+b\ \mathrm{jets}}$ process is not targeted in this analysis and hence are discarded. Therefore, discrimination of $b$-jets from quark or gluon jets and the subsequent veto of events with $b$-jets is vital for this analysis.
 
 The $b$-jet tagging is performed on analysis-level jets by applying criteria on the jet's constituent tracks and vertices to identify $b$-hadron decays with displacements of about $\SI{1}{cm}$, hence only valid for jets within the tracker's acceptance ${\aeta<2.4}$. First, a set of secondary vertices are found by an inclusive vertex finding (IVF) algorithm from all tracks within an event with ${\pt>\SI{0.8}{GeV}}$ and a longitudinal impact parameter less than ${\SI{3}{mm}}$. The vertex finder is initialised by track seeds defined by a 3-dimensional impact parameter of at least ${\SI{50}{\micro m}}$ and a 2-dimensional impact parameter significance above $1.2$. From these seed tracks the algorithm follows \cite{Sirunyan:2017ezt}:
 \begin{itemize}
