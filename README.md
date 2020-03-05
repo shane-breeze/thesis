@@ -5,6 +5,7 @@ TODO:
 - [ ] Fix typos
 - [ ] Fix biblio
 - [x] Add likelihood references
+- [x] Scale of subdetectors
 - [ ] ECAL detector section
 - [ ] Scale factor description
 - [ ] Check the large stat unc in ptmiss efficiency plots for Zvv
