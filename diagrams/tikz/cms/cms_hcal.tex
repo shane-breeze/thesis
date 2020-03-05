@@ -23,11 +23,6 @@
     
         \node (img) at (0,0) {\includegraphics[clip, width=12cm]{\filename}};
         
-        %\draw[step=1cm] (-\xrange,-\yrange) grid (\xrange,\yrange);
-        %\draw[thin,step=.1cm,black!60] (-\xrange,-\yrange) grid (\xrange,\yrange);
-        %\draw[thick,>=stealth',->] ({-\xrange-1},0) -- ({\xrange+1},0) node [right] {$x$};
-        %\draw[thick,>=stealth',->] (0,{-\yrange-1}) -- (0,{\yrange+1}) node [right] {$y$};
-        
         \def\x{5.3}
         \def\y{-0.5}
         \draw (\rightpos,\y) node[right]{HF} -- (\x,\y);
@@ -57,6 +52,14 @@
         \draw ({\rightpos+0.9},{\y-0.15}) rectangle ({\rightpos+1.2},{\y+0.15});
         
         \draw ({-\rightpos-1.2},0));
+        
+        %\draw[step=1cm] (-\xrange,-\yrange) grid (\xrange,\yrange);
+        %\draw[thin,step=.1cm,black!60] (-\xrange,-\yrange) grid (\xrange,\yrange);
+        %\draw[thick,>=stealth',->] ({-\xrange-1},0) -- ({\xrange+1},0) node [right] {$x$};
+        %\draw[thick,>=stealth',->] (0,{-\yrange-1}) -- (0,{\yrange+1}) node [right] {$y$};
+        
+        \draw[thick,>=stealth',<->] (-3,-1.35) -- node [left]{$5.75$ m} (-3,1.35);
+        \draw[thick,>=stealth',<->] (-5,-2) -- node [below]{$11.2$ m} (5,-2);
         
     \end{tikzpicture}
 \end{document}
