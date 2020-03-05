@@ -32,4 +32,5 @@ TODO:
 
 Maybe todos:
 
+- [ ] More performance numbers for subdetectors
 - [ ] Charge misID for mu+ -> mu- transfer factors
