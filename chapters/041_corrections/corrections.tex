@@ -422,31 +422,31 @@ The efficiency of this issue is measured by collecting immune events which occur
 
 The cross-section applied directly to the event weight of a MC process is calculated by theoretical predictions of the highest available order in the strong and electroweak (EW) coupling constants. Associated systematic uncertainties are determined by varying the QCD factorisation and renormalisation scale up and down by a factor of two. This is done for the independent variation of the two scales and the fully correlated variation, with the largest of the six variations taken as the systematic uncertainty. In addition, the uncertainties from the measurements of the sampled \NNPDF parton distribution functions (PDF) \cite{Ball:2014uwa} are propagated by 100 variations, each randomly sampled from the original distributions of the PDFs.
 
-An alternative method is applied to the signal and dominant \IVj processes.  These are generated at NLO in the strong coupling constant, however, instead of scaling the normalisation up to the highest order available, a reweighting of the boson \pt distribution is performed for a more accurate prediction.  This approach reweights the MC to NNLO QCD and NLO EW with next-to-leading logarithm (NLL) EW corrections \cite{Lindert:2017olm}. This procedure scales the cross-section parameterised by the boson \pt, determined from the generated decay products (with photons within ${\Delta R<0.1}$ of charged leptons summed into their 4-momentum). Systematic uncertainties determined for the QCD corrections include variations in the factorisation and renormalisation scales with the addition of a possible boson \pt dependence and encoding the correlation between the \IZj and \IWj processes.
+An alternative method is applied to the signal and dominant \IVj processes.  These are generated at NLO in the strong coupling constant, however, instead of scaling the normalisation up to the highest order available, a reweighting of the boson \pt distribution is performed for a more accurate prediction.  This approach reweights the MC to NNLO QCD and NLO EW with next-to-leading logarithm (NLL) EW corrections \cite{Lindert:2017olm}. This procedure scales the cross-section parameterised by the boson \pt, determined from the generated decay products (with photons within ${\Delta R<0.1}$ of a charged lepton summed into their 4-momentum). Systematic uncertainties determined for the QCD corrections include variations in the factorisation and renormalisation scales with the addition of a possible boson \pt dependence and encoding the correlation between the \IZj and \IWj processes.
 
-Another set of systematic uncertainties are determined for the EW corrections to cover higher-order effects and an additional systematic uncertainty on unaccounted contributions from diagrams of mixed order in the strong and EW coupling constants by taking the difference between an additive and factorised combination of the separate QCD and EW corrections. The PDF uncertainties are propagated with the same procedure as for other generated processes. The full set of uncertainties are detailed in Tab.~\ref{tab:qcdew-systematics}.
+Another set of systematic uncertainties are determined for the EW corrections to cover higher-order effects and an additional systematic uncertainty on unaccounted contributions from diagrams of mixed order in the strong and EW coupling constants by taking the difference between an additive and factorised combination of the separate QCD and EW corrections. The PDF uncertainties are propagated with the same procedure as for other generated processes. The full set of uncertainties are detailed in Tab.~\ref{tab:qcdew-systematics}, with the correlation scheme \cite{Lindert:2017olm}.
 
 \begin{table}[htb]
     \centering
-    \begin{tabular}{lccp{9cm}}
+    \begin{tabular}{lccccp{6cm}}
         \hline \hline
-        Label & \IVj & Other & Description \\
+        Label & \IWj & \IZj & Correlation & Other & Description \\
         \hline
-        \uncqcdone & \checkmark & \checkmark & Factorisation and renormalisation scale variations. \\
-        \uncqcdtwo & \checkmark & & Boson \pt dependence of the QCD scales. \\
-        \uncqcdthr & \checkmark & & Correlations between QCD effects in \IZj and \IWj processes. \\
+        \uncqcdone & \checkmark & \checkmark & \checkmark & \checkmark & Factorisation and renormalisation scale variations. \\
+        \uncqcdtwo & \checkmark & \checkmark & \checkmark & & Boson \pt dependence of the QCD scales. \\
+        \uncqcdthr & \checkmark & & & & Correlations between QCD effects in \IZj and \IWj processes, relative to \IZj. \\
         \hline
-        \uncewone & \checkmark & & Unknown Sudakov logarithms beyond NNLO. \\
-        \uncewtwo & \checkmark & & $5\%$ of the absolute full NLO EW correction for a conservative estimate of non-Sudakov factors. \\
-        \uncewthr & \checkmark & & Difference between a naive and rigorous NLL Sudakov approximation. \\
+        \uncewone & \checkmark & \checkmark & \checkmark & & Universal unknown Sudakov logarithms beyond NNLO. \\
+        \uncewtwo & \checkmark & \checkmark & & & $5\%$ of the absolute full NLO EW correction for a conservative estimate of non-Sudakov factors. \\
+        \uncewthr & \checkmark & \checkmark & & & Difference between a naive and rigorous NLL Sudakov approximation. \\
         \hline
-        \uncqcdewmix & \checkmark & & Mixing terms with strong and EW coupling vertices. \\
+        \uncqcdewmix & \checkmark & \checkmark & \checkmark & & Mixing terms with strong and EW coupling vertices. \\
         \hline
-        \uncpdf & \checkmark & \checkmark & 100 PDF variations. \\
+        \uncpdf & \checkmark & \checkmark & \checkmark & \checkmark & 100 PDF variations. \\
         \hline \hline
     \end{tabular}
     \caption[Summary of the uncertainties associated to theoretical predictions.]{
-        All systematic uncertainties included from the theory prediction of process cross-sections with a tick for which processes the uncertainty affects split into either \IVj or other processes. A brief description of each is given.
+        All systematic uncertainties included from the theory prediction of process cross-sections with a tick for which processes the uncertainty affects split into either \IWj, \IZj or other processes. A tick in the correlation column signifies the full correlation between the \IWj and \IZj processes, otherwise the uncertainty is uncorrelated. A brief description of each uncertainty is given.
     }
     \label{tab:qcdew-systematics}
 \end{table}
