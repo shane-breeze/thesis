@@ -11,7 +11,7 @@ TODO:
 - [x] Check the large stat unc in ptmiss efficiency plots for Zvv - Issue in plotting with TEfficiency Feldmann-Cousins interval. Fixed this by eff=1/(1+fail/pass), calculating the poisson up/down interval for the failed and passed events then varying the efficiency under these 4 various hypotheses. The up/down for failed and passed variations are summed in quadrature to obtain the result (since they are uncorrelated). This does not affect any aspects of the analysis other than the plotting here.
 - [x] Add back missing text on jets
 - [x] Reference CMS paper on pileup modelling with recoil
-- [ ] Comment on theory systematic correlations between W+jets and Z+jets
+- [x] Comment on theory systematic correlations between W+jets and Z+jets
 - [x] Fig 6.16 mention the large jump in background prefit to postfit
 - [ ] Discuss overly conservative uncertainty in ptmiss calibration. Redo?
 - [x] Further discuss the normalisation issue (in footnote) due to xsection bug
