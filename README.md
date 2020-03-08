@@ -26,7 +26,7 @@ TODO:
 - [ ] Update plots with fixed JEC-based uncertainties:
   - [ ] ptmiss calib
   - [ ] w+jets pred
-  - [ ] qcd pred
+  - [x] qcd pred
   - [ ] final fit
 
 
