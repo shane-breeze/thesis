@@ -25,7 +25,7 @@ TODO:
 - [x] Additional discussion on smoothing - show examples
 - [ ] Update plots with fixed JEC-based uncertainties:
   - [ ] ptmiss calib
-  - [ ] w+jets pred
+  - [x] w+jets pred
   - [x] qcd pred
   - [ ] final fit
 
