@@ -30,7 +30,7 @@ The \IWlv process contribution in the \metplusjets region is estimated from an o
 
 \subsection{\muplusjets control region}
 
-The \muplusjets control region provides the primary measurement for the data-driven estimate of \IWlv in the \metplusjets region. It differs from this region by requiring a single well-reconstructed muon in the final state along with a transverse invariant mass between the muon and the \ptmiss between $30$ and $\SI{125}{GeV}$. The kinematic distributions for this region are shown in Fig~.\ref{fig:muplusjets}.
+The \muplusjets control region provides the primary measurement for the data-driven estimate of \IWlv in the \metplusjets region. It differs from this region by requiring a single well-reconstructed muon in the final state along with a transverse invariant mass between the muon and the \ptmiss between $30$ and $\SI{125}{GeV}$. The kinematic distributions for this region are shown in Fig.~\ref{fig:muplusjets}.
 %
 \begin{figure}[htb]
     \centering
@@ -74,6 +74,23 @@ The \tauplusjets validation region is more aligned with the \metplusjets region 
 \end{figure}
 %
 Therefore, for the purpose of measuring the \IWj process, the \tauplusjets region does not provide a similar precision to the \muplusjets and \eleplusjets regions. However, as a validation region it supports the normalisation offset associated with the \IWj process at $8\%$, with the shapes of the kinematic distribution in good agreement, within uncertainties, between data and MC.
+
+
+\subsection{Systematic uncertainties}
+
+The \IWj background estimation is based on a data-driven estimate to improve the MC prediction. The systematic uncertainties associated with the MC predictions, most notably from limited knowledge of selection efficiencies, impact this estimation. The full set of systematic uncertainties affecting the background estimation is as follows.
+
+\begin{itemize}
+    \item All \textbf{theory uncertainties} discussed in Sec.~\ref{sec:theory-corrections}.
+    \item \textbf{Veto efficiencies} associated to uncertain corrections in vetoing $b$-jets, photons and \Ptauh-leptons. The photons have two associated uncertainties: identification and pixel seed veto efficiencies.
+    \item \textbf{Proton beam uncertainties} such as the luminosity measurement ($\SI{2.5}{\%}$) and the pileup profile.
+    \item \textbf{Detector-based uncertainties} due to online issues whilst recording data. The most significant uncertainty is due to the ECAL timing issue.
+    \item \textbf{Trigger efficiencies} as described in Sec.~\ref{sec:met-trigger-efficiency} and \ref{sec:electron-trigger-efficiency}. The \ptmiss trigger efficiency uncertainty is split into three sources: reference trigger, muon multiplicity and independent region. The reference trigger uncertainty is correlated between all regions whereas the muon multiplicity is split into the $0\ \mu$, $1\ \mu$ and $2\ \mu$ regions and the independent region systematic is uncorrelated between all regions.
+    \item \textbf{Muon efficiency uncertainties} associated to veto and selection muon identification and isolation with an uncorrelated statistical and systematic component.
+    \item \textbf{Electron efficiency uncertainties} associated to veto and selection electron identification and reconstruction.
+    \item \textbf{Jet energy correction uncertainties} determined by varying the scale (JES) and resolution (JER) of jet energies.
+    \item \textbf{Unclustered energy uncertainty} encoding the impact of energy deposits, below the clustering threshold, on \ptmiss.
+\end{itemize}
 
 
 \subsection{Transfer factor method}
@@ -130,7 +147,7 @@ respectively. The \IZvv contribution in the \metplusjets region, $s_{\IZvv}$, is
 
 The transfer factor is a steeply falling distribution where leptons from \PW decays are more likely to be below the \pt acceptance, misreconstructed or misidentified with a lower recoil. However, the \pt of the lepton increases with the recoil and is significantly harder to miss, resulting in the transfer factor tending to zero. Furthermore, the transfer factor is larger for the \eleplusjets predictor rather than \muplusjets because of the tighter selection and lower reconstruction efficiency associated with the electrons.
 
-The systematic uncertainties associated with the \muplusjets transfer factor are split into the theoretical and experimental uncertainties. The relative systematic uncertainties associated with the transfer factor $t_{\muplusjets}^{\metplusjets}(\IWj)$ are shown in Figs.~\ref{fig:tf-systs-muplusjets-1} and \ref{fig:tf-systs-muplusjets-2}.
+The systematic uncertainties associated with the \muplusjets and \eleplusjets transfer factor are split into the theoretical and experimental uncertainties. The relative systematic uncertainties associated with the transfer factor $t_{\muplusjets}^{\metplusjets}(\IWj)$ and $t_{\eleplusjets}^{\metplusjets}(\IWj)$ are shown in Figs.~\ref{fig:tf-systs-muplusjets-1}--\ref{fig:tf-systs-eleplusjets-2}.
 %
 \begin{figure}
     \centering
@@ -148,6 +165,24 @@ The systematic uncertainties associated with the \muplusjets transfer factor are
         Additional object-based systematic uncertainties to Fig.~\ref{fig:tf-systs-muplusjets-1}.
     }
     \label{fig:tf-systs-muplusjets-2}
+\end{figure}
+%
+\begin{figure}
+    \centering
+    \includegraphics{chapters/042_backgrounds/images/tf_wj_ele_met_systs1.pdf}
+    \caption[Theoretical uncertainty on the transfer factors]{
+        Relative systematic uncertainties (\%) on the \IWj transfer factor for the \metplusjets region predicted by the \muplusjets control region. The uppermost panel includes all the theoretical uncertainties, while the others include experimental uncertainties. The total depicted in all represents all uncertainties summed in quadrature.
+    }
+    \label{fig:tf-systs-eleplusjets-1}
+\end{figure}
+%
+\begin{figure}
+    \centering
+    \includegraphics{chapters/042_backgrounds/images/tf_wj_ele_met_systs2.pdf}
+    \caption[Object-based uncertainties on the transfer factors]{
+        Additional object-based systematic uncertainties to Fig.~\ref{fig:tf-systs-eleplusjets-1}.
+    }
+    \label{fig:tf-systs-eleplusjets-2}
 \end{figure}
 %
 The theoretical uncertainties primarily cancel as they affect the \IWj process equally in the \metplusjets and \muplusjets regions. However, the parton distribution function (PDF) uncertainty does not completely cancel as different partons initiate the interaction as a result of kinematic sculpting by requirements on muon \pt and $\eta$ which are not applied in the \metplusjets region. Nevertheless these contributions are small in comparison to the experimental uncertainties. The dominant systematic uncertainties include the jet energy scale and resolution, unclustered energy uncertainty, $\Ptauh$-tag veto efficiency and pileup reweighting uncertainty with large contributions from the \ptmiss trigger efficiency for ${\recoil<\SI{250}{GeV}}$. The jet energy uncertainties have a complex contribution to the \recoil variable, depending on alignment and jets below thresholds, resulting in the asymmetric relative uncertainty on the transfer factor. Furthermore, the alternative templates representing the $\pm 1\sigma$ variations in the jet energy correction uncertainties are statistically limited in their precision, whereas they are assumed to be precise within the likelihood fit. Therefore, a smoothing technique is used to remove statistical fluctuations (App.~\ref{app:likelihood}).
@@ -168,8 +203,8 @@ The first test verifies the consistency of the \muplusjets and \eleplusjets regi
 where $\langle \mathcal{U} \rangle$ is the weighted average of the \recoil distribution to scale $\beta_e$ to a dimensionless parameter, $\beta_e$ varies the shape of the \IWj process in the \eleplusjets region linearly with respect to the \muplusjets region. Perfect consistency between both regions corresponds to $r_e=1$ and $\beta_e=0$. The postfit\footnote{Postfit refers to the set of best fit values, or parameters determined at these values, estimated from a fit to the data. Conversely, prefit refers to the set of initial values, prior to a fit to the data. The values are typically chosen such that the prefit distributions correspond to the MC predictions.} values for the parameters of interest are
 %
 \begin{align}
-    r_e & = 0.99^{+0.11}_{-0.10}\qquad \mathrm{and}\nonumber\\
-    \beta_e & = -0.020^{+0.028}_{-0.025}\ .
+    r_e & = 0.95^{+0.05}_{-0.05}\qquad \mathrm{and}\nonumber\\
+    \beta_e & = -0.020^{+0.024}_{-0.023}\ .
 \end{align}
 %
 Both are in agreement with a consistent muon and electron channel. The quality of the fit is inspected through the postfit results for the nuisance parameters along with their impact on the parameter of interest $r_e$, shown in Fig.~\ref{fig:fit_tf_mu_e_wj_impacts}.
@@ -183,7 +218,7 @@ Both are in agreement with a consistent muon and electron channel. The quality o
     \label{fig:fit_tf_mu_e_wj_impacts}
 \end{figure}
 %
-The postfit nuisance parameters are within a satisfactory limit without significant deviations from the $|\theta|<1$ region. Therefore, discrepancies between the data and prediction are covered by the unconstrained parameters, with a slight deviation in the low \recoil \muplusjets region covered by the \ptmiss trigger efficiency systematic. The systematic uncertainties with the largest impact on the scale $r_e$ are the jet energy corrections and unclustered energy uncertainty followed closely by the electron-based uncertainties. The impact of the jet energy corrections result from their larger effect in the \eleplusjets region, where the rate of electrons misidentified from jets is larger than for muons. The postfit distributions, Fig.~\ref{fig:fit_tf_mu_e_wj_postfit}, show the consistency between the postfit prediction and the data.
+The postfit nuisance parameters are within a satisfactory limit without significant deviations from the $|\theta|<1$ region. Therefore, discrepancies between the data and prediction are covered by the unconstrained parameters, with a slight deviation in the low recoil \muplusjets region covered by the \ptmiss trigger efficiency systematic. The systematic uncertainties with the largest impact on the scale $r_e$ are the electron identification, trigger and reconstruction efficiency uncertainties. The postfit distributions, Fig.~\ref{fig:fit_tf_mu_e_wj_postfit}, show the consistency between the postfit prediction and the data.
 %
 \begin{figure}[htb]
     \centering
@@ -205,11 +240,11 @@ The next validation is a test of the consistency between the \muplusjets and \el
 The postfit values of these parameters are
 %
 \begin{align}
-    r_\tau & = 1.03^{+0.05}_{-0.05}\qquad\mathrm{and} \nonumber\\
-    \beta_\tau & = -0.005^{+0.037}_{-0.036}\ .
+    r_\tau & = 1.04^{+0.07}_{-0.06}\qquad\mathrm{and} \nonumber\\
+    \beta_\tau & = -0.008^{+0.046}_{-0.047}\ .
 \end{align}
 %
-Again, these values show a consistency in the shape and normalisation of the \muplusjets and \tauplusjets channels. The nuisance parameters and their impacts on the parameter of interest $r_\tau$ is shown in Fig.~\ref{fig:fit_tf_mue_t_wj_impacts}.
+Again, these values show a consistency in the shape and normalisation of the \ellplusjets and \tauplusjets channels. The nuisance parameters and their impacts on the parameter of interest $r_\tau$ is shown in Fig.~\ref{fig:fit_tf_mue_t_wj_impacts}.
 %
 \begin{figure}[htb]
     \centering
@@ -220,7 +255,7 @@ Again, these values show a consistency in the shape and normalisation of the \mu
     \label{fig:fit_tf_mue_t_wj_impacts}
 \end{figure}
 %
-Although the \tauplusjets suffers from a smaller sample size compared to the \muplusjets and \eleplusjets regions, the most dominant source of uncertainty comes from the \Ptauh-tag identification uncertainty, albeit unsurprisingly.  The pull\footnote{A pull on a postfit nuisance parameter refers to the deviation of the postfit value from its prefit.} on the \ptmiss trigger efficiency is consistent with the first test since the same region is used, with an enhanced pull on the PDF uncertainties, although within the satisfactory region. Furthermore, the jet energy scale and unclustered energy uncertainties are constrained to $50$--$60\%$. Constraints as a result of limited sample size of the alternative templates, an issue common with the jet energy correction and unclustered energy uncertainties, are typically removed using smoothing procedure (App.~\ref{app:likelihood}). Nevertheless, these uncertainties are negligible in comparison to the \Ptauh-tag identification uncertainty. The associated \recoil distributions from this fit are shown in Fig.~\ref{fig:fit_tf_mue_t_wj_postfit}.
+Although the \tauplusjets suffers from a smaller sample size compared to the \muplusjets and \eleplusjets regions, the most dominant source of uncertainty comes from the \Ptauh-tag identification uncertainty, albeit unsurprisingly.  The pull\footnote{A pull on a postfit nuisance parameter refers to the deviation of the postfit value from its prefit.} on the \ptmiss trigger efficiency is consistent with the first test since the same region is used, with an enhanced pull on the PDF uncertainties, although within the satisfactory region. The associated \recoil distributions from this fit are shown in Fig.~\ref{fig:fit_tf_mue_t_wj_postfit}.
 %
 \begin{figure}[htb]
     \centering
@@ -243,7 +278,7 @@ The postfit values for the parameters from a fit to the data are
 %
 \begin{align}
     r_{\mu^+} & = 0.976^{+0.013}_{-0.013}\qquad\mathrm{and}\nonumber\\
-    \beta_{\mu^+} & = 0.006^{+0.026}_{-0.026}\ .
+    \beta_{\mu^+} & = 0.007^{+0.025}_{-0.024}\ .
 \end{align}
 %
 The uncertainty on the normalisation parameter is noticeably smaller than previous validation tests as a result of the closer alignment between both regions leading to further cancellations with the transfer factor method. The null hypothesis of consistent shape and normalisation between the \mupplusjets and \munplusjets is within the $95\%$ confidence level\footnote{A null hypothesis is typically excluded if it falls outside of the $95\%$ confidence interval.} with an excellent shape agreement and a normalisation near the boundary, although within the consistent limits. The postfit nuisance parameters and their impacts on the unconstrained parameter $r_{\mu^+}$ are shown in Fig.~\ref{fig:fit_tf_mup_mun_wj_impacts}.
