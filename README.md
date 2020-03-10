@@ -13,18 +13,18 @@ TODO:
 - [x] Reference CMS paper on pileup modelling with recoil
 - [x] Comment on theory systematic correlations between W+jets and Z+jets
 - [x] Fig 6.16 mention the large jump in background prefit to postfit
-- [ ] Discuss overly conservative uncertainty in ptmiss calibration. Redo?
+- [x] Discuss overly conservative uncertainty in ptmiss calibration. Redo?
 - [x] Further discuss the normalisation issue (in footnote) due to xsection bug
 - [x] Fig 7.1 bin edge at cut
 - [ ] Fig 7.2 comment on disagreement in eta bins
 - [x] Explain low QCD multijet in e+jets region (MET cut)
-- [ ] Explain what the systematics are
-- [ ] Add electron transfer factor distributions
+- [x] Explain what the systematics are
+- [x] Add electron transfer factor distributions
 - [ ] Add full set of systematics on recoil prior to TF
 - [ ] Separate out where systematics dominate from the TF or not
 - [x] Additional discussion on smoothing - show examples
 - [ ] Update plots with fixed JEC-based uncertainties:
-  - [ ] ptmiss calib
+  - [x] ptmiss calib
   - [x] w+jets pred
   - [x] qcd pred
   - [ ] final fit
