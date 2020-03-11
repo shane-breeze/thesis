@@ -62,7 +62,7 @@ The \PZ invisible width is estimated from a simultaneous fit to the data between
     r_\inv = \frac{\Gamma(\PZ\ra\inv)}{\Gamma_{\mathrm{SM}}(\PZ\ra\inv)}\ ,
 \end{equation}
 %
-where $\Gamma_{\mathrm{SM}}$ corresponds to the SM expected width. Systematic uncertainties, discussed in Sec.~\ref{sec:systs} and included for the \ptmissplusjets and \diellplusjets regions, are encoded as nuisance parameters allowing the shape and normalisation of the various processes to vary according to a single nuisance parameter per systematic fully correlated between \recoil bins.
+where $\Gamma_{\mathrm{SM}}$ corresponds to the SM expected width. Systematic uncertainties, discussed in Sec.~\ref{sec:systs} and included for the \metplusjets and \diellplusjets regions, are encoded as nuisance parameters allowing the shape and normalisation of the various processes to vary according to a single nuisance parameter per systematic fully correlated between \recoil bins.
 
 The postfit distributions from the simultaneous fit are shown in Fig.~\ref{fig:finalfit-postfit}
 %
@@ -75,7 +75,7 @@ The postfit distributions from the simultaneous fit are shown in Fig.~\ref{fig:f
     \label{fig:finalfit-postfit}
 \end{figure}
 %
-A significant improvement with the postfit results in the \ptmissplusjets region compared to the prefit as a result of the data-driven scaling parameter of $10\%$ determined for the \IWlvj process. The QCD multijet process is corrected by up to a factor of $3$ in the tail of the \recoil distribution.  However, this process remains to be a small background. There is no significant difference between the postfit and prefit results in the \diellplusjets regions. Furthermore, one data point is beyond the $3\sigma$ band of the postfit result, however, since there are $75$ bins here, along with another $50$ in the \ellplusjets regions, this is not a concern and falls within standard expectations. The associated postfit nuisance parameters and their impact on the $r_{\mathrm{inv}}$ parameter is shown in Fig.~\ref{fig:finalfit-impacts}.
+A significant improvement with the postfit results in the \metplusjets region compared to the prefit as a result of the data-driven scaling parameter of $10\%$ determined for the \IWlvj process. The QCD multijet process is corrected by up to a factor of $3$ in the tail of the \recoil distribution.  However, this process remains to be a small background. There is no significant difference between the postfit and prefit results in the \diellplusjets regions. Furthermore, one data point is beyond the $3\sigma$ band of the postfit result, however, since there are $75$ bins here, along with another $50$ in the \ellplusjets regions, this is not a concern and falls within standard expectations. The associated postfit nuisance parameters and their impact on the $r_{\mathrm{inv}}$ parameter is shown in Fig.~\ref{fig:finalfit-impacts}.
 %
 \begin{figure}
     \centering
@@ -86,9 +86,9 @@ A significant improvement with the postfit results in the \ptmissplusjets region
     \label{fig:finalfit-impacts}
 \end{figure}
 %
-The postfit nuisance parameters are all within the $|\theta|<1$ level, with constraints to a varying degree. The constraints on the jet energy resolution (JER) and scale (JES) are consistent with the results found for the \ptmiss scale and resolution (Sec.~\ref{sec:ptmiss-calib}. Here, the uncertainties were dominated by the jet energy corrections and consistently over-covered the data from the parallel components which plays the largest role in the \recoil distribution. The nuisance parameter $\delta^{(2)}k_{\mathrm{QCD}}$ is associated with a possible shape dependence with the \recoil distribution from the choice of factorisation and renormalisation scale. However, this has a partial double-counting with the $\delta^{(1)}k_{\mathrm{QCD}}$ parameter which probes the normalisation variation from the choice of these scales.  Otherwise, no other nuisance parameters are significantly constrained. Among the JER and JES uncertainties, the muon identification selection, electron and \ptmiss trigger have the largest impact on the $r_{\mathrm{inv}}$ parameter.  These are expected considering the final states associated with the regions probed.
+The postfit nuisance parameters are all within the $|\theta|<1$ level, with no significant constraint other than the $\delta^{(2)}k_{\mathrm{QCD}}$ parameter which is associated with a possible shape dependence with the \recoil distribution from the choice of factorisation and renormalisation scale. This parameter has a partial double-counting with the $\delta^{(1)}k_{\mathrm{QCD}}$ parameter which probes the normalisation variation from the choice of these scales. The largest impacts on the $r_{\mathrm{inv}}$ parameter come from the JES uncertainties, unclustered energy variations, muon identification selection, electron and \ptmiss trigger. These are expected considering the final states associated with the regions probed, except for the JES uncertainty which is a result of the lack of cancellation between the \metplusjets, \ellplusjets and \diellplusjets regions.
 
-The multi-dimensional minimisation of the likelihood may be profiled onto a single dimension by remaining within the minimum for various fixed values of the dimension of interest. The value of the minimum is subtracted from subsequent likelihood profile values to give $-2\Delta\log L$, where the confidence interval in terms of the number of standard deviations $n_{\sig}$ is given by the intersection points of $-2\Delta\log L=n_{\mathrm{sig}}^2$.  The profile for the $r_{\mathrm{inv}}$ is shown in Fig.~\ref{fig:finalfit-scan-1d}.
+The multi-dimensional minimisation of the likelihood may be profiled onto a single dimension by straddling the minimum for various fixed values of the dimension of interest. The value of the minimum is subtracted from subsequent likelihood profile values to give $-2\Delta\log L$, where the confidence interval in terms of the number of standard deviations $n_{\mathrm{sig}}$ is given by the intersection points of $-2\Delta\log L=n_{\mathrm{sig}}^2$.  The profile for the $r_{\mathrm{inv}}$ is shown in Fig.~\ref{fig:finalfit-scan-1d}.
 %
 \begin{figure}
     \centering
@@ -114,13 +114,13 @@ It is also instructive to perform the scan in 2-dimensions with a modified fit w
 The best fit value of the parameter of interest and its associated uncertainty is measured as
 %
 \begin{equation}
-    r_{\mathrm{inv}} = 1.021\pm 0.006\ (\mathrm{stat.})\ \pm 0.031\ (\mathrm{syst.})\ .
+    r_{\mathrm{inv}} = 1.021\pm 0.006\ (\mathrm{stat.})\ ^{+0.031}_{-0.030}\ (\mathrm{syst.})\ .
 \end{equation}
 %
 As with the likelihood profiles, this is consistent with the SM value of one, and is systematically dominated. This is translated into an invisible width, by scaling the SM prediction \cite{PhysRevD.98.030001},
 %
 \begin{equation}
-    \Gamma_{\mathrm{inv}} = 512 \pm 3\ (\mathrm{stat.})\ \pm 16\ (\mathrm{syst.})\ \mathrm{MeV}\ ,
+    \Gamma_{\mathrm{inv}} = 512 \pm 3\ (\mathrm{stat.})\ ^{+16}_{-15}\ (\mathrm{syst.})\ \mathrm{MeV}\ ,
 \end{equation}
 %
 with the summary of the direct measurement of the invisible width shown in Fig.~\ref{fig:finalfit-zinv}.
