@@ -21,19 +21,19 @@ TODO:
 - [x] Explain what the systematics are
 - [x] Add electron transfer factor distributions
 - [ ] Add full set of systematics on recoil prior to TF
-- [ ] Separate out where systematics dominate from the TF or not
 - [x] Additional discussion on smoothing - show examples
-- [ ] Update plots with fixed JEC-based uncertainties:
+- [x] Update plots with fixed JEC-based uncertainties:
   - [x] ptmiss calib
   - [x] w+jets pred
   - [x] qcd pred
-  - [ ] final fit
+  - [x] final fit
 
 
 Maybe todos:
 
 - [ ] More performance numbers for subdetectors
 - [ ] Charge misID for mu+ -> mu- transfer factors
+- [ ] Separate out where systematics dominate from the TF or not
 
 Reminaing comments (page numbers):
  
