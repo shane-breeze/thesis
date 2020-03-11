@@ -52,7 +52,7 @@ The selection for the \eleplusjets control region is closely aligned to the \mup
     \centering
     \includegraphics{chapters/042_backgrounds/images/singleele_dists.pdf}
     \caption[Single electron final state kinematics.]{
-        Kinematic variable distributions of the \eleplusjets control region. The ratio of data to MC gives an indication of their agreement within statistical uncertainties on both the data and MC. However, no systematic uncertainties are included. The most prominent processes are the electron ($81.1\%$) and $\tau$-lepton ($7.4\%$) decays of the \PW boson, with subsequently smaller contributions from $t$-quark production ($6.6\%$) and other `minor' backgrounds which include diboson, \IDYee and QCD multijet processes.
+        Kinematic variable distributions of the \eleplusjets control region. The ratio of data to MC gives an indication of their agreement within statistical uncertainties on both the data and MC. However, no systematic uncertainties are included. The most prominent processes are the electron ($81.1\%$) and $\tau$-lepton ($7.4\%$) decays of the \PW boson, with subsequently smaller contributions from $t$-quark production ($6.6\%$) and other `minor' backgrounds which include diboson, \IDYee and QCD multijet processes. The asymmetry in the lead electron $\eta$ is covered by electron identification uncertainties which are significantly larger in the forward $\eta$ regions.
     }
     \label{fig:eleplusjets}
 \end{figure}
@@ -147,13 +147,13 @@ respectively. The \IZvv contribution in the \metplusjets region, $s_{\IZvv}$, is
 
 The transfer factor is a steeply falling distribution where leptons from \PW decays are more likely to be below the \pt acceptance, misreconstructed or misidentified with a lower recoil. However, the \pt of the lepton increases with the recoil and is significantly harder to miss, resulting in the transfer factor tending to zero. Furthermore, the transfer factor is larger for the \eleplusjets predictor rather than \muplusjets because of the tighter selection and lower reconstruction efficiency associated with the electrons.
 
-The systematic uncertainties associated with the \muplusjets and \eleplusjets transfer factor are split into the theoretical and experimental uncertainties. The relative systematic uncertainties associated with the transfer factor $t_{\muplusjets}^{\metplusjets}(\IWj)$ and $t_{\eleplusjets}^{\metplusjets}(\IWj)$ are shown in Figs.~\ref{fig:tf-systs-muplusjets-1}--\ref{fig:tf-systs-eleplusjets-2}.
+The systematic uncertainties associated with the \muplusjets and \eleplusjets transfer factor are split into the theoretical and experimental uncertainties. The relative systematic uncertainties associated with the transfer factor $t_{\muplusjets}^{\metplusjets}(\IWj)$ and $t_{\eleplusjets}^{\metplusjets}(\IWj)$ are shown in Figs.~\ref{fig:tf-systs-muplusjets-1}--\ref{fig:tf-systs-eleplusjets-2}, with the uncertainties prior to the transfer factor shown in App.~\ref{appsec:alt_temp}.
 %
 \begin{figure}
     \centering
     \includegraphics{chapters/042_backgrounds/images/tf_wj_mu_met_systs1.pdf}
     \caption[Theoretical uncertainty on the transfer factors]{
-        Relative systematic uncertainties (\%) on the \IWj transfer factor for the \metplusjets region predicted by the \muplusjets control region. The uppermost panel includes all the theoretical uncertainties, while the others include experimental uncertainties. The total depicted in all represents all uncertainties summed in quadrature.
+        Relative systematic uncertainties (\%) on the \IWj transfer factor for the \metplusjets region predicted by the \muplusjets control region. The uppermost panel includes all the theoretical uncertainties, while the others include experimental uncertainties. The total uncertainty, depicted in each panel, represents all uncertainties summed in quadrature.
     }
     \label{fig:tf-systs-muplusjets-1}
 \end{figure}
@@ -171,7 +171,7 @@ The systematic uncertainties associated with the \muplusjets and \eleplusjets tr
     \centering
     \includegraphics{chapters/042_backgrounds/images/tf_wj_ele_met_systs1.pdf}
     \caption[Theoretical uncertainty on the transfer factors]{
-        Relative systematic uncertainties (\%) on the \IWj transfer factor for the \metplusjets region predicted by the \muplusjets control region. The uppermost panel includes all the theoretical uncertainties, while the others include experimental uncertainties. The total depicted in all represents all uncertainties summed in quadrature.
+        Relative systematic uncertainties (\%) on the \IWj transfer factor for the \metplusjets region predicted by the \eleplusjets control region. The uppermost panel includes all the theoretical uncertainties, while the others include experimental uncertainties. The total uncertainty, depicted in each panel, represents all uncertainties summed in quadrature.
     }
     \label{fig:tf-systs-eleplusjets-1}
 \end{figure}
@@ -185,7 +185,7 @@ The systematic uncertainties associated with the \muplusjets and \eleplusjets tr
     \label{fig:tf-systs-eleplusjets-2}
 \end{figure}
 %
-The theoretical uncertainties primarily cancel as they affect the \IWj process equally in the \metplusjets and \muplusjets regions. However, the parton distribution function (PDF) uncertainty does not completely cancel as different partons initiate the interaction as a result of kinematic sculpting by requirements on muon \pt and $\eta$ which are not applied in the \metplusjets region. Nevertheless these contributions are small in comparison to the experimental uncertainties. The dominant systematic uncertainties include the jet energy scale and resolution, unclustered energy uncertainty, $\Ptauh$-tag veto efficiency and pileup reweighting uncertainty with large contributions from the \ptmiss trigger efficiency for ${\recoil<\SI{250}{GeV}}$. The jet energy uncertainties have a complex contribution to the \recoil variable, depending on alignment and jets below thresholds, resulting in the asymmetric relative uncertainty on the transfer factor. Furthermore, the alternative templates representing the $\pm 1\sigma$ variations in the jet energy correction uncertainties are statistically limited in their precision, whereas they are assumed to be precise within the likelihood fit. Therefore, a smoothing technique is used to remove statistical fluctuations (App.~\ref{app:likelihood}).
+The theoretical uncertainties primarily cancel as they affect the \IWj process equally in the \metplusjets and \muplusjets regions. However, the parton distribution function (PDF) uncertainty does not completely cancel as different partons initiate the interaction as a result of kinematic sculpting by requirements on muon \pt and $\eta$ which are not applied in the \metplusjets region. Nevertheless, these contributions are small in comparison to the experimental uncertainties. The dominant systematic uncertaintes include the jet energy scale, $\Ptauh$-tag veto efficiency and pileup reweighting uncertainty with large contributions from the \ptmiss trigger efficiency for ${\recoil<\SI{250}{GeV}}$. The alternative templates representing the $\pm 1\sigma$ variations in the jet energy scale uncertainty are statistically limited in their precision, whereas they are assumed to be precise within the likelihood fit, leading to non-cancellations in the transfer factor. To partially redeem this issue the alternative templates are smoothed in an attempt to remove statistical fluctuations (App.~\ref{app:likelihood}). Although this proves to be beneficial in obtaining a good fit to the data the resulting uncertainty is typically dominated by the limited MC sample size.
 
 A set of validation studies are performed to test the transfer factor and the extrapolation involved in predicting the \IWj process in the \metplusjets regions from the \IWj process in the \ellplusjets region.
 

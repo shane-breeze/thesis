@@ -77,7 +77,7 @@ where the hat denotes parameters normalised by their sum across the shape dimens
 This procedure is known as vertical template morphing\cite{Conway:2011in} which uses normalised parameters to avoid double-counting the normalisation effects, with a linear dependence on $\theta_k$ for symmetric uncertainties and a smooth, differentiable polynomial to alter asymmetric uncertainties. A similar dependence is defined for all other processes.
 
 
-\section{Limited sample size of alternative templates}
+\section{Limited sample size of alternative templates}\label{appsec:alt_temp_smooth}
 
 The accuracy of the vertical template morphing procedure is highly dependent on the quality of the alternative MC templates $s_{i,j,k}^+$ and $s_{i,j,k}^-$ which may suffer from the limited sample size in MC. Although the statistical size of the nominal template $s_{i,j}$ is incorporated in the likelihood, the alternative MC templates are assumed to be precisely known. This issue typically exists for background processes with a small cross section compared to a larger process, hence should not have a substantial impact on the parameters of interest. However, an alternative template with a small sample size which results in an abnormally large systematic effect in a particular bin will lead to a significant constraint on the associated nuisance parameter. If this systematic uncertainty is correlated with one of the larger processes then the impact of this systematic uncertainty may be severely underestimated on the parameter of interest.
 
@@ -93,3 +93,26 @@ To avoid issues with the limited sample size of alternative templates, additiona
 \end{figure}
 
 %Bins are smeared within gaussian distributions to minimise the difference between adjacent bins, within the MC statistical uncertainty of each bin.
+
+
+\section{Alternative templates}\label{appsec:alt_temp}
+
+The nuisance parameters affect the normalisation and shape of the \recoil distribution by interpolating between and extrapolating from alternative templates on the MC, shown in Figs.~\ref{fig:alt_templates_bkg} and \ref{fig:alt_templates_sig} for the \IVj processes. As detailed in Sec.~\ref{appsec:alt_temp_smooth}, these templates are smoothed in situations where the MC sample size is too small. Some of these templates cancel in the transfer factor for $r_{\mathrm{inv}}$ measurement, such as the theory uncertainties. However, the JES, JER and unclustered energy uncertainties are evidently limited by the MC sample size. Although smoothing aids at determined the `true' template, it cannot reproduce an underlying correlation such as for the JES uncertainty between various processes. Therefore, the {$2$--$\SI{5}{\%}$} JES uncertainty on the \IZvvj process in the \metplusjets region may be consistent with all other processes, however, the limited MC sample size limits our knowledge of this. This results in non-cancellation of uncertainties, such as JES, which are expected to cancel in ratios of the various \IVj processes.
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics{appendices/100_appendices/images/alt_templates_bkg.pdf}
+    \caption{
+        The 12 most significant alternative templates on the \IWj process. The left column shows the template prior to smoothing while the right column shows the same template after smoothing. Templates which only appear in the right column are not smoothed.
+    }
+    \label{fig:alt_templates_bkg}
+\end{figure}
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics{appendices/100_appendices/images/alt_templates_sig.pdf}
+    \caption{
+        The 12 most significant alternative templates on the \IVj processes within the signal region. The left column shows the template prior to smoothing while the right column shows the same template after smoothing. Templates which only appear in the right column are not smoothed.
+    }
+    \label{fig:alt_templates_sig}
+\end{figure}
