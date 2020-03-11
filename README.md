@@ -16,7 +16,7 @@ TODO:
 - [x] Discuss overly conservative uncertainty in ptmiss calibration. Redo?
 - [x] Further discuss the normalisation issue (in footnote) due to xsection bug
 - [x] Fig 7.1 bin edge at cut
-- [ ] Fig 7.2 comment on disagreement in eta bins
+- [x] Fig 7.2 comment on disagreement in eta bins
 - [x] Explain low QCD multijet in e+jets region (MET cut)
 - [x] Explain what the systematics are
 - [x] Add electron transfer factor distributions
@@ -37,4 +37,4 @@ Maybe todos:
 
 Reminaing comments (page numbers):
  
-53, 57, 60, 66, 67, 71, 72, 75, 77, 80, 82, 85, 86, 88, 89, 91, 93, 107,
+67
