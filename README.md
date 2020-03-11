@@ -20,7 +20,7 @@ TODO:
 - [x] Explain low QCD multijet in e+jets region (MET cut)
 - [x] Explain what the systematics are
 - [x] Add electron transfer factor distributions
-- [ ] Add full set of systematics on recoil prior to TF
+- [x] Add full set of systematics on recoil prior to TF
 - [x] Additional discussion on smoothing - show examples
 - [x] Update plots with fixed JEC-based uncertainties:
   - [x] ptmiss calib
