@@ -105,7 +105,7 @@ The linking of inner tracks to muon tracks has been discussed in {Sec.~\ref{subs
 Global muons are classified as isolated to avoid the misidentification of charged hadrons, whereby the total energy in a cone of radius ${\Delta R=\sqrt{\Delta\eta^2+\Delta\phi^2}=0.3}$ around the muon candidate must not exceed $10\%$ of the muon \pt:
 %
 \begin{equation}
-    I_{\mathrm{track,calo}} = \frac{1}{\pt}\Biggl(\bigg|\sum_{\substack{i\in \mathrm{tracks}\\\Delta R<0.3}} \vec{p}_{\mathrm{T},i}\bigg| + \sum_{\substack{j\in \mathrm{clusters}\\\Delta R<0.3}}E_{\mathrm{T}}\Biggr) < 0.1\ ,
+    I_{\mathrm{track,calo}} = \frac{1}{\pt}\Biggl(\bigg|\sum_{\substack{i\in \mathrm{tracks}\\\Delta R<0.3}} \vec{p}_{\mathrm{T},i}\bigg| + \sum_{\substack{j\in \mathrm{clusters}\\\Delta R<0.3}}E_{\mathrm{T},j}\Biggr) < 0.1\ ,
 \end{equation}
 %
 where $I_{\mathrm{track,calo}}$ is known as the track-calorimeter isolation, $i$ sums the transverse momenta $\vec{p}_{\mathrm{T}}$ of all tracks within $\Delta R=0.3$ and $j$ sums the transverse energies $E_{\mathrm{T}}$ of all clusters within $\Delta R=0.3$.  Non-isolated muons are also identified without the isolation requirement, however, inner tracks must match at least three track segments in the muon detectors or calorimeter clusters compatible with the muon hypothesis to avoid high \pt charged hardon misidentification.
