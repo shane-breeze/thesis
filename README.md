@@ -1,6 +1,12 @@
 # A PhD thesis in High Energy Physics
 
-TODO:
+## Published
+
+https://inspirehep.net/literature/1818119
+
+http://cds.cern.ch/record/2723370?ln=en
+
+## TODO
 
 - [x] Fix typos
 - [x] Fix biblio
